@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "version": "0.0.0",
+  "name": "@yurkimus/media-types",
+  "author": {
+    "name": "yurkimus",
+    "email": "yurkimus@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yurkimus/media-types.git"
+  },
+  "exports": "./source/index.js",
+  "dependencies": {
+    "@yurkimus/enumeration": "@yurkimus/enumeration"
+  }
+}
