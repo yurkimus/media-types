@@ -2,7 +2,7 @@
 
 Enumeration of supported HTTP statuses.
 
-All the types are coming form
+All the types are coming from
 [IANA/media-types](https://www.iana.org/assignments/media-types/media-types.xhtml)
 
 Last revision of the package (related to the document revision date above):
