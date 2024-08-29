@@ -52,15 +52,20 @@ MediaTypes :: Enumeration { <media type name> <=> <media type value> }
 
 ```javascript
 MediaTypes.get('json') // => 'application/json'
+MediaTypes.get('application/json') // => 'json'
+
+MediaTypes.get('application/node') // => 'node'
 MediaTypes.get('node') // => 'application/node'
+
+MediaTypes.has('pdf') // => true
+MediaTypes.has('application/wasm') // => true
 ```
 
 ## More
 
-This package utilises
-[Enumeration package](https://github.com/yurkimus/enumeration) to provide a
-better developer experience and extendability of the media types listed in the
-presented enumeration
+This package utilises [Enumeration](https://github.com/yurkimus/enumeration) to
+provide a better developer experience and extendability for the media types
+listed in presented enumeration
 
 ## License
 
