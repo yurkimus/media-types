@@ -45,7 +45,7 @@ npm install @yurkimus/media-types
 #### Definition:
 
 ```
-MediaTypes :: Enumeration { <media type name> => <media type value> }
+MediaTypes :: Enumeration { <media type name> <=> <media type value> }
 ```
 
 #### Example:
