@@ -1776,6 +1776,9 @@ export var MediaTypes = new Enumeration(
     'ttf',
     'woff',
     'woff2',
+    'ivs',
+    'hjif',
+    'hmpg',
   ],
   [
     'application/1d-interleaved-parityfec',
@@ -3552,5 +3555,8 @@ export var MediaTypes = new Enumeration(
     'font/ttf',
     'font/woff',
     'font/woff2',
+    'haptics/ivs',
+    'haptics/hjif',
+    'haptics/hmpg',
   ],
 )
