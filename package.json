@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "name": "@yurkimus/media-types",
   "author": {
     "name": "yurkimus",
@@ -12,6 +12,6 @@
   },
   "exports": "./source/index.js",
   "dependencies": {
-    "@yurkimus/enumeration": "@yurkimus/enumeration"
+    "@yurkimus/relaton": "@yurkimus/relaton"
   }
 }

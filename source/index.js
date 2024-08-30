@@ -1,3895 +1,6274 @@
-import { Enumeration } from '@yurkimus/enumeration'
+import { Relation } from '@yurkimus/relation'
 
-export var MediaTypes = new Enumeration(
-  [
-    '1d-interleaved-parityfec',
-    '3gpdash-qoe-report+xml',
-    '3gppHal+json',
-    '3gppHalForms+json',
-    '3gpp-ims+xml',
-    'A2L',
-    'ace-groupcomm+cbor',
-    'ace+cbor',
-    'ace+json',
-    'activemessage',
-    'activity+json',
-    'aif+cbor',
-    'aif+json',
-    'alto-cdni+json',
-    'alto-cdnifilter+json',
-    'alto-costmap+json',
-    'alto-costmapfilter+json',
-    'alto-directory+json',
-    'alto-endpointprop+json',
-    'alto-endpointpropparams+json',
-    'alto-endpointcost+json',
-    'alto-endpointcostparams+json',
-    'alto-error+json',
-    'alto-networkmapfilter+json',
-    'alto-networkmap+json',
-    'alto-propmap+json',
-    'alto-propmapparams+json',
-    'alto-tips+json',
-    'alto-tipsparams+json',
-    'alto-updatestreamcontrol+json',
-    'alto-updatestreamparams+json',
-    'AML',
-    'andrew-inset',
-    'applefile',
-    'at+jwt',
-    'ATF',
-    'ATFX',
-    'atom+xml',
-    'atomcat+xml',
-    'atomdeleted+xml',
-    'atomicmail',
-    'atomsvc+xml',
-    'atsc-dwd+xml',
-    'atsc-dynamic-event-message',
-    'atsc-held+xml',
-    'atsc-rdt+json',
-    'atsc-rsat+xml',
-    'ATXML',
-    'auth-policy+xml',
-    'automationml-aml+xml',
-    'automationml-amlx+zip',
-    'bacnet-xdd+zip',
-    'batch-SMTP',
-    'beep+xml',
-    'bufr',
-    'c2pa',
-    'calendar+json',
-    'calendar+xml',
-    'call-completion',
-    'CALS-1840',
-    'captive+json',
-    'cbor',
-    'cbor-seq',
-    'cccex',
-    'ccmp+xml',
-    'ccxml+xml',
-    'cda+xml',
-    'CDFX+XML',
-    'cdmi-capability',
-    'cdmi-container',
-    'cdmi-domain',
-    'cdmi-object',
-    'cdmi-queue',
-    'cdni',
-    'CEA',
-    'cea-2018+xml',
-    'cellml+xml',
-    'cfw',
-    'cid-edhoc+cbor-seq',
-    'city+json',
-    'clr',
-    'clue_info+xml',
-    'clue+xml',
-    'cms',
-    'cnrp+xml',
-    'coap-group+json',
-    'coap-payload',
-    'commonground',
-    'concise-problem-details+cbor',
-    'conference-info+xml',
-    'cpl+xml',
-    'cose',
-    'cose-key',
-    'cose-key-set',
-    'cose-x509',
-    'csrattrs',
-    'csta+xml',
-    'CSTAdata+xml',
-    'csvm+json',
-    'cwl',
-    'cwl+json',
-    'cwl+yaml',
-    'cwt',
-    'cybercash',
-    'dash+xml',
-    'dash-patch+xml',
-    'dashdelta',
-    'davmount+xml',
-    'dca-rft',
-    'DCD',
-    'dec-dx',
-    'dialog-info+xml',
-    'dicom',
-    'dicom+json',
-    'dicom+xml',
-    'DII',
-    'DIT',
-    'dns',
-    'dns+json',
-    'dns-message',
-    'dots+cbor',
-    'dpop+jwt',
-    'dskpp+xml',
-    'dssc+der',
-    'dssc+xml',
-    'dvcs',
-    'ecmascript',
-    'edhoc+cbor-seq',
-    'EDI-consent',
-    'EDIFACT',
-    'EDI-X12',
-    'efi',
-    'elm+json',
-    'elm+xml',
-    'EmergencyCallData.cap+xml',
-    'EmergencyCallData.Comment+xml',
-    'EmergencyCallData.Control+xml',
-    'EmergencyCallData.DeviceInfo+xml',
-    'EmergencyCallData.eCall.MSD',
-    'EmergencyCallData.LegacyESN+json',
-    'EmergencyCallData.ProviderInfo+xml',
-    'EmergencyCallData.ServiceInfo+xml',
-    'EmergencyCallData.SubscriberInfo+xml',
-    'EmergencyCallData.VEDS+xml',
-    'emma+xml',
-    'emotionml+xml',
-    'encaprtp',
-    'epp+xml',
-    'epub+zip',
-    'eshop',
-    'example',
-    'exi',
-    'expect-ct-report+json',
-    'express',
-    'fastinfoset',
-    'fastsoap',
-    'fdf',
-    'fdt+xml',
-    'fhir+json',
-    'fhir+xml',
-    'fits',
-    'flexfec',
-    'font-sfnt',
-    'font-tdpfr',
-    'font-woff',
-    'framework-attributes+xml',
-    'geo+json',
-    'geo+json-seq',
-    'geopackage+sqlite3',
-    'geopose+json',
-    'geoxacml+json',
-    'geoxacml+xml',
-    'gltf-buffer',
-    'gml+xml',
-    'gnap-binding-jws',
-    'gnap-binding-jwsd',
-    'gnap-binding-rotation-jws',
-    'gnap-binding-rotation-jwsd',
-    'grib',
-    'gzip',
-    'H224',
-    'held+xml',
-    'hl7v2+xml',
-    'http',
-    'hyperstudio',
-    'ibe-key-request+xml',
-    'ibe-pkg-reply+xml',
-    'ibe-pp-data',
-    'iges',
-    'im-iscomposing+xml',
-    'index',
-    'index.cmd',
-    'index.obj',
-    'index.response',
-    'index.vnd',
-    'inkml+xml',
-    'IOTP',
-    'ipfix',
-    'ipp',
-    'ISUP',
-    'its+xml',
-    'java-archive',
-    'javascript',
-    'jf2feed+json',
-    'jose',
-    'jose+json',
-    'jrd+json',
-    'jscalendar+json',
-    'jscontact+json',
-    'json',
-    'json-patch+json',
-    'json-seq',
-    'jsonpath',
-    'jwk+json',
-    'jwk-set+json',
-    'jwt',
-    'kpml-request+xml',
-    'kpml-response+xml',
-    'ld+json',
-    'lgr+xml',
-    'link-format',
-    'linkset',
-    'linkset+json',
-    'load-control+xml',
-    'logout+jwt',
-    'lost+xml',
-    'lostsync+xml',
-    'lpf+zip',
-    'LXF',
-    'mac-binhex40',
-    'macwriteii',
-    'mads+xml',
-    'manifest+json',
-    'marc',
-    'marcxml+xml',
-    'mathematica',
-    'mathml+xml',
-    'mathml-content+xml',
-    'mathml-presentation+xml',
-    'mbms-associated-procedure-description+xml',
-    'mbms-deregister+xml',
-    'mbms-envelope+xml',
-    'mbms-msk-response+xml',
-    'mbms-msk+xml',
-    'mbms-protection-description+xml',
-    'mbms-reception-report+xml',
-    'mbms-register-response+xml',
-    'mbms-register+xml',
-    'mbms-schedule+xml',
-    'mbms-user-service-description+xml',
-    'mbox',
-    'media_control+xml',
-    'media-policy-dataset+xml',
-    'mediaservercontrol+xml',
-    'merge-patch+json',
-    'metalink4+xml',
-    'mets+xml',
-    'MF4',
-    'mikey',
-    'mipc',
-    'missing-blocks+cbor-seq',
-    'mmt-aei+xml',
-    'mmt-usd+xml',
-    'mods+xml',
-    'moss-keys',
-    'moss-signature',
-    'mosskey-data',
-    'mosskey-request',
-    'mp21',
-    'mp4',
-    'mpeg4-generic',
-    'mpeg4-iod',
-    'mpeg4-iod-xmt',
-    'mrb-consumer+xml',
-    'mrb-publish+xml',
-    'msc-ivr+xml',
-    'msc-mixer+xml',
-    'msword',
-    'mud+json',
-    'multipart-core',
-    'mxf',
-    'n-quads',
-    'n-triples',
-    'nasdata',
-    'news-checkgroups',
-    'news-groupinfo',
-    'news-transmission',
-    'nlsml+xml',
-    'node',
-    'nss',
-    'oauth-authz-req+jwt',
-    'oblivious-dns-message',
-    'ocsp-request',
-    'ocsp-response',
-    'octet-stream',
-    'ODA',
-    'odm+xml',
-    'ODX',
-    'oebps-package+xml',
-    'ogg',
-    'ohttp-keys',
-    'opc-nodeset+xml',
-    'oscore',
-    'oxps',
-    'p21',
-    'p21+zip',
-    'p2p-overlay+xml',
-    'parityfec',
-    'passport',
-    'patch-ops-error+xml',
-    'pdf',
-    'PDX',
-    'pem-certificate-chain',
-    'pgp-encrypted',
-    'pgp-keys',
-    'pgp-signature',
-    'pidf-diff+xml',
-    'pidf+xml',
-    'pkcs10',
-    'pkcs7-mime',
-    'pkcs7-signature',
-    'pkcs8',
-    'pkcs8-encrypted',
-    'pkcs12',
-    'pkix-attr-cert',
-    'pkix-cert',
-    'pkix-crl',
-    'pkix-pkipath',
-    'pkixcmp',
-    'pls+xml',
-    'poc-settings+xml',
-    'postscript',
-    'ppsp-tracker+json',
-    'private-token-issuer-directory',
-    'private-token-request',
-    'private-token-response',
-    'problem+json',
-    'problem+xml',
-    'provenance+xml',
-    'prs.alvestrand.titrax-sheet',
-    'prs.cww',
-    'prs.cyn',
-    'prs.hpub+zip',
-    'prs.implied-document+xml',
-    'prs.implied-executable',
-    'prs.implied-object+json',
-    'prs.implied-object+json-seq',
-    'prs.implied-object+yaml',
-    'prs.implied-structure',
-    'prs.mayfile',
-    'prs.nprend',
-    'prs.plucker',
-    'prs.rdf-xml-crypt',
-    'prs.vcfbzip2',
-    'prs.xsf+xml',
-    'pskc+xml',
-    'pvd+json',
-    'rdf+xml',
-    'route-apd+xml',
-    'route-s-tsid+xml',
-    'route-usd+xml',
-    'QSIG',
-    'raptorfec',
-    'rdap+json',
-    'reginfo+xml',
-    'relax-ng-compact-syntax',
-    'remote-printing',
-    'reputon+json',
-    'resource-lists-diff+xml',
-    'resource-lists+xml',
-    'rfc+xml',
-    'riscos',
-    'rlmi+xml',
-    'rls-services+xml',
-    'rpki-checklist',
-    'rpki-ghostbusters',
-    'rpki-manifest',
-    'rpki-publication',
-    'rpki-roa',
-    'rpki-signed-tal',
-    'rpki-updown',
-    'rtf',
-    'rtploopback',
-    'rtx',
-    'samlassertion+xml',
-    'samlmetadata+xml',
-    'sarif-external-properties+json',
-    'sarif+json',
-    'sbe',
-    'sbml+xml',
-    'scaip+xml',
-    'scim+json',
-    'scvp-cv-request',
-    'scvp-cv-response',
-    'scvp-vp-request',
-    'scvp-vp-response',
-    'sdp',
-    'secevent+jwt',
-    'senml-etch+cbor',
-    'senml-etch+json',
-    'senml-exi',
-    'senml+cbor',
-    'senml+json',
-    'senml+xml',
-    'sensml-exi',
-    'sensml+cbor',
-    'sensml+json',
-    'sensml+xml',
-    'sep-exi',
-    'sep+xml',
-    'session-info',
-    'set-payment',
-    'set-payment-initiation',
-    'set-registration',
-    'set-registration-initiation',
-    'SGML',
-    'sgml-open-catalog',
-    'shf+xml',
-    'sieve',
-    'simple-filter+xml',
-    'simple-message-summary',
-    'simpleSymbolContainer',
-    'sipc',
-    'slate',
-    'smil',
-    'smil+xml',
-    'smpte336m',
-    'soap+fastinfoset',
-    'soap+xml',
-    'sparql-query',
-    'spdx+json',
-    'sparql-results+xml',
-    'spirits-event+xml',
-    'sql',
-    'srgs',
-    'srgs+xml',
-    'sru+xml',
-    'sslkeylogfile',
-    'ssml+xml',
-    'ST2110-41',
-    'stix+json',
-    'stratum',
-    'swid+cbor',
-    'swid+xml',
-    'tamp-apex-update',
-    'tamp-apex-update-confirm',
-    'tamp-community-update',
-    'tamp-community-update-confirm',
-    'tamp-error',
-    'tamp-sequence-adjust',
-    'tamp-sequence-adjust-confirm',
-    'tamp-status-query',
-    'tamp-status-response',
-    'tamp-update',
-    'tamp-update-confirm',
-    'taxii+json',
-    'td+json',
-    'tei+xml',
-    'TETRA_ISI',
-    'thraud+xml',
-    'timestamp-query',
-    'timestamp-reply',
-    'timestamped-data',
-    'tlsrpt+gzip',
-    'tlsrpt+json',
-    'tm+json',
-    'tnauthlist',
-    'token-introspection+jwt',
-    'trickle-ice-sdpfrag',
-    'trig',
-    'ttml+xml',
-    'tve-trigger',
-    'tzif',
-    'tzif-leap',
-    'ulpfec',
-    'urc-grpsheet+xml',
-    'urc-ressheet+xml',
-    'urc-targetdesc+xml',
-    'urc-uisocketdesc+xml',
-    'vc',
-    'vcard+json',
-    'vcard+xml',
-    'vemmi',
-    'vnd.1000minds.decision-model+xml',
-    'vnd.1ob',
-    'vnd.3gpp.5gnas',
-    'vnd.3gpp.5gsa2x',
-    'vnd.3gpp.5gsa2x-local-service-information',
-    'vnd.3gpp.access-transfer-events+xml',
-    'vnd.3gpp.bsf+xml',
-    'vnd.3gpp.crs+xml',
-    'vnd.3gpp.current-location-discovery+xml',
-    'vnd.3gpp.GMOP+xml',
-    'vnd.3gpp.gtpc',
-    'vnd.3gpp.interworking-data',
-    'vnd.3gpp.lpp',
-    'vnd.3gpp.mc-signalling-ear',
-    'vnd.3gpp.mcdata-affiliation-command+xml',
-    'vnd.3gpp.mcdata-info+xml',
-    'vnd.3gpp.mcdata-msgstore-ctrl-request+xml',
-    'vnd.3gpp.mcdata-payload',
-    'vnd.3gpp.mcdata-regroup+xml',
-    'vnd.3gpp.mcdata-service-config+xml',
-    'vnd.3gpp.mcdata-signalling',
-    'vnd.3gpp.mcdata-ue-config+xml',
-    'vnd.3gpp.mcdata-user-profile+xml',
-    'vnd.3gpp.mcptt-affiliation-command+xml',
-    'vnd.3gpp.mcptt-floor-request+xml',
-    'vnd.3gpp.mcptt-info+xml',
-    'vnd.3gpp.mcptt-location-info+xml',
-    'vnd.3gpp.mcptt-mbms-usage-info+xml',
-    'vnd.3gpp.mcptt-regroup+xml',
-    'vnd.3gpp.mcptt-service-config+xml',
-    'vnd.3gpp.mcptt-signed+xml',
-    'vnd.3gpp.mcptt-ue-config+xml',
-    'vnd.3gpp.mcptt-ue-init-config+xml',
-    'vnd.3gpp.mcptt-user-profile+xml',
-    'vnd.3gpp.mcvideo-affiliation-command+xml',
-    'vnd.3gpp.mcvideo-affiliation-info+xml',
-    'vnd.3gpp.mcvideo-info+xml',
-    'vnd.3gpp.mcvideo-location-info+xml',
-    'vnd.3gpp.mcvideo-mbms-usage-info+xml',
-    'vnd.3gpp.mcvideo-regroup+xml',
-    'vnd.3gpp.mcvideo-service-config+xml',
-    'vnd.3gpp.mcvideo-transmission-request+xml',
-    'vnd.3gpp.mcvideo-ue-config+xml',
-    'vnd.3gpp.mcvideo-user-profile+xml',
-    'vnd.3gpp.mid-call+xml',
-    'vnd.3gpp.ngap',
-    'vnd.3gpp.pfcp',
-    'vnd.3gpp.pic-bw-large',
-    'vnd.3gpp.pic-bw-small',
-    'vnd.3gpp.pic-bw-var',
-    'vnd.3gpp.pinapp-info+xml',
-    'vnd.3gpp-prose-pc3a+xml',
-    'vnd.3gpp-prose-pc3ach+xml',
-    'vnd.3gpp-prose-pc3ch+xml',
-    'vnd.3gpp-prose-pc8+xml',
-    'vnd.3gpp-prose+xml',
-    'vnd.3gpp.s1ap',
-    'vnd.3gpp.seal-group-doc+xml',
-    'vnd.3gpp.seal-info+xml',
-    'vnd.3gpp.seal-location-info+xml',
-    'vnd.3gpp.seal-mbms-usage-info+xml',
-    'vnd.3gpp.seal-network-QoS-management-info+xml',
-    'vnd.3gpp.seal-ue-config-info+xml',
-    'vnd.3gpp.seal-unicast-info+xml',
-    'vnd.3gpp.seal-user-profile-info+xml',
-    'vnd.3gpp.sms',
-    'vnd.3gpp.sms+xml',
-    'vnd.3gpp.srvcc-ext+xml',
-    'vnd.3gpp.SRVCC-info+xml',
-    'vnd.3gpp.state-and-event-info+xml',
-    'vnd.3gpp.ussd+xml',
-    'vnd.3gpp.vae-info+xml',
-    'vnd.3gpp-v2x-local-service-information',
-    'vnd.3gpp2.bcmcsinfo+xml',
-    'vnd.3gpp2.sms',
-    'vnd.3gpp2.tcap',
-    'vnd.3gpp.v2x',
-    'vnd.3lightssoftware.imagescal',
-    'vnd.3M.Post-it-Notes',
-    'vnd.accpac.simply.aso',
-    'vnd.accpac.simply.imp',
-    'vnd.acm.addressxfer+json',
-    'vnd.acm.chatbot+json',
-    'vnd.acucobol',
-    'vnd.acucorp',
-    'vnd.adobe.flash.movie',
-    'vnd.adobe.formscentral.fcdt',
-    'vnd.adobe.fxp',
-    'vnd.adobe.partial-upload',
-    'vnd.adobe.xdp+xml',
-    'vnd.aether.imp',
-    'vnd.afpc.afplinedata',
-    'vnd.afpc.afplinedata-pagedef',
-    'vnd.afpc.cmoca-cmresource',
-    'vnd.afpc.foca-charset',
-    'vnd.afpc.foca-codedfont',
-    'vnd.afpc.foca-codepage',
-    'vnd.afpc.modca',
-    'vnd.afpc.modca-cmtable',
-    'vnd.afpc.modca-formdef',
-    'vnd.afpc.modca-mediummap',
-    'vnd.afpc.modca-objectcontainer',
-    'vnd.afpc.modca-overlay',
-    'vnd.afpc.modca-pagesegment',
-    'vnd.age',
-    'vnd.ah-barcode',
-    'vnd.ahead.space',
-    'vnd.airzip.filesecure.azf',
-    'vnd.airzip.filesecure.azs',
-    'vnd.amadeus+json',
-    'vnd.amazon.mobi8-ebook',
-    'vnd.americandynamics.acc',
-    'vnd.amiga.ami',
-    'vnd.amundsen.maze+xml',
-    'vnd.android.ota',
-    'vnd.anki',
-    'vnd.anser-web-certificate-issue-initiation',
-    'vnd.antix.game-component',
-    'vnd.apache.arrow.file',
-    'vnd.apache.arrow.stream',
-    'vnd.apache.parquet',
-    'vnd.apache.thrift.binary',
-    'vnd.apache.thrift.compact',
-    'vnd.apache.thrift.json',
-    'vnd.apexlang',
-    'vnd.api+json',
-    'vnd.aplextor.warrp+json',
-    'vnd.apothekende.reservation+json',
-    'vnd.apple.installer+xml',
-    'vnd.apple.keynote',
-    'vnd.apple.mpegurl',
-    'vnd.apple.numbers',
-    'vnd.apple.pages',
-    'vnd.arastra.swi',
-    'vnd.aristanetworks.swi',
-    'vnd.artisan+json',
-    'vnd.artsquare',
-    'vnd.astraea-software.iota',
-    'vnd.audiograph',
-    'vnd.autopackage',
-    'vnd.avalon+json',
-    'vnd.avistar+xml',
-    'vnd.balsamiq.bmml+xml',
-    'vnd.banana-accounting',
-    'vnd.bbf.usp.error',
-    'vnd.bbf.usp.msg',
-    'vnd.bbf.usp.msg+json',
-    'vnd.balsamiq.bmpr',
-    'vnd.bekitzur-stech+json',
-    'vnd.belightsoft.lhzd+zip',
-    'vnd.belightsoft.lhzl+zip',
-    'vnd.bint.med-content',
-    'vnd.biopax.rdf+xml',
-    'vnd.blink-idb-value-wrapper',
-    'vnd.blueice.multipass',
-    'vnd.bluetooth.ep.oob',
-    'vnd.bluetooth.le.oob',
-    'vnd.bmi',
-    'vnd.bpf',
-    'vnd.bpf3',
-    'vnd.businessobjects',
-    'vnd.byu.uapi+json',
-    'vnd.bzip3',
-    'vnd.c3voc.schedule+xml',
-    'vnd.cab-jscript',
-    'vnd.canon-cpdl',
-    'vnd.canon-lips',
-    'vnd.capasystems-pg+json',
-    'vnd.cendio.thinlinc.clientconf',
-    'vnd.century-systems.tcp_stream',
-    'vnd.chemdraw+xml',
-    'vnd.chess-pgn',
-    'vnd.chipnuts.karaoke-mmd',
-    'vnd.ciedi',
-    'vnd.cinderella',
-    'vnd.cirpack.isdn-ext',
-    'vnd.citationstyles.style+xml',
-    'vnd.claymore',
-    'vnd.cloanto.rp9',
-    'vnd.clonk.c4group',
-    'vnd.cluetrust.cartomobile-config',
-    'vnd.cluetrust.cartomobile-config-pkg',
-    'vnd.cncf.helm.chart.content.v1.tar+gzip',
-    'vnd.cncf.helm.chart.provenance.v1.prov',
-    'vnd.cncf.helm.config.v1+json',
-    'vnd.coffeescript',
-    'vnd.collabio.xodocuments.document',
-    'vnd.collabio.xodocuments.document-template',
-    'vnd.collabio.xodocuments.presentation',
-    'vnd.collabio.xodocuments.presentation-template',
-    'vnd.collabio.xodocuments.spreadsheet',
-    'vnd.collabio.xodocuments.spreadsheet-template',
-    'vnd.collection.doc+json',
-    'vnd.collection+json',
-    'vnd.collection.next+json',
-    'vnd.comicbook-rar',
-    'vnd.comicbook+zip',
-    'vnd.commerce-battelle',
-    'vnd.commonspace',
-    'vnd.coreos.ignition+json',
-    'vnd.cosmocaller',
-    'vnd.contact.cmsg',
-    'vnd.crick.clicker',
-    'vnd.crick.clicker.keyboard',
-    'vnd.crick.clicker.palette',
-    'vnd.crick.clicker.template',
-    'vnd.crick.clicker.wordbank',
-    'vnd.criticaltools.wbs+xml',
-    'vnd.cryptii.pipe+json',
-    'vnd.crypto-shade-file',
-    'vnd.cryptomator.encrypted',
-    'vnd.cryptomator.vault',
-    'vnd.ctc-posml',
-    'vnd.ctct.ws+xml',
-    'vnd.cups-pdf',
-    'vnd.cups-postscript',
-    'vnd.cups-ppd',
-    'vnd.cups-raster',
-    'vnd.cups-raw',
-    'vnd.curl',
-    'vnd.cyan.dean.root+xml',
-    'vnd.cybank',
-    'vnd.cyclonedx+json',
-    'vnd.cyclonedx+xml',
-    'vnd.d2l.coursepackage1p0+zip',
-    'vnd.d3m-dataset',
-    'vnd.d3m-problem',
-    'vnd.dart',
-    'vnd.data-vision.rdz',
-    'vnd.datalog',
-    'vnd.datapackage+json',
-    'vnd.dataresource+json',
-    'vnd.dbf',
-    'vnd.debian.binary-package',
-    'vnd.dece.data',
-    'vnd.dece.ttml+xml',
-    'vnd.dece.unspecified',
-    'vnd.dece.zip',
-    'vnd.denovo.fcselayout-link',
-    'vnd.desmume.movie',
-    'vnd.dir-bi.plate-dl-nosuffix',
-    'vnd.dm.delegation+xml',
-    'vnd.dna',
-    'vnd.document+json',
-    'vnd.dolby.mobile.1',
-    'vnd.dolby.mobile.2',
-    'vnd.doremir.scorecloud-binary-document',
-    'vnd.dpgraph',
-    'vnd.dreamfactory',
-    'vnd.drive+json',
-    'vnd.dtg.local',
-    'vnd.dtg.local.flash',
-    'vnd.dtg.local.html',
-    'vnd.dvb.ait',
-    'vnd.dvb.dvbisl+xml',
-    'vnd.dvb.dvbj',
-    'vnd.dvb.esgcontainer',
-    'vnd.dvb.ipdcdftnotifaccess',
-    'vnd.dvb.ipdcesgaccess',
-    'vnd.dvb.ipdcesgaccess2',
-    'vnd.dvb.ipdcesgpdd',
-    'vnd.dvb.ipdcroaming',
-    'vnd.dvb.iptv.alfec-base',
-    'vnd.dvb.iptv.alfec-enhancement',
-    'vnd.dvb.notif-aggregate-root+xml',
-    'vnd.dvb.notif-container+xml',
-    'vnd.dvb.notif-generic+xml',
-    'vnd.dvb.notif-ia-msglist+xml',
-    'vnd.dvb.notif-ia-registration-request+xml',
-    'vnd.dvb.notif-ia-registration-response+xml',
-    'vnd.dvb.notif-init+xml',
-    'vnd.dvb.pfr',
-    'vnd.dvb.service',
-    'vnd.dxr',
-    'vnd.dynageo',
-    'vnd.dzr',
-    'vnd.easykaraoke.cdgdownload',
-    'vnd.ecip.rlp',
-    'vnd.ecdis-update',
-    'vnd.eclipse.ditto+json',
-    'vnd.ecowin.chart',
-    'vnd.ecowin.filerequest',
-    'vnd.ecowin.fileupdate',
-    'vnd.ecowin.series',
-    'vnd.ecowin.seriesrequest',
-    'vnd.ecowin.seriesupdate',
-    'vnd.efi.img',
-    'vnd.efi.iso',
-    'vnd.eln+zip',
-    'vnd.emclient.accessrequest+xml',
-    'vnd.enliven',
-    'vnd.enphase.envoy',
-    'vnd.eprints.data+xml',
-    'vnd.epson.esf',
-    'vnd.epson.msf',
-    'vnd.epson.quickanime',
-    'vnd.epson.salt',
-    'vnd.epson.ssf',
-    'vnd.ericsson.quickcall',
-    'vnd.erofs',
-    'vnd.espass-espass+zip',
-    'vnd.eszigno3+xml',
-    'vnd.etsi.aoc+xml',
-    'vnd.etsi.asic-s+zip',
-    'vnd.etsi.asic-e+zip',
-    'vnd.etsi.cug+xml',
-    'vnd.etsi.iptvcommand+xml',
-    'vnd.etsi.iptvdiscovery+xml',
-    'vnd.etsi.iptvprofile+xml',
-    'vnd.etsi.iptvsad-bc+xml',
-    'vnd.etsi.iptvsad-cod+xml',
-    'vnd.etsi.iptvsad-npvr+xml',
-    'vnd.etsi.iptvservice+xml',
-    'vnd.etsi.iptvsync+xml',
-    'vnd.etsi.iptvueprofile+xml',
-    'vnd.etsi.mcid+xml',
-    'vnd.etsi.mheg5',
-    'vnd.etsi.overload-control-policy-dataset+xml',
-    'vnd.etsi.pstn+xml',
-    'vnd.etsi.sci+xml',
-    'vnd.etsi.simservs+xml',
-    'vnd.etsi.timestamp-token',
-    'vnd.etsi.tsl+xml',
-    'vnd.etsi.tsl.der',
-    'vnd.eu.kasparian.car+json',
-    'vnd.eudora.data',
-    'vnd.evolv.ecig.profile',
-    'vnd.evolv.ecig.settings',
-    'vnd.evolv.ecig.theme',
-    'vnd.exstream-empower+zip',
-    'vnd.exstream-package',
-    'vnd.ezpix-album',
-    'vnd.ezpix-package',
-    'vnd.f-secure.mobile',
-    'vnd.fastcopy-disk-image',
-    'vnd.familysearch.gedcom+zip',
-    'vnd.fdsn.mseed',
-    'vnd.fdsn.seed',
-    'vnd.ffsns',
-    'vnd.ficlab.flb+zip',
-    'vnd.filmit.zfc',
-    'vnd.fints',
-    'vnd.firemonkeys.cloudcell',
-    'vnd.FloGraphIt',
-    'vnd.fluxtime.clip',
-    'vnd.font-fontforge-sfd',
-    'vnd.framemaker',
-    'vnd.freelog.comic',
-    'vnd.frogans.fnc',
-    'vnd.frogans.ltf',
-    'vnd.fsc.weblaunch',
-    'vnd.fujifilm.fb.docuworks',
-    'vnd.fujifilm.fb.docuworks.binder',
-    'vnd.fujifilm.fb.docuworks.container',
-    'vnd.fujifilm.fb.jfi+xml',
-    'vnd.fujitsu.oasys',
-    'vnd.fujitsu.oasys2',
-    'vnd.fujitsu.oasys3',
-    'vnd.fujitsu.oasysgp',
-    'vnd.fujitsu.oasysprs',
-    'vnd.fujixerox.ART4',
-    'vnd.fujixerox.ART-EX',
-    'vnd.fujixerox.ddd',
-    'vnd.fujixerox.docuworks',
-    'vnd.fujixerox.docuworks.binder',
-    'vnd.fujixerox.docuworks.container',
-    'vnd.fujixerox.HBPL',
-    'vnd.fut-misnet',
-    'vnd.futoin+cbor',
-    'vnd.futoin+json',
-    'vnd.fuzzysheet',
-    'vnd.ga4gh.passport+jwt',
-    'vnd.genomatix.tuxedo',
-    'vnd.genozip',
-    'vnd.gentics.grd+json',
-    'vnd.gentoo.catmetadata+xml',
-    'vnd.gentoo.ebuild',
-    'vnd.gentoo.eclass',
-    'vnd.gentoo.gpkg',
-    'vnd.gentoo.manifest',
-    'vnd.gentoo.xpak',
-    'vnd.gentoo.pkgmetadata+xml',
-    'vnd.geo+json',
-    'vnd.geocube+xml',
-    'vnd.geogebra.file',
-    'vnd.geogebra.slides',
-    'vnd.geogebra.tool',
-    'vnd.geometry-explorer',
-    'vnd.geonext',
-    'vnd.geoplan',
-    'vnd.geospace',
-    'vnd.gerber',
-    'vnd.globalplatform.card-content-mgt',
-    'vnd.globalplatform.card-content-mgt-response',
-    'vnd.gmx',
-    'vnd.gnu.taler.exchange+json',
-    'vnd.gnu.taler.merchant+json',
-    'vnd.google-earth.kml+xml',
-    'vnd.google-earth.kmz',
-    'vnd.gov.sk.e-form+xml',
-    'vnd.gov.sk.e-form+zip',
-    'vnd.gov.sk.xmldatacontainer+xml',
-    'vnd.gpxsee.map+xml',
-    'vnd.grafeq',
-    'vnd.gridmp',
-    'vnd.groove-account',
-    'vnd.groove-help',
-    'vnd.groove-identity-message',
-    'vnd.groove-injector',
-    'vnd.groove-tool-message',
-    'vnd.groove-tool-template',
-    'vnd.groove-vcard',
-    'vnd.hal+json',
-    'vnd.hal+xml',
-    'vnd.HandHeld-Entertainment+xml',
-    'vnd.hbci',
-    'vnd.hc+json',
-    'vnd.hcl-bireports',
-    'vnd.hdt',
-    'vnd.heroku+json',
-    'vnd.hhe.lesson-player',
-    'vnd.hp-HPGL',
-    'vnd.hp-hpid',
-    'vnd.hp-hps',
-    'vnd.hp-jlyt',
-    'vnd.hp-PCL',
-    'vnd.hp-PCLXL',
-    'vnd.hsl',
-    'vnd.httphone',
-    'vnd.hydrostatix.sof-data',
-    'vnd.hyper-item+json',
-    'vnd.hyper+json',
-    'vnd.hyperdrive+json',
-    'vnd.hzn-3d-crossword',
-    'vnd.ibm.afplinedata',
-    'vnd.ibm.electronic-media',
-    'vnd.ibm.MiniPay',
-    'vnd.ibm.modcap',
-    'vnd.ibm.rights-management',
-    'vnd.ibm.secure-container',
-    'vnd.iccprofile',
-    'vnd.ieee.1905',
-    'vnd.igloader',
-    'vnd.imagemeter.folder+zip',
-    'vnd.imagemeter.image+zip',
-    'vnd.immervision-ivp',
-    'vnd.immervision-ivu',
-    'vnd.ims.imsccv1p1',
-    'vnd.ims.imsccv1p2',
-    'vnd.ims.imsccv1p3',
-    'vnd.ims.lis.v2.result+json',
-    'vnd.ims.lti.v2.toolconsumerprofile+json',
-    'vnd.ims.lti.v2.toolproxy.id+json',
-    'vnd.ims.lti.v2.toolproxy+json',
-    'vnd.ims.lti.v2.toolsettings+json',
-    'vnd.ims.lti.v2.toolsettings.simple+json',
-    'vnd.informedcontrol.rms+xml',
-    'vnd.infotech.project',
-    'vnd.infotech.project+xml',
-    'vnd.informix-visionary',
-    'vnd.innopath.wamp.notification',
-    'vnd.insors.igm',
-    'vnd.intercon.formnet',
-    'vnd.intergeo',
-    'vnd.intertrust.digibox',
-    'vnd.intertrust.nncp',
-    'vnd.intu.qbo',
-    'vnd.intu.qfx',
-    'vnd.ipfs.ipns-record',
-    'vnd.ipld.car',
-    'vnd.ipld.dag-cbor',
-    'vnd.ipld.dag-json',
-    'vnd.ipld.raw',
-    'vnd.iptc.g2.catalogitem+xml',
-    'vnd.iptc.g2.conceptitem+xml',
-    'vnd.iptc.g2.knowledgeitem+xml',
-    'vnd.iptc.g2.newsitem+xml',
-    'vnd.iptc.g2.newsmessage+xml',
-    'vnd.iptc.g2.packageitem+xml',
-    'vnd.iptc.g2.planningitem+xml',
-    'vnd.ipunplugged.rcprofile',
-    'vnd.irepository.package+xml',
-    'vnd.is-xpr',
-    'vnd.isac.fcs',
-    'vnd.jam',
-    'vnd.iso11783-10+zip',
-    'vnd.japannet-directory-service',
-    'vnd.japannet-jpnstore-wakeup',
-    'vnd.japannet-payment-wakeup',
-    'vnd.japannet-registration',
-    'vnd.japannet-registration-wakeup',
-    'vnd.japannet-setstore-wakeup',
-    'vnd.japannet-verification',
-    'vnd.japannet-verification-wakeup',
-    'vnd.jcp.javame.midlet-rms',
-    'vnd.jisp',
-    'vnd.joost.joda-archive',
-    'vnd.jsk.isdn-ngn',
-    'vnd.kahootz',
-    'vnd.kde.karbon',
-    'vnd.kde.kchart',
-    'vnd.kde.kformula',
-    'vnd.kde.kivio',
-    'vnd.kde.kontour',
-    'vnd.kde.kpresenter',
-    'vnd.kde.kspread',
-    'vnd.kde.kword',
-    'vnd.kenameaapp',
-    'vnd.kidspiration',
-    'vnd.Kinar',
-    'vnd.koan',
-    'vnd.kodak-descriptor',
-    'vnd.las',
-    'vnd.las.las+json',
-    'vnd.las.las+xml',
-    'vnd.laszip',
-    'vnd.ldev.productlicensing',
-    'vnd.leap+json',
-    'vnd.liberty-request+xml',
-    'vnd.llamagraphics.life-balance.desktop',
-    'vnd.llamagraphics.life-balance.exchange+xml',
-    'vnd.logipipe.circuit+zip',
-    'vnd.loom',
-    'vnd.lotus-1-2-3',
-    'vnd.lotus-approach',
-    'vnd.lotus-freelance',
-    'vnd.lotus-notes',
-    'vnd.lotus-organizer',
-    'vnd.lotus-screencam',
-    'vnd.lotus-wordpro',
-    'vnd.macports.portpkg',
-    'vnd.mapbox-vector-tile',
-    'vnd.marlin.drm.actiontoken+xml',
-    'vnd.marlin.drm.conftoken+xml',
-    'vnd.marlin.drm.license+xml',
-    'vnd.marlin.drm.mdcf',
-    'vnd.mason+json',
-    'vnd.maxar.archive.3tz+zip',
-    'vnd.maxmind.maxmind-db',
-    'vnd.mcd',
-    'vnd.mdl',
-    'vnd.mdl-mbsdf',
-    'vnd.medcalcdata',
-    'vnd.mediastation.cdkey',
-    'vnd.medicalholodeck.recordxr',
-    'vnd.meridian-slingshot',
-    'vnd.mermaid',
-    'vnd.MFER',
-    'vnd.mfmp',
-    'vnd.micro+json',
-    'vnd.micrografx.flo',
-    'vnd.micrografx.igx',
-    'vnd.microsoft.portable-executable',
-    'vnd.microsoft.windows.thumbnail-cache',
-    'vnd.miele+json',
-    'vnd.mif',
-    'vnd.minisoft-hp3000-save',
-    'vnd.mitsubishi.misty-guard.trustweb',
-    'vnd.Mobius.DAF',
-    'vnd.Mobius.DIS',
-    'vnd.Mobius.MBK',
-    'vnd.Mobius.MQY',
-    'vnd.Mobius.MSL',
-    'vnd.Mobius.PLC',
-    'vnd.Mobius.TXF',
-    'vnd.modl',
-    'vnd.mophun.application',
-    'vnd.mophun.certificate',
-    'vnd.motorola.flexsuite',
-    'vnd.motorola.flexsuite.adsi',
-    'vnd.motorola.flexsuite.fis',
-    'vnd.motorola.flexsuite.gotap',
-    'vnd.motorola.flexsuite.kmr',
-    'vnd.motorola.flexsuite.ttc',
-    'vnd.motorola.flexsuite.wem',
-    'vnd.motorola.iprm',
-    'vnd.mozilla.xul+xml',
-    'vnd.ms-artgalry',
-    'vnd.ms-asf',
-    'vnd.ms-cab-compressed',
-    'vnd.ms-3mfdocument',
-    'vnd.ms-excel',
-    'vnd.ms-excel.addin.macroEnabled.12',
-    'vnd.ms-excel.sheet.binary.macroEnabled.12',
-    'vnd.ms-excel.sheet.macroEnabled.12',
-    'vnd.ms-excel.template.macroEnabled.12',
-    'vnd.ms-fontobject',
-    'vnd.ms-htmlhelp',
-    'vnd.ms-ims',
-    'vnd.ms-lrm',
-    'vnd.ms-office.activeX+xml',
-    'vnd.ms-officetheme',
-    'vnd.ms-playready.initiator+xml',
-    'vnd.ms-powerpoint',
-    'vnd.ms-powerpoint.addin.macroEnabled.12',
-    'vnd.ms-powerpoint.presentation.macroEnabled.12',
-    'vnd.ms-powerpoint.slide.macroEnabled.12',
-    'vnd.ms-powerpoint.slideshow.macroEnabled.12',
-    'vnd.ms-powerpoint.template.macroEnabled.12',
-    'vnd.ms-PrintDeviceCapabilities+xml',
-    'vnd.ms-PrintSchemaTicket+xml',
-    'vnd.ms-project',
-    'vnd.ms-tnef',
-    'vnd.ms-windows.devicepairing',
-    'vnd.ms-windows.nwprinting.oob',
-    'vnd.ms-windows.printerpairing',
-    'vnd.ms-windows.wsd.oob',
-    'vnd.ms-wmdrm.lic-chlg-req',
-    'vnd.ms-wmdrm.lic-resp',
-    'vnd.ms-wmdrm.meter-chlg-req',
-    'vnd.ms-wmdrm.meter-resp',
-    'vnd.ms-word.document.macroEnabled.12',
-    'vnd.ms-word.template.macroEnabled.12',
-    'vnd.ms-works',
-    'vnd.ms-wpl',
-    'vnd.ms-xpsdocument',
-    'vnd.msa-disk-image',
-    'vnd.mseq',
-    'vnd.msgpack',
-    'vnd.msign',
-    'vnd.multiad.creator',
-    'vnd.multiad.creator.cif',
-    'vnd.musician',
-    'vnd.music-niff',
-    'vnd.muvee.style',
-    'vnd.mynfc',
-    'vnd.nacamar.ybrid+json',
-    'vnd.nato.bindingdataobject+cbor',
-    'vnd.nato.bindingdataobject+json',
-    'vnd.nato.bindingdataobject+xml',
-    'vnd.nato.openxmlformats-package.iepd+zip',
-    'vnd.ncd.control',
-    'vnd.ncd.reference',
-    'vnd.nearst.inv+json',
-    'vnd.nebumind.line',
-    'vnd.nervana',
-    'vnd.netfpx',
-    'vnd.neurolanguage.nlu',
-    'vnd.nimn',
-    'vnd.nintendo.snes.rom',
-    'vnd.nintendo.nitro.rom',
-    'vnd.nitf',
-    'vnd.noblenet-directory',
-    'vnd.noblenet-sealer',
-    'vnd.noblenet-web',
-    'vnd.nokia.catalogs',
-    'vnd.nokia.conml+wbxml',
-    'vnd.nokia.conml+xml',
-    'vnd.nokia.iptv.config+xml',
-    'vnd.nokia.iSDS-radio-presets',
-    'vnd.nokia.landmark+wbxml',
-    'vnd.nokia.landmark+xml',
-    'vnd.nokia.landmarkcollection+xml',
-    'vnd.nokia.ncd',
-    'vnd.nokia.n-gage.ac+xml',
-    'vnd.nokia.n-gage.data',
-    'vnd.nokia.n-gage.symbian.install',
-    'vnd.nokia.pcd+wbxml',
-    'vnd.nokia.pcd+xml',
-    'vnd.nokia.radio-preset',
-    'vnd.nokia.radio-presets',
-    'vnd.novadigm.EDM',
-    'vnd.novadigm.EDX',
-    'vnd.novadigm.EXT',
-    'vnd.ntt-local.content-share',
-    'vnd.ntt-local.file-transfer',
-    'vnd.ntt-local.ogw_remote-access',
-    'vnd.ntt-local.sip-ta_remote',
-    'vnd.ntt-local.sip-ta_tcp_stream',
-    'vnd.oai.workflows',
-    'vnd.oai.workflows+json',
-    'vnd.oai.workflows+yaml',
-    'vnd.oasis.opendocument.base',
-    'vnd.oasis.opendocument.chart',
-    'vnd.oasis.opendocument.chart-template',
-    'vnd.oasis.opendocument.database',
-    'vnd.oasis.opendocument.formula',
-    'vnd.oasis.opendocument.formula-template',
-    'vnd.oasis.opendocument.graphics',
-    'vnd.oasis.opendocument.graphics-template',
-    'vnd.oasis.opendocument.image',
-    'vnd.oasis.opendocument.image-template',
-    'vnd.oasis.opendocument.presentation',
-    'vnd.oasis.opendocument.presentation-template',
-    'vnd.oasis.opendocument.spreadsheet',
-    'vnd.oasis.opendocument.spreadsheet-template',
-    'vnd.oasis.opendocument.text',
-    'vnd.oasis.opendocument.text-master',
-    'vnd.oasis.opendocument.text-master-template',
-    'vnd.oasis.opendocument.text-template',
-    'vnd.oasis.opendocument.text-web',
-    'vnd.obn',
-    'vnd.ocf+cbor',
-    'vnd.oci.image.manifest.v1+json',
-    'vnd.oftn.l10n+json',
-    'vnd.oipf.contentaccessdownload+xml',
-    'vnd.oipf.contentaccessstreaming+xml',
-    'vnd.oipf.cspg-hexbinary',
-    'vnd.oipf.dae.svg+xml',
-    'vnd.oipf.dae.xhtml+xml',
-    'vnd.oipf.mippvcontrolmessage+xml',
-    'vnd.oipf.pae.gem',
-    'vnd.oipf.spdiscovery+xml',
-    'vnd.oipf.spdlist+xml',
-    'vnd.oipf.ueprofile+xml',
-    'vnd.oipf.userprofile+xml',
-    'vnd.olpc-sugar',
-    'vnd.oma.bcast.associated-procedure-parameter+xml',
-    'vnd.oma.bcast.drm-trigger+xml',
-    'vnd.oma.bcast.imd+xml',
-    'vnd.oma.bcast.ltkm',
-    'vnd.oma.bcast.notification+xml',
-    'vnd.oma.bcast.provisioningtrigger',
-    'vnd.oma.bcast.sgboot',
-    'vnd.oma.bcast.sgdd+xml',
-    'vnd.oma.bcast.sgdu',
-    'vnd.oma.bcast.simple-symbol-container',
-    'vnd.oma.bcast.smartcard-trigger+xml',
-    'vnd.oma.bcast.sprov+xml',
-    'vnd.oma.bcast.stkm',
-    'vnd.oma.cab-address-book+xml',
-    'vnd.oma.cab-feature-handler+xml',
-    'vnd.oma.cab-pcc+xml',
-    'vnd.oma.cab-subs-invite+xml',
-    'vnd.oma.cab-user-prefs+xml',
-    'vnd.oma.dcd',
-    'vnd.oma.dcdc',
-    'vnd.oma.dd2+xml',
-    'vnd.oma.drm.risd+xml',
-    'vnd.oma.group-usage-list+xml',
-    'vnd.oma.lwm2m+cbor',
-    'vnd.oma.lwm2m+json',
-    'vnd.oma.lwm2m+tlv',
-    'vnd.oma.pal+xml',
-    'vnd.oma.poc.detailed-progress-report+xml',
-    'vnd.oma.poc.final-report+xml',
-    'vnd.oma.poc.groups+xml',
-    'vnd.oma.poc.invocation-descriptor+xml',
-    'vnd.oma.poc.optimized-progress-report+xml',
-    'vnd.oma.push',
-    'vnd.oma.scidm.messages+xml',
-    'vnd.oma.xcap-directory+xml',
-    'vnd.omads-email+xml',
-    'vnd.omads-file+xml',
-    'vnd.omads-folder+xml',
-    'vnd.omaloc-supl-init',
-    'vnd.oma-scws-config',
-    'vnd.oma-scws-http-request',
-    'vnd.oma-scws-http-response',
-    'vnd.onepager',
-    'vnd.onepagertamp',
-    'vnd.onepagertamx',
-    'vnd.onepagertat',
-    'vnd.onepagertatp',
-    'vnd.onepagertatx',
-    'vnd.onvif.metadata',
-    'vnd.openblox.game-binary',
-    'vnd.openblox.game+xml',
-    'vnd.openeye.oeb',
-    'vnd.openstreetmap.data+xml',
-    'vnd.opentimestamps.ots',
-    'vnd.openxmlformats-officedocument.custom-properties+xml',
-    'vnd.openxmlformats-officedocument.customXmlProperties+xml',
-    'vnd.openxmlformats-officedocument.drawing+xml',
-    'vnd.openxmlformats-officedocument.drawingml.chart+xml',
-    'vnd.openxmlformats-officedocument.drawingml.chartshapes+xml',
-    'vnd.openxmlformats-officedocument.drawingml.diagramColors+xml',
-    'vnd.openxmlformats-officedocument.drawingml.diagramData+xml',
-    'vnd.openxmlformats-officedocument.drawingml.diagramLayout+xml',
-    'vnd.openxmlformats-officedocument.drawingml.diagramStyle+xml',
-    'vnd.openxmlformats-officedocument.extended-properties+xml',
-    'vnd.openxmlformats-officedocument.presentationml.commentAuthors+xml',
-    'vnd.openxmlformats-officedocument.presentationml.comments+xml',
-    'vnd.openxmlformats-officedocument.presentationml.handoutMaster+xml',
-    'vnd.openxmlformats-officedocument.presentationml.notesMaster+xml',
-    'vnd.openxmlformats-officedocument.presentationml.notesSlide+xml',
-    'vnd.openxmlformats-officedocument.presentationml.presentation',
-    'vnd.openxmlformats-officedocument.presentationml.presentation.main+xml',
-    'vnd.openxmlformats-officedocument.presentationml.presProps+xml',
-    'vnd.openxmlformats-officedocument.presentationml.slide',
-    'vnd.openxmlformats-officedocument.presentationml.slide+xml',
-    'vnd.openxmlformats-officedocument.presentationml.slideLayout+xml',
-    'vnd.openxmlformats-officedocument.presentationml.slideMaster+xml',
-    'vnd.openxmlformats-officedocument.presentationml.slideshow',
-    'vnd.openxmlformats-officedocument.presentationml.slideshow.main+xml',
-    'vnd.openxmlformats-officedocument.presentationml.slideUpdateInfo+xml',
-    'vnd.openxmlformats-officedocument.presentationml.tableStyles+xml',
-    'vnd.openxmlformats-officedocument.presentationml.tags+xml',
-    'vnd.openxmlformats-officedocument.presentationml.template',
-    'vnd.openxmlformats-officedocument.presentationml.template.main+xml',
-    'vnd.openxmlformats-officedocument.presentationml.viewProps+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.calcChain+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.chartsheet+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.comments+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.connections+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.dialogsheet+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.externalLink+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.pivotCacheDefinition+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.pivotCacheRecords+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.pivotTable+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.queryTable+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.revisionHeaders+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.revisionLog+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.sharedStrings+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-    'vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.sheetMetadata+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.styles+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.table+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.tableSingleCells+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.template',
-    'vnd.openxmlformats-officedocument.spreadsheetml.template.main+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.userNames+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.volatileDependencies+xml',
-    'vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml',
-    'vnd.openxmlformats-officedocument.theme+xml',
-    'vnd.openxmlformats-officedocument.themeOverride+xml',
-    'vnd.openxmlformats-officedocument.vmlDrawing',
-    'vnd.openxmlformats-officedocument.wordprocessingml.comments+xml',
-    'vnd.openxmlformats-officedocument.wordprocessingml.document',
-    'vnd.openxmlformats-officedocument.wordprocessingml.document.glossary+xml',
-    'vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml',
-    'vnd.openxmlformats-officedocument.wordprocessingml.endnotes+xml',
-    'vnd.openxmlformats-officedocument.wordprocessingml.fontTable+xml',
-    'vnd.openxmlformats-officedocument.wordprocessingml.footer+xml',
-    'vnd.openxmlformats-officedocument.wordprocessingml.footnotes+xml',
-    'vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml',
-    'vnd.openxmlformats-officedocument.wordprocessingml.settings+xml',
-    'vnd.openxmlformats-officedocument.wordprocessingml.styles+xml',
-    'vnd.openxmlformats-officedocument.wordprocessingml.template',
-    'vnd.openxmlformats-officedocument.wordprocessingml.template.main+xml',
-    'vnd.openxmlformats-officedocument.wordprocessingml.webSettings+xml',
-    'vnd.openxmlformats-package.core-properties+xml',
-    'vnd.openxmlformats-package.digital-signature-xmlsignature+xml',
-    'vnd.openxmlformats-package.relationships+xml',
-    'vnd.oracle.resource+json',
-    'vnd.orange.indata',
-    'vnd.osa.netdeploy',
-    'vnd.osgeo.mapguide.package',
-    'vnd.osgi.bundle',
-    'vnd.osgi.dp',
-    'vnd.osgi.subsystem',
-    'vnd.otps.ct-kip+xml',
-    'vnd.oxli.countgraph',
-    'vnd.pagerduty+json',
-    'vnd.palm',
-    'vnd.panoply',
-    'vnd.paos.xml',
-    'vnd.patentdive',
-    'vnd.patientecommsdoc',
-    'vnd.pawaafile',
-    'vnd.pcos',
-    'vnd.pg.format',
-    'vnd.pg.osasli',
-    'vnd.piaccess.application-licence',
-    'vnd.picsel',
-    'vnd.pmi.widget',
-    'vnd.poc.group-advertisement+xml',
-    'vnd.pocketlearn',
-    'vnd.powerbuilder6',
-    'vnd.powerbuilder6-s',
-    'vnd.powerbuilder7',
-    'vnd.powerbuilder75',
-    'vnd.powerbuilder75-s',
-    'vnd.powerbuilder7-s',
-    'vnd.preminet',
-    'vnd.previewsystems.box',
-    'vnd.proteus.magazine',
-    'vnd.psfs',
-    'vnd.pt.mundusmundi',
-    'vnd.publishare-delta-tree',
-    'vnd.pvi.ptid1',
-    'vnd.pwg-multiplexed',
-    'vnd.pwg-xhtml-print+xml',
-    'vnd.qualcomm.brew-app-res',
-    'vnd.quarantainenet',
-    'vnd.Quark.QuarkXPress',
-    'vnd.quobject-quoxdocument',
-    'vnd.radisys.moml+xml',
-    'vnd.radisys.msml-audit-conf+xml',
-    'vnd.radisys.msml-audit-conn+xml',
-    'vnd.radisys.msml-audit-dialog+xml',
-    'vnd.radisys.msml-audit-stream+xml',
-    'vnd.radisys.msml-audit+xml',
-    'vnd.radisys.msml-conf+xml',
-    'vnd.radisys.msml-dialog-base+xml',
-    'vnd.radisys.msml-dialog-fax-detect+xml',
-    'vnd.radisys.msml-dialog-fax-sendrecv+xml',
-    'vnd.radisys.msml-dialog-group+xml',
-    'vnd.radisys.msml-dialog-speech+xml',
-    'vnd.radisys.msml-dialog-transform+xml',
-    'vnd.radisys.msml-dialog+xml',
-    'vnd.radisys.msml+xml',
-    'vnd.rainstor.data',
-    'vnd.rapid',
-    'vnd.rar',
-    'vnd.realvnc.bed',
-    'vnd.recordare.musicxml',
-    'vnd.recordare.musicxml+xml',
-    'vnd.relpipe',
-    'vnd.RenLearn.rlprint',
-    'vnd.resilient.logic',
-    'vnd.restful+json',
-    'vnd.rig.cryptonote',
-    'vnd.route66.link66+xml',
-    'vnd.rs-274x',
-    'vnd.ruckus.download',
-    'vnd.s3sms',
-    'vnd.sailingtracker.track',
-    'vnd.sar',
-    'vnd.sbm.cid',
-    'vnd.sbm.mid2',
-    'vnd.scribus',
-    'vnd.sealed.3df',
-    'vnd.sealed.csf',
-    'vnd.sealed.doc',
-    'vnd.sealed.eml',
-    'vnd.sealed.mht',
-    'vnd.sealed.net',
-    'vnd.sealed.ppt',
-    'vnd.sealed.tiff',
-    'vnd.sealed.xls',
-    'vnd.sealedmedia.softseal.html',
-    'vnd.sealedmedia.softseal.pdf',
-    'vnd.seemail',
-    'vnd.seis+json',
-    'vnd.sema',
-    'vnd.semd',
-    'vnd.semf',
-    'vnd.shade-save-file',
-    'vnd.shana.informed.formdata',
-    'vnd.shana.informed.formtemplate',
-    'vnd.shana.informed.interchange',
-    'vnd.shana.informed.package',
-    'vnd.shootproof+json',
-    'vnd.shopkick+json',
-    'vnd.shp',
-    'vnd.shx',
-    'vnd.sigrok.session',
-    'vnd.SimTech-MindMapper',
-    'vnd.siren+json',
-    'vnd.smaf',
-    'vnd.smart.notebook',
-    'vnd.smart.teacher',
-    'vnd.smintio.portals.archive',
-    'vnd.snesdev-page-table',
-    'vnd.software602.filler.form+xml',
-    'vnd.software602.filler.form-xml-zip',
-    'vnd.solent.sdkm+xml',
-    'vnd.spotfire.dxp',
-    'vnd.spotfire.sfs',
-    'vnd.sqlite3',
-    'vnd.sss-cod',
-    'vnd.sss-dtf',
-    'vnd.sss-ntf',
-    'vnd.stepmania.package',
-    'vnd.stepmania.stepchart',
-    'vnd.street-stream',
-    'vnd.sun.wadl+xml',
-    'vnd.sus-calendar',
-    'vnd.svd',
-    'vnd.swiftview-ics',
-    'vnd.sybyl.mol2',
-    'vnd.sycle+xml',
-    'vnd.syft+json',
-    'vnd.syncml.dm.notification',
-    'vnd.syncml.dmddf+xml',
-    'vnd.syncml.dmtnds+wbxml',
-    'vnd.syncml.dmtnds+xml',
-    'vnd.syncml.dmddf+wbxml',
-    'vnd.syncml.dm+wbxml',
-    'vnd.syncml.dm+xml',
-    'vnd.syncml.ds.notification',
-    'vnd.syncml+xml',
-    'vnd.tableschema+json',
-    'vnd.tao.intent-module-archive',
-    'vnd.tcpdump.pcap',
-    'vnd.think-cell.ppttc+json',
-    'vnd.tml',
-    'vnd.tmd.mediaflex.api+xml',
-    'vnd.tmobile-livetv',
-    'vnd.tri.onesource',
-    'vnd.trid.tpt',
-    'vnd.triscape.mxs',
-    'vnd.trueapp',
-    'vnd.truedoc',
-    'vnd.ubisoft.webplayer',
-    'vnd.ufdl',
-    'vnd.uiq.theme',
-    'vnd.umajin',
-    'vnd.unity',
-    'vnd.uoml+xml',
-    'vnd.uplanet.alert',
-    'vnd.uplanet.alert-wbxml',
-    'vnd.uplanet.bearer-choice',
-    'vnd.uplanet.bearer-choice-wbxml',
-    'vnd.uplanet.cacheop',
-    'vnd.uplanet.cacheop-wbxml',
-    'vnd.uplanet.channel',
-    'vnd.uplanet.channel-wbxml',
-    'vnd.uplanet.list',
-    'vnd.uplanet.listcmd',
-    'vnd.uplanet.listcmd-wbxml',
-    'vnd.uplanet.list-wbxml',
-    'vnd.uri-map',
-    'vnd.uplanet.signal',
-    'vnd.valve.source.material',
-    'vnd.vcx',
-    'vnd.vd-study',
-    'vnd.vectorworks',
-    'vnd.vel+json',
-    'vnd.verimatrix.vcas',
-    'vnd.veritone.aion+json',
-    'vnd.veryant.thin',
-    'vnd.ves.encrypted',
-    'vnd.vidsoft.vidconference',
-    'vnd.visio',
-    'vnd.visionary',
-    'vnd.vividence.scriptfile',
-    'vnd.vsf',
-    'vnd.wap.sic',
-    'vnd.wap.slc',
-    'vnd.wap.wbxml',
-    'vnd.wap.wmlc',
-    'vnd.wap.wmlscriptc',
-    'vnd.wasmflow.wafl',
-    'vnd.webturbo',
-    'vnd.wfa.dpp',
-    'vnd.wfa.p2p',
-    'vnd.wfa.wsc',
-    'vnd.windows.devicepairing',
-    'vnd.wmc',
-    'vnd.wmf.bootstrap',
-    'vnd.wolfram.mathematica',
-    'vnd.wolfram.mathematica.package',
-    'vnd.wolfram.player',
-    'vnd.wordlift',
-    'vnd.wordperfect',
-    'vnd.wqd',
-    'vnd.wrq-hp3000-labelled',
-    'vnd.wt.stf',
-    'vnd.wv.csp+xml',
-    'vnd.wv.csp+wbxml',
-    'vnd.wv.ssp+xml',
-    'vnd.xacml+json',
-    'vnd.xara',
-    'vnd.xarin.cpj',
-    'vnd.xecrets-encrypted',
-    'vnd.xfdl',
-    'vnd.xfdl.webform',
-    'vnd.xmi+xml',
-    'vnd.xmpie.cpkg',
-    'vnd.xmpie.dpkg',
-    'vnd.xmpie.plan',
-    'vnd.xmpie.ppkg',
-    'vnd.xmpie.xlim',
-    'vnd.yamaha.hv-dic',
-    'vnd.yamaha.hv-script',
-    'vnd.yamaha.hv-voice',
-    'vnd.yamaha.openscoreformat.osfpvg+xml',
-    'vnd.yamaha.openscoreformat',
-    'vnd.yamaha.remote-setup',
-    'vnd.yamaha.smaf-audio',
-    'vnd.yamaha.smaf-phrase',
-    'vnd.yamaha.through-ngn',
-    'vnd.yamaha.tunnel-udpencap',
-    'vnd.yaoweme',
-    'vnd.yellowriver-custom-menu',
-    'vnd.youtube.yt',
-    'vnd.zul',
-    'vnd.zzazz.deck+xml',
-    'voicexml+xml',
-    'voucher-cms+json',
-    'vp',
-    'vq-rtcpxr',
-    'wasm',
-    'watcherinfo+xml',
-    'webpush-options+json',
-    'whoispp-query',
-    'whoispp-response',
-    'widget',
-    'wita',
-    'wordperfect5.1',
-    'wsdl+xml',
-    'wspolicy+xml',
-    'x-pki-message',
-    'x-www-form-urlencoded',
-    'x-x509-ca-cert',
-    'x-x509-ca-ra-cert',
-    'x-x509-next-ca-cert',
-    'x400-bp',
-    'xacml+xml',
-    'xcap-att+xml',
-    'xcap-caps+xml',
-    'xcap-diff+xml',
-    'xcap-el+xml',
-    'xcap-error+xml',
-    'xcap-ns+xml',
-    'xcon-conference-info-diff+xml',
-    'xcon-conference-info+xml',
-    'xenc+xml',
-    'xfdf',
-    'xhtml+xml',
-    'xliff+xml',
-    'xml',
-    'xml-dtd',
-    'xml-external-parsed-entity',
-    'xml-patch+xml',
-    'xmpp+xml',
-    'xop+xml',
-    'xslt+xml',
-    'xv+xml',
-    'yaml',
-    'yang',
-    'yang-data+cbor',
-    'yang-data+json',
-    'yang-data+xml',
-    'yang-patch+json',
-    'yang-patch+xml',
-    'yang-sid+json',
-    'yin+xml',
-    'zip',
-    'zlib',
-    'zstd',
-    '1d-interleaved-parityfec',
-    '32kadpcm',
-    '3gpp',
-    '3gpp2',
-    'aac',
-    'ac3',
-    'AMR',
-    'AMR-WB',
-    'amr-wb+',
-    'aptx',
-    'asc',
-    'ATRAC-ADVANCED-LOSSLESS',
-    'ATRAC-X',
-    'ATRAC3',
-    'basic',
-    'BV16',
-    'BV32',
-    'clearmode',
-    'CN',
-    'DAT12',
-    'dls',
-    'dsr-es201108',
-    'dsr-es202050',
-    'dsr-es202211',
-    'dsr-es202212',
-    'DV',
-    'DVI4',
-    'eac3',
-    'encaprtp',
-    'EVRC',
-    'EVRC-QCP',
-    'EVRC0',
-    'EVRC1',
-    'EVRCB',
-    'EVRCB0',
-    'EVRCB1',
-    'EVRCNW',
-    'EVRCNW0',
-    'EVRCNW1',
-    'EVRCWB',
-    'EVRCWB0',
-    'EVRCWB1',
-    'EVS',
-    'example',
-    'flac',
-    'flexfec',
-    'fwdred',
-    'G711-0',
-    'G719',
-    'G7221',
-    'G722',
-    'G723',
-    'G726-16',
-    'G726-24',
-    'G726-32',
-    'G726-40',
-    'G728',
-    'G729',
-    'G7291',
-    'G729D',
-    'G729E',
-    'GSM',
-    'GSM-EFR',
-    'GSM-HR-08',
-    'iLBC',
-    'ip-mr_v2.5',
-    'L8',
-    'L16',
-    'L20',
-    'L24',
-    'LPC',
-    'matroska',
-    'MELP',
-    'MELP600',
-    'MELP1200',
-    'MELP2400',
-    'mhas',
-    'midi-clip',
-    'mobile-xmf',
-    'MPA',
-    'mp4',
-    'MP4A-LATM',
-    'mpa-robust',
-    'mpeg',
-    'mpeg4-generic',
-    'ogg',
-    'opus',
-    'parityfec',
-    'PCMA',
-    'PCMA-WB',
-    'PCMU',
-    'PCMU-WB',
-    'prs.sid',
-    'QCELP',
-    'raptorfec',
-    'RED',
-    'rtp-enc-aescm128',
-    'rtploopback',
-    'rtp-midi',
-    'rtx',
-    'scip',
-    'SMV',
-    'SMV0',
-    'SMV-QCP',
-    'sofa',
-    'sp-midi',
-    'speex',
-    't140c',
-    't38',
-    'telephone-event',
-    'TETRA_ACELP',
-    'TETRA_ACELP_BB',
-    'tone',
-    'TSVCIS',
-    'UEMCLIP',
-    'ulpfec',
-    'usac',
-    'VDVI',
-    'VMR-WB',
-    'vnd.3gpp.iufp',
-    'vnd.4SB',
-    'vnd.audiokoz',
-    'vnd.CELP',
-    'vnd.cisco.nse',
-    'vnd.cmles.radio-events',
-    'vnd.cns.anp1',
-    'vnd.cns.inf1',
-    'vnd.dece.audio',
-    'vnd.digital-winds',
-    'vnd.dlna.adts',
-    'vnd.dolby.heaac.1',
-    'vnd.dolby.heaac.2',
-    'vnd.dolby.mlp',
-    'vnd.dolby.mps',
-    'vnd.dolby.pl2',
-    'vnd.dolby.pl2x',
-    'vnd.dolby.pl2z',
-    'vnd.dolby.pulse.1',
-    'vnd.dra',
-    'vnd.dts',
-    'vnd.dts.hd',
-    'vnd.dts.uhd',
-    'vnd.dvb.file',
-    'vnd.everad.plj',
-    'vnd.hns.audio',
-    'vnd.lucent.voice',
-    'vnd.ms-playready.media.pya',
-    'vnd.nokia.mobile-xmf',
-    'vnd.nortel.vbk',
-    'vnd.nuera.ecelp4800',
-    'vnd.nuera.ecelp7470',
-    'vnd.nuera.ecelp9600',
-    'vnd.octel.sbc',
-    'vnd.presonus.multitrack',
-    'vnd.qcelp - DEPRECATED in favor of audio/qcelp',
-    'vnd.rhetorex.32kadpcm',
-    'vnd.rip',
-    'vnd.sealedmedia.softseal.mpeg',
-    'vnd.vmx.cvsd',
-    'vorbis',
-    'vorbis-config',
-    'collection',
-    'otf',
-    'sfnt',
-    'ttf',
-    'woff',
-    'woff2',
-    'ivs',
-    'hjif',
-    'hmpg',
-
-    'aces',
-    'apng',
-    'avci',
-    'avcs',
-    'avif',
-    'bmp',
-    'cgm',
-    'dicom-rle',
-    'dpx',
-    'emf',
-    'example',
-    'fits',
-    'g3fax',
-    'gif',
-    'heic',
-    'heic-sequence',
-    'heif',
-    'heif-sequence',
-    'hej2k',
-    'hsj2',
-    'ief',
-    'j2c',
-    'jls',
-    'jp2',
-    'jpeg',
-    'jph',
-    'jphc',
-    'jpm',
-    'jpx',
-    'jxl',
-    'jxr',
-    'jxrA',
-    'jxrS',
-    'jxs',
-    'jxsc',
-    'jxsi',
-    'jxss',
-    'ktx',
-    'ktx2',
-    'naplps',
-    'png',
-    'prs.btif',
-    'prs.pti',
-    'pwg-raster',
-    'svg+xml',
-    't38',
-    'tiff',
-    'tiff-fx',
-    'vnd.adobe.photoshop',
-    'vnd.airzip.accelerator.azv',
-    'vnd.cns.inf2',
-    'vnd.dece.graphic',
-    'vnd.djvu',
-    'vnd.dwg',
-    'vnd.dxf',
-    'vnd.dvb.subtitle',
-    'vnd.fastbidsheet',
-    'vnd.fpx',
-    'vnd.fst',
-    'vnd.fujixerox.edmics-mmr',
-    'vnd.fujixerox.edmics-rlc',
-    'vnd.globalgraphics.pgb',
-    'vnd.microsoft.icon',
-    'vnd.mix',
-    'vnd.ms-modi',
-    'vnd.mozilla.apng',
-    'vnd.net-fpx',
-    'vnd.pco.b16',
-    'vnd.radiance',
-    'vnd.sealed.png',
-    'vnd.sealedmedia.softseal.gif',
-    'vnd.sealedmedia.softseal.jpg',
-    'vnd.svf',
-    'vnd.tencent.tap',
-    'vnd.valve.source.texture',
-    'vnd.wap.wbmp',
-    'vnd.xiff',
-    'vnd.zbrush.pcx',
-    'webp',
-    'wmf',
-    'x-emf - DEPRECATED in favor of image/emf',
-    'x-wmf - DEPRECATED in favor of image/wmf',
-    'bhttp',
-    'CPIM',
-    'delivery-status',
-    'disposition-notification',
-    'example',
-    'external-body',
-    'feedback-report',
-    'global',
-    'global-delivery-status',
-    'global-disposition-notification',
-    'global-headers',
-    'http',
-    'imdn+xml',
-    'mls',
-    'news (OBSOLETED by [RFC5537])',
-    'ohttp-req',
-    'ohttp-res',
-    'partial',
-    'rfc822',
-    's-http (OBSOLETE)',
-    'sip',
-    'sipfrag',
-    'tracking-status',
-    'vnd.si.simp (OBSOLETED by request)',
-    'vnd.wfa.wsc',
-    '3mf',
-    'e57',
-    'example',
-    'gltf-binary',
-    'gltf+json',
-    'JT',
-    'iges',
-    'mesh',
-    'mtl',
-    'obj',
-    'prc',
-    'step',
-    'step+xml',
-    'step+zip',
-    'step-xml+zip',
-    'stl',
-    'u3d',
-    'vnd.bary',
-    'vnd.cld',
-    'vnd.collada+xml',
-    'vnd.dwf',
-    'vnd.flatland.3dml',
-    'vnd.gdl',
-    'vnd.gs-gdl',
-    'vnd.gtw',
-    'vnd.moml+xml',
-    'vnd.mts',
-    'vnd.opengex',
-    'vnd.parasolid.transmit.binary',
-    'vnd.parasolid.transmit.text',
-    'vnd.pytha.pyox',
-    'vnd.rosette.annotated-data-model',
-    'vnd.sap.vds',
-    'vnd.usda',
-    'vnd.usdz+zip',
-    'vnd.valve.source.compiled-map',
-    'vnd.vtu',
-    'vrml',
-    'x3d-vrml',
-    'x3d+fastinfoset',
-    'x3d+xml',
-    'alternative',
-    'appledouble',
-    'byteranges',
-    'digest',
-    'encrypted',
-    'example',
-    'form-data',
-    'header-set',
-    'mixed',
-    'multilingual',
-    'parallel',
-    'related',
-    'report',
-    'signed',
-    'vnd.bint.med-plus',
-    'voice-message',
-    'x-mixed-replace',
-  ],
-  [
+export var MediaTypesMap = {
+  '1d-interleaved-parityfec': [
     'application/1d-interleaved-parityfec',
-    'application/3gpdash-qoe-report+xml',
-    'application/3gppHal+json',
-    'application/3gppHalForms+json',
-    'application/3gpp-ims+xml',
-    'application/A2L',
-    'application/ace-groupcomm+cbor',
-    'application/ace+cbor',
-    'application/ace+json',
-    'application/activemessage',
-    'application/activity+json',
-    'application/aif+cbor',
-    'application/aif+json',
-    'application/alto-cdni+json',
-    'application/alto-cdnifilter+json',
-    'application/alto-costmap+json',
-    'application/alto-costmapfilter+json',
-    'application/alto-directory+json',
-    'application/alto-endpointprop+json',
-    'application/alto-endpointpropparams+json',
-    'application/alto-endpointcost+json',
-    'application/alto-endpointcostparams+json',
-    'application/alto-error+json',
-    'application/alto-networkmapfilter+json',
-    'application/alto-networkmap+json',
-    'application/alto-propmap+json',
-    'application/alto-propmapparams+json',
-    'application/alto-tips+json',
-    'application/alto-tipsparams+json',
-    'application/alto-updatestreamcontrol+json',
-    'application/alto-updatestreamparams+json',
-    'application/AML',
-    'application/andrew-inset',
-    'application/applefile',
-    'application/at+jwt',
-    'application/ATF',
-    'application/ATFX',
-    'application/atom+xml',
-    'application/atomcat+xml',
-    'application/atomdeleted+xml',
-    'application/atomicmail',
-    'application/atomsvc+xml',
-    'application/atsc-dwd+xml',
-    'application/atsc-dynamic-event-message',
-    'application/atsc-held+xml',
-    'application/atsc-rdt+json',
-    'application/atsc-rsat+xml',
-    'application/ATXML',
-    'application/auth-policy+xml',
-    'application/automationml-aml+xml',
-    'application/automationml-amlx+zip',
-    'application/bacnet-xdd+zip',
-    'application/batch-SMTP',
-    'application/beep+xml',
-    'application/bufr',
-    'application/c2pa',
-    'application/calendar+json',
-    'application/calendar+xml',
-    'application/call-completion',
-    'application/CALS-1840',
-    'application/captive+json',
-    'application/cbor',
-    'application/cbor-seq',
-    'application/cccex',
-    'application/ccmp+xml',
-    'application/ccxml+xml',
-    'application/cda+xml',
-    'application/CDFX+XML',
-    'application/cdmi-capability',
-    'application/cdmi-container',
-    'application/cdmi-domain',
-    'application/cdmi-object',
-    'application/cdmi-queue',
-    'application/cdni',
-    'application/CEA',
-    'application/cea-2018+xml',
-    'application/cellml+xml',
-    'application/cfw',
-    'application/cid-edhoc+cbor-seq',
-    'application/city+json',
-    'application/clr',
-    'application/clue_info+xml',
-    'application/clue+xml',
-    'application/cms',
-    'application/cnrp+xml',
-    'application/coap-group+json',
-    'application/coap-payload',
-    'application/commonground',
-    'application/concise-problem-details+cbor',
-    'application/conference-info+xml',
-    'application/cpl+xml',
-    'application/cose',
-    'application/cose-key',
-    'application/cose-key-set',
-    'application/cose-x509',
-    'application/csrattrs',
-    'application/csta+xml',
-    'application/CSTAdata+xml',
-    'application/csvm+json',
-    'application/cwl',
-    'application/cwl+json',
-    'application/cwl+yaml',
-    'application/cwt',
-    'application/cybercash',
-    'application/dash+xml',
-    'application/dash-patch+xml',
-    'application/dashdelta',
-    'application/davmount+xml',
-    'application/dca-rft',
-    'application/DCD',
-    'application/dec-dx',
-    'application/dialog-info+xml',
-    'application/dicom',
-    'application/dicom+json',
-    'application/dicom+xml',
-    'application/DII',
-    'application/DIT',
-    'application/dns',
-    'application/dns+json',
-    'application/dns-message',
-    'application/dots+cbor',
-    'application/dpop+jwt',
-    'application/dskpp+xml',
-    'application/dssc+der',
-    'application/dssc+xml',
-    'application/dvcs',
-    'application/ecmascript',
-    'application/edhoc+cbor-seq',
-    'application/EDI-consent',
-    'application/EDIFACT',
-    'application/EDI-X12',
-    'application/efi',
-    'application/elm+json',
-    'application/elm+xml',
-    'application/EmergencyCallData.cap+xml',
-    'application/EmergencyCallData.Comment+xml',
-    'application/EmergencyCallData.Control+xml',
-    'application/EmergencyCallData.DeviceInfo+xml',
-    'application/EmergencyCallData.eCall.MSD',
-    'application/EmergencyCallData.LegacyESN+json',
-    'application/EmergencyCallData.ProviderInfo+xml',
-    'application/EmergencyCallData.ServiceInfo+xml',
-    'application/EmergencyCallData.SubscriberInfo+xml',
-    'application/EmergencyCallData.VEDS+xml',
-    'application/emma+xml',
-    'application/emotionml+xml',
-    'application/encaprtp',
-    'application/epp+xml',
-    'application/epub+zip',
-    'application/eshop',
-    'application/example',
-    'application/exi',
-    'application/expect-ct-report+json',
-    'application/express',
-    'application/fastinfoset',
-    'application/fastsoap',
-    'application/fdf',
-    'application/fdt+xml',
-    'application/fhir+json',
-    'application/fhir+xml',
-    'application/fits',
-    'application/flexfec',
-    'application/font-sfnt',
-    'application/font-tdpfr',
-    'application/font-woff',
-    'application/framework-attributes+xml',
-    'application/geo+json',
-    'application/geo+json-seq',
-    'application/geopackage+sqlite3',
-    'application/geopose+json',
-    'application/geoxacml+json',
-    'application/geoxacml+xml',
-    'application/gltf-buffer',
-    'application/gml+xml',
-    'application/gnap-binding-jws',
-    'application/gnap-binding-jwsd',
-    'application/gnap-binding-rotation-jws',
-    'application/gnap-binding-rotation-jwsd',
-    'application/grib',
-    'application/gzip',
-    'application/H224',
-    'application/held+xml',
-    'application/hl7v2+xml',
-    'application/http',
-    'application/hyperstudio',
-    'application/ibe-key-request+xml',
-    'application/ibe-pkg-reply+xml',
-    'application/ibe-pp-data',
-    'application/iges',
-    'application/im-iscomposing+xml',
-    'application/index',
-    'application/index.cmd',
-    'application/index.obj',
-    'application/index.response',
-    'application/index.vnd',
-    'application/inkml+xml',
-    'application/IOTP',
-    'application/ipfix',
-    'application/ipp',
-    'application/ISUP',
-    'application/its+xml',
-    'application/java-archive',
-    'application/javascript',
-    'application/jf2feed+json',
-    'application/jose',
-    'application/jose+json',
-    'application/jrd+json',
-    'application/jscalendar+json',
-    'application/jscontact+json',
-    'application/json',
-    'application/json-patch+json',
-    'application/json-seq',
-    'application/jsonpath',
-    'application/jwk+json',
-    'application/jwk-set+json',
-    'application/jwt',
-    'application/kpml-request+xml',
-    'application/kpml-response+xml',
-    'application/ld+json',
-    'application/lgr+xml',
-    'application/link-format',
-    'application/linkset',
-    'application/linkset+json',
-    'application/load-control+xml',
-    'application/logout+jwt',
-    'application/lost+xml',
-    'application/lostsync+xml',
-    'application/lpf+zip',
-    'application/LXF',
-    'application/mac-binhex40',
-    'application/macwriteii',
-    'application/mads+xml',
-    'application/manifest+json',
-    'application/marc',
-    'application/marcxml+xml',
-    'application/mathematica',
-    'application/mathml+xml',
-    'application/mathml-content+xml',
-    'application/mathml-presentation+xml',
-    'application/mbms-associated-procedure-description+xml',
-    'application/mbms-deregister+xml',
-    'application/mbms-envelope+xml',
-    'application/mbms-msk-response+xml',
-    'application/mbms-msk+xml',
-    'application/mbms-protection-description+xml',
-    'application/mbms-reception-report+xml',
-    'application/mbms-register-response+xml',
-    'application/mbms-register+xml',
-    'application/mbms-schedule+xml',
-    'application/mbms-user-service-description+xml',
-    'application/mbox',
-    'application/media_control+xml',
-    'application/media-policy-dataset+xml',
-    'application/mediaservercontrol+xml',
-    'application/merge-patch+json',
-    'application/metalink4+xml',
-    'application/mets+xml',
-    'application/MF4',
-    'application/mikey',
-    'application/mipc',
-    'application/missing-blocks+cbor-seq',
-    'application/mmt-aei+xml',
-    'application/mmt-usd+xml',
-    'application/mods+xml',
-    'application/moss-keys',
-    'application/moss-signature',
-    'application/mosskey-data',
-    'application/mosskey-request',
-    'application/mp21',
-    'application/mp4',
-    'application/mpeg4-generic',
-    'application/mpeg4-iod',
-    'application/mpeg4-iod-xmt',
-    'application/mrb-consumer+xml',
-    'application/mrb-publish+xml',
-    'application/msc-ivr+xml',
-    'application/msc-mixer+xml',
-    'application/msword',
-    'application/mud+json',
-    'application/multipart-core',
-    'application/mxf',
-    'application/n-quads',
-    'application/n-triples',
-    'application/nasdata',
-    'application/news-checkgroups',
-    'application/news-groupinfo',
-    'application/news-transmission',
-    'application/nlsml+xml',
-    'application/node',
-    'application/nss',
-    'application/oauth-authz-req+jwt',
-    'application/oblivious-dns-message',
-    'application/ocsp-request',
-    'application/ocsp-response',
-    'application/octet-stream',
-    'application/ODA',
-    'application/odm+xml',
-    'application/ODX',
-    'application/oebps-package+xml',
-    'application/ogg',
-    'application/ohttp-keys',
-    'application/opc-nodeset+xml',
-    'application/oscore',
-    'application/oxps',
-    'application/p21',
-    'application/p21+zip',
-    'application/p2p-overlay+xml',
-    'application/parityfec',
-    'application/passport',
-    'application/patch-ops-error+xml',
-    'application/pdf',
-    'application/PDX',
-    'application/pem-certificate-chain',
-    'application/pgp-encrypted',
-    'application/pgp-keys',
-    'application/pgp-signature',
-    'application/pidf-diff+xml',
-    'application/pidf+xml',
-    'application/pkcs10',
-    'application/pkcs7-mime',
-    'application/pkcs7-signature',
-    'application/pkcs8',
-    'application/pkcs8-encrypted',
-    'application/pkcs12',
-    'application/pkix-attr-cert',
-    'application/pkix-cert',
-    'application/pkix-crl',
-    'application/pkix-pkipath',
-    'application/pkixcmp',
-    'application/pls+xml',
-    'application/poc-settings+xml',
-    'application/postscript',
-    'application/ppsp-tracker+json',
-    'application/private-token-issuer-directory',
-    'application/private-token-request',
-    'application/private-token-response',
-    'application/problem+json',
-    'application/problem+xml',
-    'application/provenance+xml',
-    'application/prs.alvestrand.titrax-sheet',
-    'application/prs.cww',
-    'application/prs.cyn',
-    'application/prs.hpub+zip',
-    'application/prs.implied-document+xml',
-    'application/prs.implied-executable',
-    'application/prs.implied-object+json',
-    'application/prs.implied-object+json-seq',
-    'application/prs.implied-object+yaml',
-    'application/prs.implied-structure',
-    'application/prs.mayfile',
-    'application/prs.nprend',
-    'application/prs.plucker',
-    'application/prs.rdf-xml-crypt',
-    'application/prs.vcfbzip2',
-    'application/prs.xsf+xml',
-    'application/pskc+xml',
-    'application/pvd+json',
-    'application/rdf+xml',
-    'application/route-apd+xml',
-    'application/route-s-tsid+xml',
-    'application/route-usd+xml',
-    'application/QSIG',
-    'application/raptorfec',
-    'application/rdap+json',
-    'application/reginfo+xml',
-    'application/relax-ng-compact-syntax',
-    'application/remote-printing',
-    'application/reputon+json',
-    'application/resource-lists-diff+xml',
-    'application/resource-lists+xml',
-    'application/rfc+xml',
-    'application/riscos',
-    'application/rlmi+xml',
-    'application/rls-services+xml',
-    'application/rpki-checklist',
-    'application/rpki-ghostbusters',
-    'application/rpki-manifest',
-    'application/rpki-publication',
-    'application/rpki-roa',
-    'application/rpki-signed-tal',
-    'application/rpki-updown',
-    'application/rtf',
-    'application/rtploopback',
-    'application/rtx',
-    'application/samlassertion+xml',
-    'application/samlmetadata+xml',
-    'application/sarif-external-properties+json',
-    'application/sarif+json',
-    'application/sbe',
-    'application/sbml+xml',
-    'application/scaip+xml',
-    'application/scim+json',
-    'application/scvp-cv-request',
-    'application/scvp-cv-response',
-    'application/scvp-vp-request',
-    'application/scvp-vp-response',
-    'application/sdp',
-    'application/secevent+jwt',
-    'application/senml-etch+cbor',
-    'application/senml-etch+json',
-    'application/senml-exi',
-    'application/senml+cbor',
-    'application/senml+json',
-    'application/senml+xml',
-    'application/sensml-exi',
-    'application/sensml+cbor',
-    'application/sensml+json',
-    'application/sensml+xml',
-    'application/sep-exi',
-    'application/sep+xml',
-    'application/session-info',
-    'application/set-payment',
-    'application/set-payment-initiation',
-    'application/set-registration',
-    'application/set-registration-initiation',
-    'application/SGML',
-    'application/sgml-open-catalog',
-    'application/shf+xml',
-    'application/sieve',
-    'application/simple-filter+xml',
-    'application/simple-message-summary',
-    'application/simpleSymbolContainer',
-    'application/sipc',
-    'application/slate',
-    'application/smil',
-    'application/smil+xml',
-    'application/smpte336m',
-    'application/soap+fastinfoset',
-    'application/soap+xml',
-    'application/sparql-query',
-    'application/spdx+json',
-    'application/sparql-results+xml',
-    'application/spirits-event+xml',
-    'application/sql',
-    'application/srgs',
-    'application/srgs+xml',
-    'application/sru+xml',
-    'application/sslkeylogfile',
-    'application/ssml+xml',
-    'application/ST2110-41',
-    'application/stix+json',
-    'application/stratum',
-    'application/swid+cbor',
-    'application/swid+xml',
-    'application/tamp-apex-update',
-    'application/tamp-apex-update-confirm',
-    'application/tamp-community-update',
-    'application/tamp-community-update-confirm',
-    'application/tamp-error',
-    'application/tamp-sequence-adjust',
-    'application/tamp-sequence-adjust-confirm',
-    'application/tamp-status-query',
-    'application/tamp-status-response',
-    'application/tamp-update',
-    'application/tamp-update-confirm',
-    'application/taxii+json',
-    'application/td+json',
-    'application/tei+xml',
-    'application/TETRA_ISI',
-    'application/thraud+xml',
-    'application/timestamp-query',
-    'application/timestamp-reply',
-    'application/timestamped-data',
-    'application/tlsrpt+gzip',
-    'application/tlsrpt+json',
-    'application/tm+json',
-    'application/tnauthlist',
-    'application/token-introspection+jwt',
-    'application/trickle-ice-sdpfrag',
-    'application/trig',
-    'application/ttml+xml',
-    'application/tve-trigger',
-    'application/tzif',
-    'application/tzif-leap',
-    'application/ulpfec',
-    'application/urc-grpsheet+xml',
-    'application/urc-ressheet+xml',
-    'application/urc-targetdesc+xml',
-    'application/urc-uisocketdesc+xml',
-    'application/vc',
-    'application/vcard+json',
-    'application/vcard+xml',
-    'application/vemmi',
-    'application/vnd.1000minds.decision-model+xml',
-    'application/vnd.1ob',
-    'application/vnd.3gpp.5gnas',
-    'application/vnd.3gpp.5gsa2x',
-    'application/vnd.3gpp.5gsa2x-local-service-information',
-    'application/vnd.3gpp.access-transfer-events+xml',
-    'application/vnd.3gpp.bsf+xml',
-    'application/vnd.3gpp.crs+xml',
-    'application/vnd.3gpp.current-location-discovery+xml',
-    'application/vnd.3gpp.GMOP+xml',
-    'application/vnd.3gpp.gtpc',
-    'application/vnd.3gpp.interworking-data',
-    'application/vnd.3gpp.lpp',
-    'application/vnd.3gpp.mc-signalling-ear',
-    'application/vnd.3gpp.mcdata-affiliation-command+xml',
-    'application/vnd.3gpp.mcdata-info+xml',
-    'application/vnd.3gpp.mcdata-msgstore-ctrl-request+xml',
-    'application/vnd.3gpp.mcdata-payload',
-    'application/vnd.3gpp.mcdata-regroup+xml',
-    'application/vnd.3gpp.mcdata-service-config+xml',
-    'application/vnd.3gpp.mcdata-signalling',
-    'application/vnd.3gpp.mcdata-ue-config+xml',
-    'application/vnd.3gpp.mcdata-user-profile+xml',
-    'application/vnd.3gpp.mcptt-affiliation-command+xml',
-    'application/vnd.3gpp.mcptt-floor-request+xml',
-    'application/vnd.3gpp.mcptt-info+xml',
-    'application/vnd.3gpp.mcptt-location-info+xml',
-    'application/vnd.3gpp.mcptt-mbms-usage-info+xml',
-    'application/vnd.3gpp.mcptt-regroup+xml',
-    'application/vnd.3gpp.mcptt-service-config+xml',
-    'application/vnd.3gpp.mcptt-signed+xml',
-    'application/vnd.3gpp.mcptt-ue-config+xml',
-    'application/vnd.3gpp.mcptt-ue-init-config+xml',
-    'application/vnd.3gpp.mcptt-user-profile+xml',
-    'application/vnd.3gpp.mcvideo-affiliation-command+xml',
-    'application/vnd.3gpp.mcvideo-affiliation-info+xml',
-    'application/vnd.3gpp.mcvideo-info+xml',
-    'application/vnd.3gpp.mcvideo-location-info+xml',
-    'application/vnd.3gpp.mcvideo-mbms-usage-info+xml',
-    'application/vnd.3gpp.mcvideo-regroup+xml',
-    'application/vnd.3gpp.mcvideo-service-config+xml',
-    'application/vnd.3gpp.mcvideo-transmission-request+xml',
-    'application/vnd.3gpp.mcvideo-ue-config+xml',
-    'application/vnd.3gpp.mcvideo-user-profile+xml',
-    'application/vnd.3gpp.mid-call+xml',
-    'application/vnd.3gpp.ngap',
-    'application/vnd.3gpp.pfcp',
-    'application/vnd.3gpp.pic-bw-large',
-    'application/vnd.3gpp.pic-bw-small',
-    'application/vnd.3gpp.pic-bw-var',
-    'application/vnd.3gpp.pinapp-info+xml',
-    'application/vnd.3gpp-prose-pc3a+xml',
-    'application/vnd.3gpp-prose-pc3ach+xml',
-    'application/vnd.3gpp-prose-pc3ch+xml',
-    'application/vnd.3gpp-prose-pc8+xml',
-    'application/vnd.3gpp-prose+xml',
-    'application/vnd.3gpp.s1ap',
-    'application/vnd.3gpp.seal-group-doc+xml',
-    'application/vnd.3gpp.seal-info+xml',
-    'application/vnd.3gpp.seal-location-info+xml',
-    'application/vnd.3gpp.seal-mbms-usage-info+xml',
-    'application/vnd.3gpp.seal-network-QoS-management-info+xml',
-    'application/vnd.3gpp.seal-ue-config-info+xml',
-    'application/vnd.3gpp.seal-unicast-info+xml',
-    'application/vnd.3gpp.seal-user-profile-info+xml',
-    'application/vnd.3gpp.sms',
-    'application/vnd.3gpp.sms+xml',
-    'application/vnd.3gpp.srvcc-ext+xml',
-    'application/vnd.3gpp.SRVCC-info+xml',
-    'application/vnd.3gpp.state-and-event-info+xml',
-    'application/vnd.3gpp.ussd+xml',
-    'application/vnd.3gpp.vae-info+xml',
-    'application/vnd.3gpp-v2x-local-service-information',
-    'application/vnd.3gpp2.bcmcsinfo+xml',
-    'application/vnd.3gpp2.sms',
-    'application/vnd.3gpp2.tcap',
-    'application/vnd.3gpp.v2x',
-    'application/vnd.3lightssoftware.imagescal',
-    'application/vnd.3M.Post-it-Notes',
-    'application/vnd.accpac.simply.aso',
-    'application/vnd.accpac.simply.imp',
-    'application/vnd.acm.addressxfer+json',
-    'application/vnd.acm.chatbot+json',
-    'application/vnd.acucobol',
-    'application/vnd.acucorp',
-    'application/vnd.adobe.flash.movie',
-    'application/vnd.adobe.formscentral.fcdt',
-    'application/vnd.adobe.fxp',
-    'application/vnd.adobe.partial-upload',
-    'application/vnd.adobe.xdp+xml',
-    'application/vnd.aether.imp',
-    'application/vnd.afpc.afplinedata',
-    'application/vnd.afpc.afplinedata-pagedef',
-    'application/vnd.afpc.cmoca-cmresource',
-    'application/vnd.afpc.foca-charset',
-    'application/vnd.afpc.foca-codedfont',
-    'application/vnd.afpc.foca-codepage',
-    'application/vnd.afpc.modca',
-    'application/vnd.afpc.modca-cmtable',
-    'application/vnd.afpc.modca-formdef',
-    'application/vnd.afpc.modca-mediummap',
-    'application/vnd.afpc.modca-objectcontainer',
-    'application/vnd.afpc.modca-overlay',
-    'application/vnd.afpc.modca-pagesegment',
-    'application/vnd.age',
-    'application/vnd.ah-barcode',
-    'application/vnd.ahead.space',
-    'application/vnd.airzip.filesecure.azf',
-    'application/vnd.airzip.filesecure.azs',
-    'application/vnd.amadeus+json',
-    'application/vnd.amazon.mobi8-ebook',
-    'application/vnd.americandynamics.acc',
-    'application/vnd.amiga.ami',
-    'application/vnd.amundsen.maze+xml',
-    'application/vnd.android.ota',
-    'application/vnd.anki',
-    'application/vnd.anser-web-certificate-issue-initiation',
-    'application/vnd.antix.game-component',
-    'application/vnd.apache.arrow.file',
-    'application/vnd.apache.arrow.stream',
-    'application/vnd.apache.parquet',
-    'application/vnd.apache.thrift.binary',
-    'application/vnd.apache.thrift.compact',
-    'application/vnd.apache.thrift.json',
-    'application/vnd.apexlang',
-    'application/vnd.api+json',
-    'application/vnd.aplextor.warrp+json',
-    'application/vnd.apothekende.reservation+json',
-    'application/vnd.apple.installer+xml',
-    'application/vnd.apple.keynote',
-    'application/vnd.apple.mpegurl',
-    'application/vnd.apple.numbers',
-    'application/vnd.apple.pages',
-    'application/vnd.arastra.swi',
-    'application/vnd.aristanetworks.swi',
-    'application/vnd.artisan+json',
-    'application/vnd.artsquare',
-    'application/vnd.astraea-software.iota',
-    'application/vnd.audiograph',
-    'application/vnd.autopackage',
-    'application/vnd.avalon+json',
-    'application/vnd.avistar+xml',
-    'application/vnd.balsamiq.bmml+xml',
-    'application/vnd.banana-accounting',
-    'application/vnd.bbf.usp.error',
-    'application/vnd.bbf.usp.msg',
-    'application/vnd.bbf.usp.msg+json',
-    'application/vnd.balsamiq.bmpr',
-    'application/vnd.bekitzur-stech+json',
-    'application/vnd.belightsoft.lhzd+zip',
-    'application/vnd.belightsoft.lhzl+zip',
-    'application/vnd.bint.med-content',
-    'application/vnd.biopax.rdf+xml',
-    'application/vnd.blink-idb-value-wrapper',
-    'application/vnd.blueice.multipass',
-    'application/vnd.bluetooth.ep.oob',
-    'application/vnd.bluetooth.le.oob',
-    'application/vnd.bmi',
-    'application/vnd.bpf',
-    'application/vnd.bpf3',
-    'application/vnd.businessobjects',
-    'application/vnd.byu.uapi+json',
-    'application/vnd.bzip3',
-    'application/vnd.c3voc.schedule+xml',
-    'application/vnd.cab-jscript',
-    'application/vnd.canon-cpdl',
-    'application/vnd.canon-lips',
-    'application/vnd.capasystems-pg+json',
-    'application/vnd.cendio.thinlinc.clientconf',
-    'application/vnd.century-systems.tcp_stream',
-    'application/vnd.chemdraw+xml',
-    'application/vnd.chess-pgn',
-    'application/vnd.chipnuts.karaoke-mmd',
-    'application/vnd.ciedi',
-    'application/vnd.cinderella',
-    'application/vnd.cirpack.isdn-ext',
-    'application/vnd.citationstyles.style+xml',
-    'application/vnd.claymore',
-    'application/vnd.cloanto.rp9',
-    'application/vnd.clonk.c4group',
-    'application/vnd.cluetrust.cartomobile-config',
-    'application/vnd.cluetrust.cartomobile-config-pkg',
-    'application/vnd.cncf.helm.chart.content.v1.tar+gzip',
-    'application/vnd.cncf.helm.chart.provenance.v1.prov',
-    'application/vnd.cncf.helm.config.v1+json',
-    'application/vnd.coffeescript',
-    'application/vnd.collabio.xodocuments.document',
-    'application/vnd.collabio.xodocuments.document-template',
-    'application/vnd.collabio.xodocuments.presentation',
-    'application/vnd.collabio.xodocuments.presentation-template',
-    'application/vnd.collabio.xodocuments.spreadsheet',
-    'application/vnd.collabio.xodocuments.spreadsheet-template',
-    'application/vnd.collection.doc+json',
-    'application/vnd.collection+json',
-    'application/vnd.collection.next+json',
-    'application/vnd.comicbook-rar',
-    'application/vnd.comicbook+zip',
-    'application/vnd.commerce-battelle',
-    'application/vnd.commonspace',
-    'application/vnd.coreos.ignition+json',
-    'application/vnd.cosmocaller',
-    'application/vnd.contact.cmsg',
-    'application/vnd.crick.clicker',
-    'application/vnd.crick.clicker.keyboard',
-    'application/vnd.crick.clicker.palette',
-    'application/vnd.crick.clicker.template',
-    'application/vnd.crick.clicker.wordbank',
-    'application/vnd.criticaltools.wbs+xml',
-    'application/vnd.cryptii.pipe+json',
-    'application/vnd.crypto-shade-file',
-    'application/vnd.cryptomator.encrypted',
-    'application/vnd.cryptomator.vault',
-    'application/vnd.ctc-posml',
-    'application/vnd.ctct.ws+xml',
-    'application/vnd.cups-pdf',
-    'application/vnd.cups-postscript',
-    'application/vnd.cups-ppd',
-    'application/vnd.cups-raster',
-    'application/vnd.cups-raw',
-    'application/vnd.curl',
-    'application/vnd.cyan.dean.root+xml',
-    'application/vnd.cybank',
-    'application/vnd.cyclonedx+json',
-    'application/vnd.cyclonedx+xml',
-    'application/vnd.d2l.coursepackage1p0+zip',
-    'application/vnd.d3m-dataset',
-    'application/vnd.d3m-problem',
-    'application/vnd.dart',
-    'application/vnd.data-vision.rdz',
-    'application/vnd.datalog',
-    'application/vnd.datapackage+json',
-    'application/vnd.dataresource+json',
-    'application/vnd.dbf',
-    'application/vnd.debian.binary-package',
-    'application/vnd.dece.data',
-    'application/vnd.dece.ttml+xml',
-    'application/vnd.dece.unspecified',
-    'application/vnd.dece.zip',
-    'application/vnd.denovo.fcselayout-link',
-    'application/vnd.desmume.movie',
-    'application/vnd.dir-bi.plate-dl-nosuffix',
-    'application/vnd.dm.delegation+xml',
-    'application/vnd.dna',
-    'application/vnd.document+json',
-    'application/vnd.dolby.mobile.1',
-    'application/vnd.dolby.mobile.2',
-    'application/vnd.doremir.scorecloud-binary-document',
-    'application/vnd.dpgraph',
-    'application/vnd.dreamfactory',
-    'application/vnd.drive+json',
-    'application/vnd.dtg.local',
-    'application/vnd.dtg.local.flash',
-    'application/vnd.dtg.local.html',
-    'application/vnd.dvb.ait',
-    'application/vnd.dvb.dvbisl+xml',
-    'application/vnd.dvb.dvbj',
-    'application/vnd.dvb.esgcontainer',
-    'application/vnd.dvb.ipdcdftnotifaccess',
-    'application/vnd.dvb.ipdcesgaccess',
-    'application/vnd.dvb.ipdcesgaccess2',
-    'application/vnd.dvb.ipdcesgpdd',
-    'application/vnd.dvb.ipdcroaming',
-    'application/vnd.dvb.iptv.alfec-base',
-    'application/vnd.dvb.iptv.alfec-enhancement',
-    'application/vnd.dvb.notif-aggregate-root+xml',
-    'application/vnd.dvb.notif-container+xml',
-    'application/vnd.dvb.notif-generic+xml',
-    'application/vnd.dvb.notif-ia-msglist+xml',
-    'application/vnd.dvb.notif-ia-registration-request+xml',
-    'application/vnd.dvb.notif-ia-registration-response+xml',
-    'application/vnd.dvb.notif-init+xml',
-    'application/vnd.dvb.pfr',
-    'application/vnd.dvb.service',
-    'application/vnd.dxr',
-    'application/vnd.dynageo',
-    'application/vnd.dzr',
-    'application/vnd.easykaraoke.cdgdownload',
-    'application/vnd.ecip.rlp',
-    'application/vnd.ecdis-update',
-    'application/vnd.eclipse.ditto+json',
-    'application/vnd.ecowin.chart',
-    'application/vnd.ecowin.filerequest',
-    'application/vnd.ecowin.fileupdate',
-    'application/vnd.ecowin.series',
-    'application/vnd.ecowin.seriesrequest',
-    'application/vnd.ecowin.seriesupdate',
-    'application/vnd.efi.img',
-    'application/vnd.efi.iso',
-    'application/vnd.eln+zip',
-    'application/vnd.emclient.accessrequest+xml',
-    'application/vnd.enliven',
-    'application/vnd.enphase.envoy',
-    'application/vnd.eprints.data+xml',
-    'application/vnd.epson.esf',
-    'application/vnd.epson.msf',
-    'application/vnd.epson.quickanime',
-    'application/vnd.epson.salt',
-    'application/vnd.epson.ssf',
-    'application/vnd.ericsson.quickcall',
-    'application/vnd.erofs',
-    'application/vnd.espass-espass+zip',
-    'application/vnd.eszigno3+xml',
-    'application/vnd.etsi.aoc+xml',
-    'application/vnd.etsi.asic-s+zip',
-    'application/vnd.etsi.asic-e+zip',
-    'application/vnd.etsi.cug+xml',
-    'application/vnd.etsi.iptvcommand+xml',
-    'application/vnd.etsi.iptvdiscovery+xml',
-    'application/vnd.etsi.iptvprofile+xml',
-    'application/vnd.etsi.iptvsad-bc+xml',
-    'application/vnd.etsi.iptvsad-cod+xml',
-    'application/vnd.etsi.iptvsad-npvr+xml',
-    'application/vnd.etsi.iptvservice+xml',
-    'application/vnd.etsi.iptvsync+xml',
-    'application/vnd.etsi.iptvueprofile+xml',
-    'application/vnd.etsi.mcid+xml',
-    'application/vnd.etsi.mheg5',
-    'application/vnd.etsi.overload-control-policy-dataset+xml',
-    'application/vnd.etsi.pstn+xml',
-    'application/vnd.etsi.sci+xml',
-    'application/vnd.etsi.simservs+xml',
-    'application/vnd.etsi.timestamp-token',
-    'application/vnd.etsi.tsl+xml',
-    'application/vnd.etsi.tsl.der',
-    'application/vnd.eu.kasparian.car+json',
-    'application/vnd.eudora.data',
-    'application/vnd.evolv.ecig.profile',
-    'application/vnd.evolv.ecig.settings',
-    'application/vnd.evolv.ecig.theme',
-    'application/vnd.exstream-empower+zip',
-    'application/vnd.exstream-package',
-    'application/vnd.ezpix-album',
-    'application/vnd.ezpix-package',
-    'application/vnd.f-secure.mobile',
-    'application/vnd.fastcopy-disk-image',
-    'application/vnd.familysearch.gedcom+zip',
-    'application/vnd.fdsn.mseed',
-    'application/vnd.fdsn.seed',
-    'application/vnd.ffsns',
-    'application/vnd.ficlab.flb+zip',
-    'application/vnd.filmit.zfc',
-    'application/vnd.fints',
-    'application/vnd.firemonkeys.cloudcell',
-    'application/vnd.FloGraphIt',
-    'application/vnd.fluxtime.clip',
-    'application/vnd.font-fontforge-sfd',
-    'application/vnd.framemaker',
-    'application/vnd.freelog.comic',
-    'application/vnd.frogans.fnc',
-    'application/vnd.frogans.ltf',
-    'application/vnd.fsc.weblaunch',
-    'application/vnd.fujifilm.fb.docuworks',
-    'application/vnd.fujifilm.fb.docuworks.binder',
-    'application/vnd.fujifilm.fb.docuworks.container',
-    'application/vnd.fujifilm.fb.jfi+xml',
-    'application/vnd.fujitsu.oasys',
-    'application/vnd.fujitsu.oasys2',
-    'application/vnd.fujitsu.oasys3',
-    'application/vnd.fujitsu.oasysgp',
-    'application/vnd.fujitsu.oasysprs',
-    'application/vnd.fujixerox.ART4',
-    'application/vnd.fujixerox.ART-EX',
-    'application/vnd.fujixerox.ddd',
-    'application/vnd.fujixerox.docuworks',
-    'application/vnd.fujixerox.docuworks.binder',
-    'application/vnd.fujixerox.docuworks.container',
-    'application/vnd.fujixerox.HBPL',
-    'application/vnd.fut-misnet',
-    'application/vnd.futoin+cbor',
-    'application/vnd.futoin+json',
-    'application/vnd.fuzzysheet',
-    'application/vnd.ga4gh.passport+jwt',
-    'application/vnd.genomatix.tuxedo',
-    'application/vnd.genozip',
-    'application/vnd.gentics.grd+json',
-    'application/vnd.gentoo.catmetadata+xml',
-    'application/vnd.gentoo.ebuild',
-    'application/vnd.gentoo.eclass',
-    'application/vnd.gentoo.gpkg',
-    'application/vnd.gentoo.manifest',
-    'application/vnd.gentoo.xpak',
-    'application/vnd.gentoo.pkgmetadata+xml',
-    'application/vnd.geo+json',
-    'application/vnd.geocube+xml',
-    'application/vnd.geogebra.file',
-    'application/vnd.geogebra.slides',
-    'application/vnd.geogebra.tool',
-    'application/vnd.geometry-explorer',
-    'application/vnd.geonext',
-    'application/vnd.geoplan',
-    'application/vnd.geospace',
-    'application/vnd.gerber',
-    'application/vnd.globalplatform.card-content-mgt',
-    'application/vnd.globalplatform.card-content-mgt-response',
-    'application/vnd.gmx',
-    'application/vnd.gnu.taler.exchange+json',
-    'application/vnd.gnu.taler.merchant+json',
-    'application/vnd.google-earth.kml+xml',
-    'application/vnd.google-earth.kmz',
-    'application/vnd.gov.sk.e-form+xml',
-    'application/vnd.gov.sk.e-form+zip',
-    'application/vnd.gov.sk.xmldatacontainer+xml',
-    'application/vnd.gpxsee.map+xml',
-    'application/vnd.grafeq',
-    'application/vnd.gridmp',
-    'application/vnd.groove-account',
-    'application/vnd.groove-help',
-    'application/vnd.groove-identity-message',
-    'application/vnd.groove-injector',
-    'application/vnd.groove-tool-message',
-    'application/vnd.groove-tool-template',
-    'application/vnd.groove-vcard',
-    'application/vnd.hal+json',
-    'application/vnd.hal+xml',
-    'application/vnd.HandHeld-Entertainment+xml',
-    'application/vnd.hbci',
-    'application/vnd.hc+json',
-    'application/vnd.hcl-bireports',
-    'application/vnd.hdt',
-    'application/vnd.heroku+json',
-    'application/vnd.hhe.lesson-player',
-    'application/vnd.hp-HPGL',
-    'application/vnd.hp-hpid',
-    'application/vnd.hp-hps',
-    'application/vnd.hp-jlyt',
-    'application/vnd.hp-PCL',
-    'application/vnd.hp-PCLXL',
-    'application/vnd.hsl',
-    'application/vnd.httphone',
-    'application/vnd.hydrostatix.sof-data',
-    'application/vnd.hyper-item+json',
-    'application/vnd.hyper+json',
-    'application/vnd.hyperdrive+json',
-    'application/vnd.hzn-3d-crossword',
-    'application/vnd.ibm.afplinedata',
-    'application/vnd.ibm.electronic-media',
-    'application/vnd.ibm.MiniPay',
-    'application/vnd.ibm.modcap',
-    'application/vnd.ibm.rights-management',
-    'application/vnd.ibm.secure-container',
-    'application/vnd.iccprofile',
-    'application/vnd.ieee.1905',
-    'application/vnd.igloader',
-    'application/vnd.imagemeter.folder+zip',
-    'application/vnd.imagemeter.image+zip',
-    'application/vnd.immervision-ivp',
-    'application/vnd.immervision-ivu',
-    'application/vnd.ims.imsccv1p1',
-    'application/vnd.ims.imsccv1p2',
-    'application/vnd.ims.imsccv1p3',
-    'application/vnd.ims.lis.v2.result+json',
-    'application/vnd.ims.lti.v2.toolconsumerprofile+json',
-    'application/vnd.ims.lti.v2.toolproxy.id+json',
-    'application/vnd.ims.lti.v2.toolproxy+json',
-    'application/vnd.ims.lti.v2.toolsettings+json',
-    'application/vnd.ims.lti.v2.toolsettings.simple+json',
-    'application/vnd.informedcontrol.rms+xml',
-    'application/vnd.infotech.project',
-    'application/vnd.infotech.project+xml',
-    'application/vnd.informix-visionary',
-    'application/vnd.innopath.wamp.notification',
-    'application/vnd.insors.igm',
-    'application/vnd.intercon.formnet',
-    'application/vnd.intergeo',
-    'application/vnd.intertrust.digibox',
-    'application/vnd.intertrust.nncp',
-    'application/vnd.intu.qbo',
-    'application/vnd.intu.qfx',
-    'application/vnd.ipfs.ipns-record',
-    'application/vnd.ipld.car',
-    'application/vnd.ipld.dag-cbor',
-    'application/vnd.ipld.dag-json',
-    'application/vnd.ipld.raw',
-    'application/vnd.iptc.g2.catalogitem+xml',
-    'application/vnd.iptc.g2.conceptitem+xml',
-    'application/vnd.iptc.g2.knowledgeitem+xml',
-    'application/vnd.iptc.g2.newsitem+xml',
-    'application/vnd.iptc.g2.newsmessage+xml',
-    'application/vnd.iptc.g2.packageitem+xml',
-    'application/vnd.iptc.g2.planningitem+xml',
-    'application/vnd.ipunplugged.rcprofile',
-    'application/vnd.irepository.package+xml',
-    'application/vnd.is-xpr',
-    'application/vnd.isac.fcs',
-    'application/vnd.jam',
-    'application/vnd.iso11783-10+zip',
-    'application/vnd.japannet-directory-service',
-    'application/vnd.japannet-jpnstore-wakeup',
-    'application/vnd.japannet-payment-wakeup',
-    'application/vnd.japannet-registration',
-    'application/vnd.japannet-registration-wakeup',
-    'application/vnd.japannet-setstore-wakeup',
-    'application/vnd.japannet-verification',
-    'application/vnd.japannet-verification-wakeup',
-    'application/vnd.jcp.javame.midlet-rms',
-    'application/vnd.jisp',
-    'application/vnd.joost.joda-archive',
-    'application/vnd.jsk.isdn-ngn',
-    'application/vnd.kahootz',
-    'application/vnd.kde.karbon',
-    'application/vnd.kde.kchart',
-    'application/vnd.kde.kformula',
-    'application/vnd.kde.kivio',
-    'application/vnd.kde.kontour',
-    'application/vnd.kde.kpresenter',
-    'application/vnd.kde.kspread',
-    'application/vnd.kde.kword',
-    'application/vnd.kenameaapp',
-    'application/vnd.kidspiration',
-    'application/vnd.Kinar',
-    'application/vnd.koan',
-    'application/vnd.kodak-descriptor',
-    'application/vnd.las',
-    'application/vnd.las.las+json',
-    'application/vnd.las.las+xml',
-    'application/vnd.laszip',
-    'application/vnd.ldev.productlicensing',
-    'application/vnd.leap+json',
-    'application/vnd.liberty-request+xml',
-    'application/vnd.llamagraphics.life-balance.desktop',
-    'application/vnd.llamagraphics.life-balance.exchange+xml',
-    'application/vnd.logipipe.circuit+zip',
-    'application/vnd.loom',
-    'application/vnd.lotus-1-2-3',
-    'application/vnd.lotus-approach',
-    'application/vnd.lotus-freelance',
-    'application/vnd.lotus-notes',
-    'application/vnd.lotus-organizer',
-    'application/vnd.lotus-screencam',
-    'application/vnd.lotus-wordpro',
-    'application/vnd.macports.portpkg',
-    'application/vnd.mapbox-vector-tile',
-    'application/vnd.marlin.drm.actiontoken+xml',
-    'application/vnd.marlin.drm.conftoken+xml',
-    'application/vnd.marlin.drm.license+xml',
-    'application/vnd.marlin.drm.mdcf',
-    'application/vnd.mason+json',
-    'application/vnd.maxar.archive.3tz+zip',
-    'application/vnd.maxmind.maxmind-db',
-    'application/vnd.mcd',
-    'application/vnd.mdl',
-    'application/vnd.mdl-mbsdf',
-    'application/vnd.medcalcdata',
-    'application/vnd.mediastation.cdkey',
-    'application/vnd.medicalholodeck.recordxr',
-    'application/vnd.meridian-slingshot',
-    'application/vnd.mermaid',
-    'application/vnd.MFER',
-    'application/vnd.mfmp',
-    'application/vnd.micro+json',
-    'application/vnd.micrografx.flo',
-    'application/vnd.micrografx.igx',
-    'application/vnd.microsoft.portable-executable',
-    'application/vnd.microsoft.windows.thumbnail-cache',
-    'application/vnd.miele+json',
-    'application/vnd.mif',
-    'application/vnd.minisoft-hp3000-save',
-    'application/vnd.mitsubishi.misty-guard.trustweb',
-    'application/vnd.Mobius.DAF',
-    'application/vnd.Mobius.DIS',
-    'application/vnd.Mobius.MBK',
-    'application/vnd.Mobius.MQY',
-    'application/vnd.Mobius.MSL',
-    'application/vnd.Mobius.PLC',
-    'application/vnd.Mobius.TXF',
-    'application/vnd.modl',
-    'application/vnd.mophun.application',
-    'application/vnd.mophun.certificate',
-    'application/vnd.motorola.flexsuite',
-    'application/vnd.motorola.flexsuite.adsi',
-    'application/vnd.motorola.flexsuite.fis',
-    'application/vnd.motorola.flexsuite.gotap',
-    'application/vnd.motorola.flexsuite.kmr',
-    'application/vnd.motorola.flexsuite.ttc',
-    'application/vnd.motorola.flexsuite.wem',
-    'application/vnd.motorola.iprm',
-    'application/vnd.mozilla.xul+xml',
-    'application/vnd.ms-artgalry',
-    'application/vnd.ms-asf',
-    'application/vnd.ms-cab-compressed',
-    'application/vnd.ms-3mfdocument',
-    'application/vnd.ms-excel',
-    'application/vnd.ms-excel.addin.macroEnabled.12',
-    'application/vnd.ms-excel.sheet.binary.macroEnabled.12',
-    'application/vnd.ms-excel.sheet.macroEnabled.12',
-    'application/vnd.ms-excel.template.macroEnabled.12',
-    'application/vnd.ms-fontobject',
-    'application/vnd.ms-htmlhelp',
-    'application/vnd.ms-ims',
-    'application/vnd.ms-lrm',
-    'application/vnd.ms-office.activeX+xml',
-    'application/vnd.ms-officetheme',
-    'application/vnd.ms-playready.initiator+xml',
-    'application/vnd.ms-powerpoint',
-    'application/vnd.ms-powerpoint.addin.macroEnabled.12',
-    'application/vnd.ms-powerpoint.presentation.macroEnabled.12',
-    'application/vnd.ms-powerpoint.slide.macroEnabled.12',
-    'application/vnd.ms-powerpoint.slideshow.macroEnabled.12',
-    'application/vnd.ms-powerpoint.template.macroEnabled.12',
-    'application/vnd.ms-PrintDeviceCapabilities+xml',
-    'application/vnd.ms-PrintSchemaTicket+xml',
-    'application/vnd.ms-project',
-    'application/vnd.ms-tnef',
-    'application/vnd.ms-windows.devicepairing',
-    'application/vnd.ms-windows.nwprinting.oob',
-    'application/vnd.ms-windows.printerpairing',
-    'application/vnd.ms-windows.wsd.oob',
-    'application/vnd.ms-wmdrm.lic-chlg-req',
-    'application/vnd.ms-wmdrm.lic-resp',
-    'application/vnd.ms-wmdrm.meter-chlg-req',
-    'application/vnd.ms-wmdrm.meter-resp',
-    'application/vnd.ms-word.document.macroEnabled.12',
-    'application/vnd.ms-word.template.macroEnabled.12',
-    'application/vnd.ms-works',
-    'application/vnd.ms-wpl',
-    'application/vnd.ms-xpsdocument',
-    'application/vnd.msa-disk-image',
-    'application/vnd.mseq',
-    'application/vnd.msgpack',
-    'application/vnd.msign',
-    'application/vnd.multiad.creator',
-    'application/vnd.multiad.creator.cif',
-    'application/vnd.musician',
-    'application/vnd.music-niff',
-    'application/vnd.muvee.style',
-    'application/vnd.mynfc',
-    'application/vnd.nacamar.ybrid+json',
-    'application/vnd.nato.bindingdataobject+cbor',
-    'application/vnd.nato.bindingdataobject+json',
-    'application/vnd.nato.bindingdataobject+xml',
-    'application/vnd.nato.openxmlformats-package.iepd+zip',
-    'application/vnd.ncd.control',
-    'application/vnd.ncd.reference',
-    'application/vnd.nearst.inv+json',
-    'application/vnd.nebumind.line',
-    'application/vnd.nervana',
-    'application/vnd.netfpx',
-    'application/vnd.neurolanguage.nlu',
-    'application/vnd.nimn',
-    'application/vnd.nintendo.snes.rom',
-    'application/vnd.nintendo.nitro.rom',
-    'application/vnd.nitf',
-    'application/vnd.noblenet-directory',
-    'application/vnd.noblenet-sealer',
-    'application/vnd.noblenet-web',
-    'application/vnd.nokia.catalogs',
-    'application/vnd.nokia.conml+wbxml',
-    'application/vnd.nokia.conml+xml',
-    'application/vnd.nokia.iptv.config+xml',
-    'application/vnd.nokia.iSDS-radio-presets',
-    'application/vnd.nokia.landmark+wbxml',
-    'application/vnd.nokia.landmark+xml',
-    'application/vnd.nokia.landmarkcollection+xml',
-    'application/vnd.nokia.ncd',
-    'application/vnd.nokia.n-gage.ac+xml',
-    'application/vnd.nokia.n-gage.data',
-    'application/vnd.nokia.n-gage.symbian.install',
-    'application/vnd.nokia.pcd+wbxml',
-    'application/vnd.nokia.pcd+xml',
-    'application/vnd.nokia.radio-preset',
-    'application/vnd.nokia.radio-presets',
-    'application/vnd.novadigm.EDM',
-    'application/vnd.novadigm.EDX',
-    'application/vnd.novadigm.EXT',
-    'application/vnd.ntt-local.content-share',
-    'application/vnd.ntt-local.file-transfer',
-    'application/vnd.ntt-local.ogw_remote-access',
-    'application/vnd.ntt-local.sip-ta_remote',
-    'application/vnd.ntt-local.sip-ta_tcp_stream',
-    'application/vnd.oai.workflows',
-    'application/vnd.oai.workflows+json',
-    'application/vnd.oai.workflows+yaml',
-    'application/vnd.oasis.opendocument.base',
-    'application/vnd.oasis.opendocument.chart',
-    'application/vnd.oasis.opendocument.chart-template',
-    'application/vnd.oasis.opendocument.database',
-    'application/vnd.oasis.opendocument.formula',
-    'application/vnd.oasis.opendocument.formula-template',
-    'application/vnd.oasis.opendocument.graphics',
-    'application/vnd.oasis.opendocument.graphics-template',
-    'application/vnd.oasis.opendocument.image',
-    'application/vnd.oasis.opendocument.image-template',
-    'application/vnd.oasis.opendocument.presentation',
-    'application/vnd.oasis.opendocument.presentation-template',
-    'application/vnd.oasis.opendocument.spreadsheet',
-    'application/vnd.oasis.opendocument.spreadsheet-template',
-    'application/vnd.oasis.opendocument.text',
-    'application/vnd.oasis.opendocument.text-master',
-    'application/vnd.oasis.opendocument.text-master-template',
-    'application/vnd.oasis.opendocument.text-template',
-    'application/vnd.oasis.opendocument.text-web',
-    'application/vnd.obn',
-    'application/vnd.ocf+cbor',
-    'application/vnd.oci.image.manifest.v1+json',
-    'application/vnd.oftn.l10n+json',
-    'application/vnd.oipf.contentaccessdownload+xml',
-    'application/vnd.oipf.contentaccessstreaming+xml',
-    'application/vnd.oipf.cspg-hexbinary',
-    'application/vnd.oipf.dae.svg+xml',
-    'application/vnd.oipf.dae.xhtml+xml',
-    'application/vnd.oipf.mippvcontrolmessage+xml',
-    'application/vnd.oipf.pae.gem',
-    'application/vnd.oipf.spdiscovery+xml',
-    'application/vnd.oipf.spdlist+xml',
-    'application/vnd.oipf.ueprofile+xml',
-    'application/vnd.oipf.userprofile+xml',
-    'application/vnd.olpc-sugar',
-    'application/vnd.oma.bcast.associated-procedure-parameter+xml',
-    'application/vnd.oma.bcast.drm-trigger+xml',
-    'application/vnd.oma.bcast.imd+xml',
-    'application/vnd.oma.bcast.ltkm',
-    'application/vnd.oma.bcast.notification+xml',
-    'application/vnd.oma.bcast.provisioningtrigger',
-    'application/vnd.oma.bcast.sgboot',
-    'application/vnd.oma.bcast.sgdd+xml',
-    'application/vnd.oma.bcast.sgdu',
-    'application/vnd.oma.bcast.simple-symbol-container',
-    'application/vnd.oma.bcast.smartcard-trigger+xml',
-    'application/vnd.oma.bcast.sprov+xml',
-    'application/vnd.oma.bcast.stkm',
-    'application/vnd.oma.cab-address-book+xml',
-    'application/vnd.oma.cab-feature-handler+xml',
-    'application/vnd.oma.cab-pcc+xml',
-    'application/vnd.oma.cab-subs-invite+xml',
-    'application/vnd.oma.cab-user-prefs+xml',
-    'application/vnd.oma.dcd',
-    'application/vnd.oma.dcdc',
-    'application/vnd.oma.dd2+xml',
-    'application/vnd.oma.drm.risd+xml',
-    'application/vnd.oma.group-usage-list+xml',
-    'application/vnd.oma.lwm2m+cbor',
-    'application/vnd.oma.lwm2m+json',
-    'application/vnd.oma.lwm2m+tlv',
-    'application/vnd.oma.pal+xml',
-    'application/vnd.oma.poc.detailed-progress-report+xml',
-    'application/vnd.oma.poc.final-report+xml',
-    'application/vnd.oma.poc.groups+xml',
-    'application/vnd.oma.poc.invocation-descriptor+xml',
-    'application/vnd.oma.poc.optimized-progress-report+xml',
-    'application/vnd.oma.push',
-    'application/vnd.oma.scidm.messages+xml',
-    'application/vnd.oma.xcap-directory+xml',
-    'application/vnd.omads-email+xml',
-    'application/vnd.omads-file+xml',
-    'application/vnd.omads-folder+xml',
-    'application/vnd.omaloc-supl-init',
-    'application/vnd.oma-scws-config',
-    'application/vnd.oma-scws-http-request',
-    'application/vnd.oma-scws-http-response',
-    'application/vnd.onepager',
-    'application/vnd.onepagertamp',
-    'application/vnd.onepagertamx',
-    'application/vnd.onepagertat',
-    'application/vnd.onepagertatp',
-    'application/vnd.onepagertatx',
-    'application/vnd.onvif.metadata',
-    'application/vnd.openblox.game-binary',
-    'application/vnd.openblox.game+xml',
-    'application/vnd.openeye.oeb',
-    'application/vnd.openstreetmap.data+xml',
-    'application/vnd.opentimestamps.ots',
-    'application/vnd.openxmlformats-officedocument.custom-properties+xml',
-    'application/vnd.openxmlformats-officedocument.customXmlProperties+xml',
-    'application/vnd.openxmlformats-officedocument.drawing+xml',
-    'application/vnd.openxmlformats-officedocument.drawingml.chart+xml',
-    'application/vnd.openxmlformats-officedocument.drawingml.chartshapes+xml',
-    'application/vnd.openxmlformats-officedocument.drawingml.diagramColors+xml',
-    'application/vnd.openxmlformats-officedocument.drawingml.diagramData+xml',
-    'application/vnd.openxmlformats-officedocument.drawingml.diagramLayout+xml',
-    'application/vnd.openxmlformats-officedocument.drawingml.diagramStyle+xml',
-    'application/vnd.openxmlformats-officedocument.extended-properties+xml',
-    'application/vnd.openxmlformats-officedocument.presentationml.commentAuthors+xml',
-    'application/vnd.openxmlformats-officedocument.presentationml.comments+xml',
-    'application/vnd.openxmlformats-officedocument.presentationml.handoutMaster+xml',
-    'application/vnd.openxmlformats-officedocument.presentationml.notesMaster+xml',
-    'application/vnd.openxmlformats-officedocument.presentationml.notesSlide+xml',
-    'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-    'application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml',
-    'application/vnd.openxmlformats-officedocument.presentationml.presProps+xml',
-    'application/vnd.openxmlformats-officedocument.presentationml.slide',
-    'application/vnd.openxmlformats-officedocument.presentationml.slide+xml',
-    'application/vnd.openxmlformats-officedocument.presentationml.slideLayout+xml',
-    'application/vnd.openxmlformats-officedocument.presentationml.slideMaster+xml',
-    'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
-    'application/vnd.openxmlformats-officedocument.presentationml.slideshow.main+xml',
-    'application/vnd.openxmlformats-officedocument.presentationml.slideUpdateInfo+xml',
-    'application/vnd.openxmlformats-officedocument.presentationml.tableStyles+xml',
-    'application/vnd.openxmlformats-officedocument.presentationml.tags+xml',
-    'application/vnd.openxmlformats-officedocument.presentationml.template',
-    'application/vnd.openxmlformats-officedocument.presentationml.template.main+xml',
-    'application/vnd.openxmlformats-officedocument.presentationml.viewProps+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.calcChain+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.chartsheet+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.comments+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.connections+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.dialogsheet+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.externalLink+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.pivotCacheDefinition+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.pivotCacheRecords+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.pivotTable+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.queryTable+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.revisionHeaders+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.revisionLog+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.sharedStrings+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheetMetadata+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.table+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.tableSingleCells+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.template',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.template.main+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.userNames+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.volatileDependencies+xml',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml',
-    'application/vnd.openxmlformats-officedocument.theme+xml',
-    'application/vnd.openxmlformats-officedocument.themeOverride+xml',
-    'application/vnd.openxmlformats-officedocument.vmlDrawing',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.comments+xml',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.document.glossary+xml',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.endnotes+xml',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.fontTable+xml',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.footnotes+xml',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.template',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.template.main+xml',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.webSettings+xml',
-    'application/vnd.openxmlformats-package.core-properties+xml',
-    'application/vnd.openxmlformats-package.digital-signature-xmlsignature+xml',
-    'application/vnd.openxmlformats-package.relationships+xml',
-    'application/vnd.oracle.resource+json',
-    'application/vnd.orange.indata',
-    'application/vnd.osa.netdeploy',
-    'application/vnd.osgeo.mapguide.package',
-    'application/vnd.osgi.bundle',
-    'application/vnd.osgi.dp',
-    'application/vnd.osgi.subsystem',
-    'application/vnd.otps.ct-kip+xml',
-    'application/vnd.oxli.countgraph',
-    'application/vnd.pagerduty+json',
-    'application/vnd.palm',
-    'application/vnd.panoply',
-    'application/vnd.paos.xml',
-    'application/vnd.patentdive',
-    'application/vnd.patientecommsdoc',
-    'application/vnd.pawaafile',
-    'application/vnd.pcos',
-    'application/vnd.pg.format',
-    'application/vnd.pg.osasli',
-    'application/vnd.piaccess.application-licence',
-    'application/vnd.picsel',
-    'application/vnd.pmi.widget',
-    'application/vnd.poc.group-advertisement+xml',
-    'application/vnd.pocketlearn',
-    'application/vnd.powerbuilder6',
-    'application/vnd.powerbuilder6-s',
-    'application/vnd.powerbuilder7',
-    'application/vnd.powerbuilder75',
-    'application/vnd.powerbuilder75-s',
-    'application/vnd.powerbuilder7-s',
-    'application/vnd.preminet',
-    'application/vnd.previewsystems.box',
-    'application/vnd.proteus.magazine',
-    'application/vnd.psfs',
-    'application/vnd.pt.mundusmundi',
-    'application/vnd.publishare-delta-tree',
-    'application/vnd.pvi.ptid1',
-    'application/vnd.pwg-multiplexed',
-    'application/vnd.pwg-xhtml-print+xml',
-    'application/vnd.qualcomm.brew-app-res',
-    'application/vnd.quarantainenet',
-    'application/vnd.Quark.QuarkXPress',
-    'application/vnd.quobject-quoxdocument',
-    'application/vnd.radisys.moml+xml',
-    'application/vnd.radisys.msml-audit-conf+xml',
-    'application/vnd.radisys.msml-audit-conn+xml',
-    'application/vnd.radisys.msml-audit-dialog+xml',
-    'application/vnd.radisys.msml-audit-stream+xml',
-    'application/vnd.radisys.msml-audit+xml',
-    'application/vnd.radisys.msml-conf+xml',
-    'application/vnd.radisys.msml-dialog-base+xml',
-    'application/vnd.radisys.msml-dialog-fax-detect+xml',
-    'application/vnd.radisys.msml-dialog-fax-sendrecv+xml',
-    'application/vnd.radisys.msml-dialog-group+xml',
-    'application/vnd.radisys.msml-dialog-speech+xml',
-    'application/vnd.radisys.msml-dialog-transform+xml',
-    'application/vnd.radisys.msml-dialog+xml',
-    'application/vnd.radisys.msml+xml',
-    'application/vnd.rainstor.data',
-    'application/vnd.rapid',
-    'application/vnd.rar',
-    'application/vnd.realvnc.bed',
-    'application/vnd.recordare.musicxml',
-    'application/vnd.recordare.musicxml+xml',
-    'application/vnd.relpipe',
-    'application/vnd.RenLearn.rlprint',
-    'application/vnd.resilient.logic',
-    'application/vnd.restful+json',
-    'application/vnd.rig.cryptonote',
-    'application/vnd.route66.link66+xml',
-    'application/vnd.rs-274x',
-    'application/vnd.ruckus.download',
-    'application/vnd.s3sms',
-    'application/vnd.sailingtracker.track',
-    'application/vnd.sar',
-    'application/vnd.sbm.cid',
-    'application/vnd.sbm.mid2',
-    'application/vnd.scribus',
-    'application/vnd.sealed.3df',
-    'application/vnd.sealed.csf',
-    'application/vnd.sealed.doc',
-    'application/vnd.sealed.eml',
-    'application/vnd.sealed.mht',
-    'application/vnd.sealed.net',
-    'application/vnd.sealed.ppt',
-    'application/vnd.sealed.tiff',
-    'application/vnd.sealed.xls',
-    'application/vnd.sealedmedia.softseal.html',
-    'application/vnd.sealedmedia.softseal.pdf',
-    'application/vnd.seemail',
-    'application/vnd.seis+json',
-    'application/vnd.sema',
-    'application/vnd.semd',
-    'application/vnd.semf',
-    'application/vnd.shade-save-file',
-    'application/vnd.shana.informed.formdata',
-    'application/vnd.shana.informed.formtemplate',
-    'application/vnd.shana.informed.interchange',
-    'application/vnd.shana.informed.package',
-    'application/vnd.shootproof+json',
-    'application/vnd.shopkick+json',
-    'application/vnd.shp',
-    'application/vnd.shx',
-    'application/vnd.sigrok.session',
-    'application/vnd.SimTech-MindMapper',
-    'application/vnd.siren+json',
-    'application/vnd.smaf',
-    'application/vnd.smart.notebook',
-    'application/vnd.smart.teacher',
-    'application/vnd.smintio.portals.archive',
-    'application/vnd.snesdev-page-table',
-    'application/vnd.software602.filler.form+xml',
-    'application/vnd.software602.filler.form-xml-zip',
-    'application/vnd.solent.sdkm+xml',
-    'application/vnd.spotfire.dxp',
-    'application/vnd.spotfire.sfs',
-    'application/vnd.sqlite3',
-    'application/vnd.sss-cod',
-    'application/vnd.sss-dtf',
-    'application/vnd.sss-ntf',
-    'application/vnd.stepmania.package',
-    'application/vnd.stepmania.stepchart',
-    'application/vnd.street-stream',
-    'application/vnd.sun.wadl+xml',
-    'application/vnd.sus-calendar',
-    'application/vnd.svd',
-    'application/vnd.swiftview-ics',
-    'application/vnd.sybyl.mol2',
-    'application/vnd.sycle+xml',
-    'application/vnd.syft+json',
-    'application/vnd.syncml.dm.notification',
-    'application/vnd.syncml.dmddf+xml',
-    'application/vnd.syncml.dmtnds+wbxml',
-    'application/vnd.syncml.dmtnds+xml',
-    'application/vnd.syncml.dmddf+wbxml',
-    'application/vnd.syncml.dm+wbxml',
-    'application/vnd.syncml.dm+xml',
-    'application/vnd.syncml.ds.notification',
-    'application/vnd.syncml+xml',
-    'application/vnd.tableschema+json',
-    'application/vnd.tao.intent-module-archive',
-    'application/vnd.tcpdump.pcap',
-    'application/vnd.think-cell.ppttc+json',
-    'application/vnd.tml',
-    'application/vnd.tmd.mediaflex.api+xml',
-    'application/vnd.tmobile-livetv',
-    'application/vnd.tri.onesource',
-    'application/vnd.trid.tpt',
-    'application/vnd.triscape.mxs',
-    'application/vnd.trueapp',
-    'application/vnd.truedoc',
-    'application/vnd.ubisoft.webplayer',
-    'application/vnd.ufdl',
-    'application/vnd.uiq.theme',
-    'application/vnd.umajin',
-    'application/vnd.unity',
-    'application/vnd.uoml+xml',
-    'application/vnd.uplanet.alert',
-    'application/vnd.uplanet.alert-wbxml',
-    'application/vnd.uplanet.bearer-choice',
-    'application/vnd.uplanet.bearer-choice-wbxml',
-    'application/vnd.uplanet.cacheop',
-    'application/vnd.uplanet.cacheop-wbxml',
-    'application/vnd.uplanet.channel',
-    'application/vnd.uplanet.channel-wbxml',
-    'application/vnd.uplanet.list',
-    'application/vnd.uplanet.listcmd',
-    'application/vnd.uplanet.listcmd-wbxml',
-    'application/vnd.uplanet.list-wbxml',
-    'application/vnd.uri-map',
-    'application/vnd.uplanet.signal',
-    'application/vnd.valve.source.material',
-    'application/vnd.vcx',
-    'application/vnd.vd-study',
-    'application/vnd.vectorworks',
-    'application/vnd.vel+json',
-    'application/vnd.verimatrix.vcas',
-    'application/vnd.veritone.aion+json',
-    'application/vnd.veryant.thin',
-    'application/vnd.ves.encrypted',
-    'application/vnd.vidsoft.vidconference',
-    'application/vnd.visio',
-    'application/vnd.visionary',
-    'application/vnd.vividence.scriptfile',
-    'application/vnd.vsf',
-    'application/vnd.wap.sic',
-    'application/vnd.wap.slc',
-    'application/vnd.wap.wbxml',
-    'application/vnd.wap.wmlc',
-    'application/vnd.wap.wmlscriptc',
-    'application/vnd.wasmflow.wafl',
-    'application/vnd.webturbo',
-    'application/vnd.wfa.dpp',
-    'application/vnd.wfa.p2p',
-    'application/vnd.wfa.wsc',
-    'application/vnd.windows.devicepairing',
-    'application/vnd.wmc',
-    'application/vnd.wmf.bootstrap',
-    'application/vnd.wolfram.mathematica',
-    'application/vnd.wolfram.mathematica.package',
-    'application/vnd.wolfram.player',
-    'application/vnd.wordlift',
-    'application/vnd.wordperfect',
-    'application/vnd.wqd',
-    'application/vnd.wrq-hp3000-labelled',
-    'application/vnd.wt.stf',
-    'application/vnd.wv.csp+xml',
-    'application/vnd.wv.csp+wbxml',
-    'application/vnd.wv.ssp+xml',
-    'application/vnd.xacml+json',
-    'application/vnd.xara',
-    'application/vnd.xarin.cpj',
-    'application/vnd.xecrets-encrypted',
-    'application/vnd.xfdl',
-    'application/vnd.xfdl.webform',
-    'application/vnd.xmi+xml',
-    'application/vnd.xmpie.cpkg',
-    'application/vnd.xmpie.dpkg',
-    'application/vnd.xmpie.plan',
-    'application/vnd.xmpie.ppkg',
-    'application/vnd.xmpie.xlim',
-    'application/vnd.yamaha.hv-dic',
-    'application/vnd.yamaha.hv-script',
-    'application/vnd.yamaha.hv-voice',
-    'application/vnd.yamaha.openscoreformat.osfpvg+xml',
-    'application/vnd.yamaha.openscoreformat',
-    'application/vnd.yamaha.remote-setup',
-    'application/vnd.yamaha.smaf-audio',
-    'application/vnd.yamaha.smaf-phrase',
-    'application/vnd.yamaha.through-ngn',
-    'application/vnd.yamaha.tunnel-udpencap',
-    'application/vnd.yaoweme',
-    'application/vnd.yellowriver-custom-menu',
-    'application/vnd.youtube.yt',
-    'application/vnd.zul',
-    'application/vnd.zzazz.deck+xml',
-    'application/voicexml+xml',
-    'application/voucher-cms+json',
-    'application/vp',
-    'application/vq-rtcpxr',
-    'application/wasm',
-    'application/watcherinfo+xml',
-    'application/webpush-options+json',
-    'application/whoispp-query',
-    'application/whoispp-response',
-    'application/widget',
-    'application/wita',
-    'application/wordperfect5.1',
-    'application/wsdl+xml',
-    'application/wspolicy+xml',
-    'application/x-pki-message',
-    'application/x-www-form-urlencoded',
-    'application/x-x509-ca-cert',
-    'application/x-x509-ca-ra-cert',
-    'application/x-x509-next-ca-cert',
-    'application/x400-bp',
-    'application/xacml+xml',
-    'application/xcap-att+xml',
-    'application/xcap-caps+xml',
-    'application/xcap-diff+xml',
-    'application/xcap-el+xml',
-    'application/xcap-error+xml',
-    'application/xcap-ns+xml',
-    'application/xcon-conference-info-diff+xml',
-    'application/xcon-conference-info+xml',
-    'application/xenc+xml',
-    'application/xfdf',
-    'application/xhtml+xml',
-    'application/xliff+xml',
-    'application/xml',
-    'application/xml-dtd',
-    'application/xml-external-parsed-entity',
-    'application/xml-patch+xml',
-    'application/xmpp+xml',
-    'application/xop+xml',
-    'application/xslt+xml',
-    'application/xv+xml',
-    'application/yaml',
-    'application/yang',
-    'application/yang-data+cbor',
-    'application/yang-data+json',
-    'application/yang-data+xml',
-    'application/yang-patch+json',
-    'application/yang-patch+xml',
-    'application/yang-sid+json',
-    'application/yin+xml',
-    'application/zip',
-    'application/zlib',
-    'application/zstd',
     'audio/1d-interleaved-parityfec',
-    'audio/32kadpcm',
-    'audio/3gpp',
-    'audio/3gpp2',
-    'audio/aac',
-    'audio/ac3',
-    'audio/AMR',
-    'audio/AMR-WB',
-    'audio/amr-wb+',
-    'audio/aptx',
-    'audio/asc',
-    'audio/ATRAC-ADVANCED-LOSSLESS',
-    'audio/ATRAC-X',
-    'audio/ATRAC3',
-    'audio/basic',
-    'audio/BV16',
-    'audio/BV32',
-    'audio/clearmode',
-    'audio/CN',
-    'audio/DAT12',
-    'audio/dls',
-    'audio/dsr-es201108',
-    'audio/dsr-es202050',
-    'audio/dsr-es202211',
-    'audio/dsr-es202212',
-    'audio/DV',
-    'audio/DVI4',
-    'audio/eac3',
+    'text/1d-interleaved-parityfec',
+    'video/1d-interleaved-parityfec',
+  ],
+  '3gpdash-qoe-report+xml': [
+    'application/3gpdash-qoe-report+xml',
+  ],
+  '3gppHal+json': [
+    'application/3gppHal+json',
+  ],
+  '3gppHalForms+json': [
+    'application/3gppHalForms+json',
+  ],
+  '3gpp-ims+xml': [
+    'application/3gpp-ims+xml',
+  ],
+  'A2L': [
+    'application/A2L',
+  ],
+  'ace-groupcomm+cbor': [
+    'application/ace-groupcomm+cbor',
+  ],
+  'ace+cbor': [
+    'application/ace+cbor',
+  ],
+  'ace+json': [
+    'application/ace+json',
+  ],
+  'activemessage': [
+    'application/activemessage',
+  ],
+  'activity+json': [
+    'application/activity+json',
+  ],
+  'aif+cbor': [
+    'application/aif+cbor',
+  ],
+  'aif+json': [
+    'application/aif+json',
+  ],
+  'alto-cdni+json': [
+    'application/alto-cdni+json',
+  ],
+  'alto-cdnifilter+json': [
+    'application/alto-cdnifilter+json',
+  ],
+  'alto-costmap+json': [
+    'application/alto-costmap+json',
+  ],
+  'alto-costmapfilter+json': [
+    'application/alto-costmapfilter+json',
+  ],
+  'alto-directory+json': [
+    'application/alto-directory+json',
+  ],
+  'alto-endpointprop+json': [
+    'application/alto-endpointprop+json',
+  ],
+  'alto-endpointpropparams+json': [
+    'application/alto-endpointpropparams+json',
+  ],
+  'alto-endpointcost+json': [
+    'application/alto-endpointcost+json',
+  ],
+  'alto-endpointcostparams+json': [
+    'application/alto-endpointcostparams+json',
+  ],
+  'alto-error+json': [
+    'application/alto-error+json',
+  ],
+  'alto-networkmapfilter+json': [
+    'application/alto-networkmapfilter+json',
+  ],
+  'alto-networkmap+json': [
+    'application/alto-networkmap+json',
+  ],
+  'alto-propmap+json': [
+    'application/alto-propmap+json',
+  ],
+  'alto-propmapparams+json': [
+    'application/alto-propmapparams+json',
+  ],
+  'alto-tips+json': [
+    'application/alto-tips+json',
+  ],
+  'alto-tipsparams+json': [
+    'application/alto-tipsparams+json',
+  ],
+  'alto-updatestreamcontrol+json': [
+    'application/alto-updatestreamcontrol+json',
+  ],
+  'alto-updatestreamparams+json': [
+    'application/alto-updatestreamparams+json',
+  ],
+  'AML': [
+    'application/AML',
+  ],
+  'andrew-inset': [
+    'application/andrew-inset',
+  ],
+  'applefile': [
+    'application/applefile',
+  ],
+  'at+jwt': [
+    'application/at+jwt',
+  ],
+  'ATF': [
+    'application/ATF',
+  ],
+  'ATFX': [
+    'application/ATFX',
+  ],
+  'atom+xml': [
+    'application/atom+xml',
+  ],
+  'atomcat+xml': [
+    'application/atomcat+xml',
+  ],
+  'atomdeleted+xml': [
+    'application/atomdeleted+xml',
+  ],
+  'atomicmail': [
+    'application/atomicmail',
+  ],
+  'atomsvc+xml': [
+    'application/atomsvc+xml',
+  ],
+  'atsc-dwd+xml': [
+    'application/atsc-dwd+xml',
+  ],
+  'atsc-dynamic-event-message': [
+    'application/atsc-dynamic-event-message',
+  ],
+  'atsc-held+xml': [
+    'application/atsc-held+xml',
+  ],
+  'atsc-rdt+json': [
+    'application/atsc-rdt+json',
+  ],
+  'atsc-rsat+xml': [
+    'application/atsc-rsat+xml',
+  ],
+  'ATXML': [
+    'application/ATXML',
+  ],
+  'auth-policy+xml': [
+    'application/auth-policy+xml',
+  ],
+  'automationml-aml+xml': [
+    'application/automationml-aml+xml',
+  ],
+  'automationml-amlx+zip': [
+    'application/automationml-amlx+zip',
+  ],
+  'bacnet-xdd+zip': [
+    'application/bacnet-xdd+zip',
+  ],
+  'batch-SMTP': [
+    'application/batch-SMTP',
+  ],
+  'beep+xml': [
+    'application/beep+xml',
+  ],
+  'bufr': [
+    'application/bufr',
+  ],
+  'c2pa': [
+    'application/c2pa',
+  ],
+  'calendar+json': [
+    'application/calendar+json',
+  ],
+  'calendar+xml': [
+    'application/calendar+xml',
+  ],
+  'call-completion': [
+    'application/call-completion',
+  ],
+  'CALS-1840': [
+    'application/CALS-1840',
+  ],
+  'captive+json': [
+    'application/captive+json',
+  ],
+  'cbor': [
+    'application/cbor',
+  ],
+  'cbor-seq': [
+    'application/cbor-seq',
+  ],
+  'cccex': [
+    'application/cccex',
+  ],
+  'ccmp+xml': [
+    'application/ccmp+xml',
+  ],
+  'ccxml+xml': [
+    'application/ccxml+xml',
+  ],
+  'cda+xml': [
+    'application/cda+xml',
+  ],
+  'CDFX+XML': [
+    'application/CDFX+XML',
+  ],
+  'cdmi-capability': [
+    'application/cdmi-capability',
+  ],
+  'cdmi-container': [
+    'application/cdmi-container',
+  ],
+  'cdmi-domain': [
+    'application/cdmi-domain',
+  ],
+  'cdmi-object': [
+    'application/cdmi-object',
+  ],
+  'cdmi-queue': [
+    'application/cdmi-queue',
+  ],
+  'cdni': [
+    'application/cdni',
+  ],
+  'CEA': [
+    'application/CEA',
+  ],
+  'cea-2018+xml': [
+    'application/cea-2018+xml',
+  ],
+  'cellml+xml': [
+    'application/cellml+xml',
+  ],
+  'cfw': [
+    'application/cfw',
+  ],
+  'cid-edhoc+cbor-seq': [
+    'application/cid-edhoc+cbor-seq',
+  ],
+  'city+json': [
+    'application/city+json',
+  ],
+  'clr': [
+    'application/clr',
+  ],
+  'clue_info+xml': [
+    'application/clue_info+xml',
+  ],
+  'clue+xml': [
+    'application/clue+xml',
+  ],
+  'cms': [
+    'application/cms',
+  ],
+  'cnrp+xml': [
+    'application/cnrp+xml',
+  ],
+  'coap-group+json': [
+    'application/coap-group+json',
+  ],
+  'coap-payload': [
+    'application/coap-payload',
+  ],
+  'commonground': [
+    'application/commonground',
+  ],
+  'concise-problem-details+cbor': [
+    'application/concise-problem-details+cbor',
+  ],
+  'conference-info+xml': [
+    'application/conference-info+xml',
+  ],
+  'cpl+xml': [
+    'application/cpl+xml',
+  ],
+  'cose': [
+    'application/cose',
+  ],
+  'cose-key': [
+    'application/cose-key',
+  ],
+  'cose-key-set': [
+    'application/cose-key-set',
+  ],
+  'cose-x509': [
+    'application/cose-x509',
+  ],
+  'csrattrs': [
+    'application/csrattrs',
+  ],
+  'csta+xml': [
+    'application/csta+xml',
+  ],
+  'CSTAdata+xml': [
+    'application/CSTAdata+xml',
+  ],
+  'csvm+json': [
+    'application/csvm+json',
+  ],
+  'cwl': [
+    'application/cwl',
+  ],
+  'cwl+json': [
+    'application/cwl+json',
+  ],
+  'cwl+yaml': [
+    'application/cwl+yaml',
+  ],
+  'cwt': [
+    'application/cwt',
+  ],
+  'cybercash': [
+    'application/cybercash',
+  ],
+  'dash+xml': [
+    'application/dash+xml',
+  ],
+  'dash-patch+xml': [
+    'application/dash-patch+xml',
+  ],
+  'dashdelta': [
+    'application/dashdelta',
+  ],
+  'davmount+xml': [
+    'application/davmount+xml',
+  ],
+  'dca-rft': [
+    'application/dca-rft',
+  ],
+  'DCD': [
+    'application/DCD',
+  ],
+  'dec-dx': [
+    'application/dec-dx',
+  ],
+  'dialog-info+xml': [
+    'application/dialog-info+xml',
+  ],
+  'dicom': [
+    'application/dicom',
+  ],
+  'dicom+json': [
+    'application/dicom+json',
+  ],
+  'dicom+xml': [
+    'application/dicom+xml',
+  ],
+  'DII': [
+    'application/DII',
+  ],
+  'DIT': [
+    'application/DIT',
+  ],
+  'dns': [
+    'application/dns',
+    'text/dns',
+  ],
+  'dns+json': [
+    'application/dns+json',
+  ],
+  'dns-message': [
+    'application/dns-message',
+  ],
+  'dots+cbor': [
+    'application/dots+cbor',
+  ],
+  'dpop+jwt': [
+    'application/dpop+jwt',
+  ],
+  'dskpp+xml': [
+    'application/dskpp+xml',
+  ],
+  'dssc+der': [
+    'application/dssc+der',
+  ],
+  'dssc+xml': [
+    'application/dssc+xml',
+  ],
+  'dvcs': [
+    'application/dvcs',
+  ],
+  'ecmascript': [
+    'application/ecmascript',
+    'text/ecmascript',
+  ],
+  'edhoc+cbor-seq': [
+    'application/edhoc+cbor-seq',
+  ],
+  'EDI-consent': [
+    'application/EDI-consent',
+  ],
+  'EDIFACT': [
+    'application/EDIFACT',
+  ],
+  'EDI-X12': [
+    'application/EDI-X12',
+  ],
+  'efi': [
+    'application/efi',
+  ],
+  'elm+json': [
+    'application/elm+json',
+  ],
+  'elm+xml': [
+    'application/elm+xml',
+  ],
+  'EmergencyCallData.cap+xml': [
+    'application/EmergencyCallData.cap+xml',
+  ],
+  'EmergencyCallData.Comment+xml': [
+    'application/EmergencyCallData.Comment+xml',
+  ],
+  'EmergencyCallData.Control+xml': [
+    'application/EmergencyCallData.Control+xml',
+  ],
+  'EmergencyCallData.DeviceInfo+xml': [
+    'application/EmergencyCallData.DeviceInfo+xml',
+  ],
+  'EmergencyCallData.eCall.MSD': [
+    'application/EmergencyCallData.eCall.MSD',
+  ],
+  'EmergencyCallData.LegacyESN+json': [
+    'application/EmergencyCallData.LegacyESN+json',
+  ],
+  'EmergencyCallData.ProviderInfo+xml': [
+    'application/EmergencyCallData.ProviderInfo+xml',
+  ],
+  'EmergencyCallData.ServiceInfo+xml': [
+    'application/EmergencyCallData.ServiceInfo+xml',
+  ],
+  'EmergencyCallData.SubscriberInfo+xml': [
+    'application/EmergencyCallData.SubscriberInfo+xml',
+  ],
+  'EmergencyCallData.VEDS+xml': [
+    'application/EmergencyCallData.VEDS+xml',
+  ],
+  'emma+xml': [
+    'application/emma+xml',
+  ],
+  'emotionml+xml': [
+    'application/emotionml+xml',
+  ],
+  'encaprtp': [
+    'application/encaprtp',
     'audio/encaprtp',
-    'audio/EVRC',
-    'audio/EVRC-QCP',
-    'audio/EVRC0',
-    'audio/EVRC1',
-    'audio/EVRCB',
-    'audio/EVRCB0',
-    'audio/EVRCB1',
-    'audio/EVRCNW',
-    'audio/EVRCNW0',
-    'audio/EVRCNW1',
-    'audio/EVRCWB',
-    'audio/EVRCWB0',
-    'audio/EVRCWB1',
-    'audio/EVS',
+    'text/encaprtp',
+    'video/encaprtp',
+  ],
+  'epp+xml': [
+    'application/epp+xml',
+  ],
+  'epub+zip': [
+    'application/epub+zip',
+  ],
+  'eshop': [
+    'application/eshop',
+  ],
+  'example': [
+    'application/example',
     'audio/example',
-    'audio/flac',
-    'audio/flexfec',
-    'audio/fwdred',
-    'audio/G711-0',
-    'audio/G719',
-    'audio/G7221',
-    'audio/G722',
-    'audio/G723',
-    'audio/G726-16',
-    'audio/G726-24',
-    'audio/G726-32',
-    'audio/G726-40',
-    'audio/G728',
-    'audio/G729',
-    'audio/G7291',
-    'audio/G729D',
-    'audio/G729E',
-    'audio/GSM',
-    'audio/GSM-EFR',
-    'audio/GSM-HR-08',
-    'audio/iLBC',
-    'audio/ip-mr_v2.5',
-    'audio/L8',
-    'audio/L16',
-    'audio/L20',
-    'audio/L24',
-    'audio/LPC',
-    'audio/matroska',
-    'audio/MELP',
-    'audio/MELP600',
-    'audio/MELP1200',
-    'audio/MELP2400',
-    'audio/mhas',
-    'audio/midi-clip',
-    'audio/mobile-xmf',
-    'audio/MPA',
-    'audio/mp4',
-    'audio/MP4A-LATM',
-    'audio/mpa-robust',
-    'audio/mpeg',
-    'audio/mpeg4-generic',
-    'audio/ogg',
-    'audio/opus',
-    'audio/parityfec',
-    'audio/PCMA',
-    'audio/PCMA-WB',
-    'audio/PCMU',
-    'audio/PCMU-WB',
-    'audio/prs.sid',
-    'audio/QCELP',
-    'audio/raptorfec',
-    'audio/RED',
-    'audio/rtp-enc-aescm128',
-    'audio/rtploopback',
-    'audio/rtp-midi',
-    'audio/rtx',
-    'audio/scip',
-    'audio/SMV',
-    'audio/SMV0',
-    'audio/SMV-QCP',
-    'audio/sofa',
-    'audio/sp-midi',
-    'audio/speex',
-    'audio/t140c',
-    'audio/t38',
-    'audio/telephone-event',
-    'audio/TETRA_ACELP',
-    'audio/TETRA_ACELP_BB',
-    'audio/tone',
-    'audio/TSVCIS',
-    'audio/UEMCLIP',
-    'audio/ulpfec',
-    'audio/usac',
-    'audio/VDVI',
-    'audio/VMR-WB',
-    'audio/vnd.3gpp.iufp',
-    'audio/vnd.4SB',
-    'audio/vnd.audiokoz',
-    'audio/vnd.CELP',
-    'audio/vnd.cisco.nse',
-    'audio/vnd.cmles.radio-events',
-    'audio/vnd.cns.anp1',
-    'audio/vnd.cns.inf1',
-    'audio/vnd.dece.audio',
-    'audio/vnd.digital-winds',
-    'audio/vnd.dlna.adts',
-    'audio/vnd.dolby.heaac.1',
-    'audio/vnd.dolby.heaac.2',
-    'audio/vnd.dolby.mlp',
-    'audio/vnd.dolby.mps',
-    'audio/vnd.dolby.pl2',
-    'audio/vnd.dolby.pl2x',
-    'audio/vnd.dolby.pl2z',
-    'audio/vnd.dolby.pulse.1',
-    'audio/vnd.dra',
-    'audio/vnd.dts',
-    'audio/vnd.dts.hd',
-    'audio/vnd.dts.uhd',
-    'audio/vnd.dvb.file',
-    'audio/vnd.everad.plj',
-    'audio/vnd.hns.audio',
-    'audio/vnd.lucent.voice',
-    'audio/vnd.ms-playready.media.pya',
-    'audio/vnd.nokia.mobile-xmf',
-    'audio/vnd.nortel.vbk',
-    'audio/vnd.nuera.ecelp4800',
-    'audio/vnd.nuera.ecelp7470',
-    'audio/vnd.nuera.ecelp9600',
-    'audio/vnd.octel.sbc',
-    'audio/vnd.presonus.multitrack',
-    'audio/vnd.qcelp',
-    'audio/vnd.rhetorex.32kadpcm',
-    'audio/vnd.rip',
-    'audio/vnd.sealedmedia.softseal.mpeg',
-    'audio/vnd.vmx.cvsd',
-    'audio/vorbis',
-    'audio/vorbis-config',
-    'font/collection',
-    'font/otf',
-    'font/sfnt',
-    'font/ttf',
-    'font/woff',
-    'font/woff2',
-    'haptics/ivs',
-    'haptics/hjif',
-    'haptics/hmpg',
-
-    'image/aces',
-    'image/apng',
-    'image/avci',
-    'image/avcs',
-    'image/avif',
-    'image/bmp',
-    'image/cgm',
-    'image/dicom-rle',
-    'image/dpx',
-    'image/emf',
     'image/example',
-    'image/fits',
-    'image/g3fax',
-    'image/gif',
-    'image/heic',
-    'image/heic-sequence',
-    'image/heif',
-    'image/heif-sequence',
-    'image/hej2k',
-    'image/hsj2',
-    'image/ief',
-    'image/j2c',
-    'image/jls',
-    'image/jp2',
-    'image/jpeg',
-    'image/jph',
-    'image/jphc',
-    'image/jpm',
-    'image/jpx',
-    'image/jxl',
-    'image/jxr',
-    'image/jxrA',
-    'image/jxrS',
-    'image/jxs',
-    'image/jxsc',
-    'image/jxsi',
-    'image/jxss',
-    'image/ktx',
-    'image/ktx2',
-    'image/naplps',
-    'image/png',
-    'image/prs.btif',
-    'image/prs.pti',
-    'image/pwg-raster',
-    'image/svg+xml',
-    'image/t38',
-    'image/tiff',
-    'image/tiff-fx',
-    'image/vnd.adobe.photoshop',
-    'image/vnd.airzip.accelerator.azv',
-    'image/vnd.cns.inf2',
-    'image/vnd.dece.graphic',
-    'image/vnd.djvu',
-    'image/vnd.dwg',
-    'image/vnd.dxf',
-    'image/vnd.dvb.subtitle',
-    'image/vnd.fastbidsheet',
-    'image/vnd.fpx',
-    'image/vnd.fst',
-    'image/vnd.fujixerox.edmics-mmr',
-    'image/vnd.fujixerox.edmics-rlc',
-    'image/vnd.globalgraphics.pgb',
-    'image/vnd.microsoft.icon',
-    'image/vnd.mix',
-    'image/vnd.ms-modi',
-    'image/vnd.mozilla.apng',
-    'image/vnd.net-fpx',
-    'image/vnd.pco.b16',
-    'image/vnd.radiance',
-    'image/vnd.sealed.png',
-    'image/vnd.sealedmedia.softseal.gif',
-    'image/vnd.sealedmedia.softseal.jpg',
-    'image/vnd.svf',
-    'image/vnd.tencent.tap',
-    'image/vnd.valve.source.texture',
-    'image/vnd.wap.wbmp',
-    'image/vnd.xiff',
-    'image/vnd.zbrush.pcx',
-    'image/webp',
-    'image/wmf',
-    'image/x-emf',
-    'image/x-wmf',
-    'message/bhttp',
-    'message/CPIM',
-    'message/delivery-status',
-    'message/disposition-notification',
     'message/example',
-    'message/external-body',
-    'message/feedback-report',
-    'message/global',
-    'message/global-delivery-status',
-    'message/global-disposition-notification',
-    'message/global-headers',
-    'message/http',
-    'message/imdn+xml',
-    'message/mls',
-    'message/news',
-    'message/ohttp-req',
-    'message/ohttp-res',
-    'message/partial',
-    'message/rfc822',
-    'message/s-http',
-    'message/sip',
-    'message/sipfrag',
-    'message/tracking-status',
-    'message/vnd.si.simp',
-    'message/vnd.wfa.wsc',
-
-    'model/3mf',
-    'model/e57',
     'model/example',
-    'model/gltf-binary',
-    'model/gltf+json',
-    'model/JT',
-    'model/iges',
-    'model/mesh',
-    'model/mtl',
-    'model/obj',
-    'model/prc',
-    'model/step',
-    'model/step+xml',
-    'model/step+zip',
-    'model/step-xml+zip',
-    'model/stl',
-    'model/u3d',
-    'model/vnd.bary',
-    'model/vnd.cld',
-    'model/vnd.collada+xml',
-    'model/vnd.dwf',
-    'model/vnd.flatland.3dml',
-    'model/vnd.gdl',
-    'model/vnd.gs-gdl',
-    'model/vnd.gtw',
-    'model/vnd.moml+xml',
-    'model/vnd.mts',
-    'model/vnd.opengex',
-    'model/vnd.parasolid.transmit.binary',
-    'model/vnd.parasolid.transmit.text',
-    'model/vnd.pytha.pyox',
-    'model/vnd.rosette.annotated-data-model',
-    'model/vnd.sap.vds',
-    'model/vnd.usda',
-    'model/vnd.usdz+zip',
-    'model/vnd.valve.source.compiled-map',
-    'model/vnd.vtu',
-    'model/vrml',
-    'model/x3d-vrml',
-    'model/x3d+fastinfoset',
-    'model/x3d+xml',
-    'multipart/alternative',
-    'multipart/appledouble',
-    'multipart/byteranges',
-    'multipart/digest',
-    'multipart/encrypted',
     'multipart/example',
+    'text/example',
+    'video/example',
+  ],
+  'exi': [
+    'application/exi',
+  ],
+  'expect-ct-report+json': [
+    'application/expect-ct-report+json',
+  ],
+  'express': [
+    'application/express',
+  ],
+  'fastinfoset': [
+    'application/fastinfoset',
+  ],
+  'fastsoap': [
+    'application/fastsoap',
+  ],
+  'fdf': [
+    'application/fdf',
+  ],
+  'fdt+xml': [
+    'application/fdt+xml',
+  ],
+  'fhir+json': [
+    'application/fhir+json',
+  ],
+  'fhir+xml': [
+    'application/fhir+xml',
+  ],
+  'fits': [
+    'application/fits',
+    'image/fits',
+  ],
+  'flexfec': [
+    'application/flexfec',
+    'audio/flexfec',
+    'text/flexfec',
+    'video/flexfec',
+  ],
+  'font-sfnt': [
+    'application/font-sfnt',
+  ],
+  'font-tdpfr': [
+    'application/font-tdpfr',
+  ],
+  'font-woff': [
+    'application/font-woff',
+  ],
+  'framework-attributes+xml': [
+    'application/framework-attributes+xml',
+  ],
+  'geo+json': [
+    'application/geo+json',
+  ],
+  'geo+json-seq': [
+    'application/geo+json-seq',
+  ],
+  'geopackage+sqlite3': [
+    'application/geopackage+sqlite3',
+  ],
+  'geopose+json': [
+    'application/geopose+json',
+  ],
+  'geoxacml+json': [
+    'application/geoxacml+json',
+  ],
+  'geoxacml+xml': [
+    'application/geoxacml+xml',
+  ],
+  'gltf-buffer': [
+    'application/gltf-buffer',
+  ],
+  'gml+xml': [
+    'application/gml+xml',
+  ],
+  'gnap-binding-jws': [
+    'application/gnap-binding-jws',
+  ],
+  'gnap-binding-jwsd': [
+    'application/gnap-binding-jwsd',
+  ],
+  'gnap-binding-rotation-jws': [
+    'application/gnap-binding-rotation-jws',
+  ],
+  'gnap-binding-rotation-jwsd': [
+    'application/gnap-binding-rotation-jwsd',
+  ],
+  'grib': [
+    'application/grib',
+  ],
+  'gzip': [
+    'application/gzip',
+  ],
+  'H224': [
+    'application/H224',
+  ],
+  'held+xml': [
+    'application/held+xml',
+  ],
+  'hl7v2+xml': [
+    'application/hl7v2+xml',
+  ],
+  'http': [
+    'application/http',
+    'message/http',
+  ],
+  'hyperstudio': [
+    'application/hyperstudio',
+  ],
+  'ibe-key-request+xml': [
+    'application/ibe-key-request+xml',
+  ],
+  'ibe-pkg-reply+xml': [
+    'application/ibe-pkg-reply+xml',
+  ],
+  'ibe-pp-data': [
+    'application/ibe-pp-data',
+  ],
+  'iges': [
+    'application/iges',
+    'model/iges',
+  ],
+  'im-iscomposing+xml': [
+    'application/im-iscomposing+xml',
+  ],
+  'index': [
+    'application/index',
+  ],
+  'index.cmd': [
+    'application/index.cmd',
+  ],
+  'index.obj': [
+    'application/index.obj',
+  ],
+  'index.response': [
+    'application/index.response',
+  ],
+  'index.vnd': [
+    'application/index.vnd',
+  ],
+  'inkml+xml': [
+    'application/inkml+xml',
+  ],
+  'IOTP': [
+    'application/IOTP',
+  ],
+  'ipfix': [
+    'application/ipfix',
+  ],
+  'ipp': [
+    'application/ipp',
+  ],
+  'ISUP': [
+    'application/ISUP',
+  ],
+  'its+xml': [
+    'application/its+xml',
+  ],
+  'java-archive': [
+    'application/java-archive',
+  ],
+  'jf2feed+json': [
+    'application/jf2feed+json',
+  ],
+  'jose': [
+    'application/jose',
+  ],
+  'jose+json': [
+    'application/jose+json',
+  ],
+  'jrd+json': [
+    'application/jrd+json',
+  ],
+  'jscalendar+json': [
+    'application/jscalendar+json',
+  ],
+  'jscontact+json': [
+    'application/jscontact+json',
+  ],
+  'json': [
+    'application/json',
+  ],
+  'json-patch+json': [
+    'application/json-patch+json',
+  ],
+  'json-seq': [
+    'application/json-seq',
+  ],
+  'jsonpath': [
+    'application/jsonpath',
+  ],
+  'jwk+json': [
+    'application/jwk+json',
+  ],
+  'jwk-set+json': [
+    'application/jwk-set+json',
+  ],
+  'jwt': [
+    'application/jwt',
+  ],
+  'kpml-request+xml': [
+    'application/kpml-request+xml',
+  ],
+  'kpml-response+xml': [
+    'application/kpml-response+xml',
+  ],
+  'ld+json': [
+    'application/ld+json',
+  ],
+  'lgr+xml': [
+    'application/lgr+xml',
+  ],
+  'link-format': [
+    'application/link-format',
+  ],
+  'linkset': [
+    'application/linkset',
+  ],
+  'linkset+json': [
+    'application/linkset+json',
+  ],
+  'load-control+xml': [
+    'application/load-control+xml',
+  ],
+  'logout+jwt': [
+    'application/logout+jwt',
+  ],
+  'lost+xml': [
+    'application/lost+xml',
+  ],
+  'lostsync+xml': [
+    'application/lostsync+xml',
+  ],
+  'lpf+zip': [
+    'application/lpf+zip',
+  ],
+  'LXF': [
+    'application/LXF',
+  ],
+  'mac-binhex40': [
+    'application/mac-binhex40',
+  ],
+  'macwriteii': [
+    'application/macwriteii',
+  ],
+  'mads+xml': [
+    'application/mads+xml',
+  ],
+  'manifest+json': [
+    'application/manifest+json',
+  ],
+  'marc': [
+    'application/marc',
+  ],
+  'marcxml+xml': [
+    'application/marcxml+xml',
+  ],
+  'mathematica': [
+    'application/mathematica',
+  ],
+  'mathml+xml': [
+    'application/mathml+xml',
+  ],
+  'mathml-content+xml': [
+    'application/mathml-content+xml',
+  ],
+  'mathml-presentation+xml': [
+    'application/mathml-presentation+xml',
+  ],
+  'mbms-associated-procedure-description+xml': [
+    'application/mbms-associated-procedure-description+xml',
+  ],
+  'mbms-deregister+xml': [
+    'application/mbms-deregister+xml',
+  ],
+  'mbms-envelope+xml': [
+    'application/mbms-envelope+xml',
+  ],
+  'mbms-msk-response+xml': [
+    'application/mbms-msk-response+xml',
+  ],
+  'mbms-msk+xml': [
+    'application/mbms-msk+xml',
+  ],
+  'mbms-protection-description+xml': [
+    'application/mbms-protection-description+xml',
+  ],
+  'mbms-reception-report+xml': [
+    'application/mbms-reception-report+xml',
+  ],
+  'mbms-register-response+xml': [
+    'application/mbms-register-response+xml',
+  ],
+  'mbms-register+xml': [
+    'application/mbms-register+xml',
+  ],
+  'mbms-schedule+xml': [
+    'application/mbms-schedule+xml',
+  ],
+  'mbms-user-service-description+xml': [
+    'application/mbms-user-service-description+xml',
+  ],
+  'mbox': [
+    'application/mbox',
+  ],
+  'media_control+xml': [
+    'application/media_control+xml',
+  ],
+  'media-policy-dataset+xml': [
+    'application/media-policy-dataset+xml',
+  ],
+  'mediaservercontrol+xml': [
+    'application/mediaservercontrol+xml',
+  ],
+  'merge-patch+json': [
+    'application/merge-patch+json',
+  ],
+  'metalink4+xml': [
+    'application/metalink4+xml',
+  ],
+  'mets+xml': [
+    'application/mets+xml',
+  ],
+  'MF4': [
+    'application/MF4',
+  ],
+  'mikey': [
+    'application/mikey',
+  ],
+  'mipc': [
+    'application/mipc',
+  ],
+  'missing-blocks+cbor-seq': [
+    'application/missing-blocks+cbor-seq',
+  ],
+  'mmt-aei+xml': [
+    'application/mmt-aei+xml',
+  ],
+  'mmt-usd+xml': [
+    'application/mmt-usd+xml',
+  ],
+  'mods+xml': [
+    'application/mods+xml',
+  ],
+  'moss-keys': [
+    'application/moss-keys',
+  ],
+  'moss-signature': [
+    'application/moss-signature',
+  ],
+  'mosskey-data': [
+    'application/mosskey-data',
+  ],
+  'mosskey-request': [
+    'application/mosskey-request',
+  ],
+  'mp21': [
+    'application/mp21',
+  ],
+  'mp4': [
+    'application/mp4',
+    'audio/mp4',
+    'video/mp4',
+  ],
+  'mpeg4-generic': [
+    'application/mpeg4-generic',
+    'audio/mpeg4-generic',
+    'video/mpeg4-generic',
+  ],
+  'mpeg4-iod': [
+    'application/mpeg4-iod',
+  ],
+  'mpeg4-iod-xmt': [
+    'application/mpeg4-iod-xmt',
+  ],
+  'mrb-consumer+xml': [
+    'application/mrb-consumer+xml',
+  ],
+  'mrb-publish+xml': [
+    'application/mrb-publish+xml',
+  ],
+  'msc-ivr+xml': [
+    'application/msc-ivr+xml',
+  ],
+  'msc-mixer+xml': [
+    'application/msc-mixer+xml',
+  ],
+  'msword': [
+    'application/msword',
+  ],
+  'mud+json': [
+    'application/mud+json',
+  ],
+  'multipart-core': [
+    'application/multipart-core',
+  ],
+  'mxf': [
+    'application/mxf',
+  ],
+  'n-quads': [
+    'application/n-quads',
+  ],
+  'n-triples': [
+    'application/n-triples',
+  ],
+  'nasdata': [
+    'application/nasdata',
+  ],
+  'news-checkgroups': [
+    'application/news-checkgroups',
+  ],
+  'news-groupinfo': [
+    'application/news-groupinfo',
+  ],
+  'news-transmission': [
+    'application/news-transmission',
+  ],
+  'nlsml+xml': [
+    'application/nlsml+xml',
+  ],
+  'node': [
+    'application/node',
+  ],
+  'nss': [
+    'application/nss',
+  ],
+  'oauth-authz-req+jwt': [
+    'application/oauth-authz-req+jwt',
+  ],
+  'oblivious-dns-message': [
+    'application/oblivious-dns-message',
+  ],
+  'ocsp-request': [
+    'application/ocsp-request',
+  ],
+  'ocsp-response': [
+    'application/ocsp-response',
+  ],
+  'octet-stream': [
+    'application/octet-stream',
+  ],
+  'ODA': [
+    'application/ODA',
+  ],
+  'odm+xml': [
+    'application/odm+xml',
+  ],
+  'ODX': [
+    'application/ODX',
+  ],
+  'oebps-package+xml': [
+    'application/oebps-package+xml',
+  ],
+  'ogg': [
+    'application/ogg',
+    'audio/ogg',
+    'video/ogg',
+  ],
+  'ohttp-keys': [
+    'application/ohttp-keys',
+  ],
+  'opc-nodeset+xml': [
+    'application/opc-nodeset+xml',
+  ],
+  'oscore': [
+    'application/oscore',
+  ],
+  'oxps': [
+    'application/oxps',
+  ],
+  'p21': [
+    'application/p21',
+  ],
+  'p21+zip': [
+    'application/p21+zip',
+  ],
+  'p2p-overlay+xml': [
+    'application/p2p-overlay+xml',
+  ],
+  'parityfec': [
+    'application/parityfec',
+    'audio/parityfec',
+    'text/parityfec',
+    'video/parityfec',
+  ],
+  'passport': [
+    'application/passport',
+  ],
+  'patch-ops-error+xml': [
+    'application/patch-ops-error+xml',
+  ],
+  'pdf': [
+    'application/pdf',
+  ],
+  'PDX': [
+    'application/PDX',
+  ],
+  'pem-certificate-chain': [
+    'application/pem-certificate-chain',
+  ],
+  'pgp-encrypted': [
+    'application/pgp-encrypted',
+  ],
+  'pgp-keys': [
+    'application/pgp-keys',
+  ],
+  'pgp-signature': [
+    'application/pgp-signature',
+  ],
+  'pidf-diff+xml': [
+    'application/pidf-diff+xml',
+  ],
+  'pidf+xml': [
+    'application/pidf+xml',
+  ],
+  'pkcs10': [
+    'application/pkcs10',
+  ],
+  'pkcs7-mime': [
+    'application/pkcs7-mime',
+  ],
+  'pkcs7-signature': [
+    'application/pkcs7-signature',
+  ],
+  'pkcs8': [
+    'application/pkcs8',
+  ],
+  'pkcs8-encrypted': [
+    'application/pkcs8-encrypted',
+  ],
+  'pkcs12': [
+    'application/pkcs12',
+  ],
+  'pkix-attr-cert': [
+    'application/pkix-attr-cert',
+  ],
+  'pkix-cert': [
+    'application/pkix-cert',
+  ],
+  'pkix-crl': [
+    'application/pkix-crl',
+  ],
+  'pkix-pkipath': [
+    'application/pkix-pkipath',
+  ],
+  'pkixcmp': [
+    'application/pkixcmp',
+  ],
+  'pls+xml': [
+    'application/pls+xml',
+  ],
+  'poc-settings+xml': [
+    'application/poc-settings+xml',
+  ],
+  'postscript': [
+    'application/postscript',
+  ],
+  'ppsp-tracker+json': [
+    'application/ppsp-tracker+json',
+  ],
+  'private-token-issuer-directory': [
+    'application/private-token-issuer-directory',
+  ],
+  'private-token-request': [
+    'application/private-token-request',
+  ],
+  'private-token-response': [
+    'application/private-token-response',
+  ],
+  'problem+json': [
+    'application/problem+json',
+  ],
+  'problem+xml': [
+    'application/problem+xml',
+  ],
+  'provenance+xml': [
+    'application/provenance+xml',
+  ],
+  'prs.alvestrand.titrax-sheet': [
+    'application/prs.alvestrand.titrax-sheet',
+  ],
+  'prs.cww': [
+    'application/prs.cww',
+  ],
+  'prs.cyn': [
+    'application/prs.cyn',
+  ],
+  'prs.hpub+zip': [
+    'application/prs.hpub+zip',
+  ],
+  'prs.implied-document+xml': [
+    'application/prs.implied-document+xml',
+  ],
+  'prs.implied-executable': [
+    'application/prs.implied-executable',
+  ],
+  'prs.implied-object+json': [
+    'application/prs.implied-object+json',
+  ],
+  'prs.implied-object+json-seq': [
+    'application/prs.implied-object+json-seq',
+  ],
+  'prs.implied-object+yaml': [
+    'application/prs.implied-object+yaml',
+  ],
+  'prs.implied-structure': [
+    'application/prs.implied-structure',
+  ],
+  'prs.mayfile': [
+    'application/prs.mayfile',
+  ],
+  'prs.nprend': [
+    'application/prs.nprend',
+  ],
+  'prs.plucker': [
+    'application/prs.plucker',
+  ],
+  'prs.rdf-xml-crypt': [
+    'application/prs.rdf-xml-crypt',
+  ],
+  'prs.vcfbzip2': [
+    'application/prs.vcfbzip2',
+  ],
+  'prs.xsf+xml': [
+    'application/prs.xsf+xml',
+  ],
+  'pskc+xml': [
+    'application/pskc+xml',
+  ],
+  'pvd+json': [
+    'application/pvd+json',
+  ],
+  'rdf+xml': [
+    'application/rdf+xml',
+  ],
+  'route-apd+xml': [
+    'application/route-apd+xml',
+  ],
+  'route-s-tsid+xml': [
+    'application/route-s-tsid+xml',
+  ],
+  'route-usd+xml': [
+    'application/route-usd+xml',
+  ],
+  'QSIG': [
+    'application/QSIG',
+  ],
+  'raptorfec': [
+    'application/raptorfec',
+    'audio/raptorfec',
+    'text/raptorfec',
+    'video/raptorfec',
+  ],
+  'rdap+json': [
+    'application/rdap+json',
+  ],
+  'reginfo+xml': [
+    'application/reginfo+xml',
+  ],
+  'relax-ng-compact-syntax': [
+    'application/relax-ng-compact-syntax',
+  ],
+  'remote-printing': [
+    'application/remote-printing',
+  ],
+  'reputon+json': [
+    'application/reputon+json',
+  ],
+  'resource-lists-diff+xml': [
+    'application/resource-lists-diff+xml',
+  ],
+  'resource-lists+xml': [
+    'application/resource-lists+xml',
+  ],
+  'rfc+xml': [
+    'application/rfc+xml',
+  ],
+  'riscos': [
+    'application/riscos',
+  ],
+  'rlmi+xml': [
+    'application/rlmi+xml',
+  ],
+  'rls-services+xml': [
+    'application/rls-services+xml',
+  ],
+  'rpki-checklist': [
+    'application/rpki-checklist',
+  ],
+  'rpki-ghostbusters': [
+    'application/rpki-ghostbusters',
+  ],
+  'rpki-manifest': [
+    'application/rpki-manifest',
+  ],
+  'rpki-publication': [
+    'application/rpki-publication',
+  ],
+  'rpki-roa': [
+    'application/rpki-roa',
+  ],
+  'rpki-signed-tal': [
+    'application/rpki-signed-tal',
+  ],
+  'rpki-updown': [
+    'application/rpki-updown',
+  ],
+  'rtf': [
+    'application/rtf',
+    'text/rtf',
+  ],
+  'rtploopback': [
+    'application/rtploopback',
+    'audio/rtploopback',
+    'text/rtploopback',
+    'video/rtploopback',
+  ],
+  'rtx': [
+    'application/rtx',
+    'audio/rtx',
+    'text/rtx',
+    'video/rtx',
+  ],
+  'samlassertion+xml': [
+    'application/samlassertion+xml',
+  ],
+  'samlmetadata+xml': [
+    'application/samlmetadata+xml',
+  ],
+  'sarif-external-properties+json': [
+    'application/sarif-external-properties+json',
+  ],
+  'sarif+json': [
+    'application/sarif+json',
+  ],
+  'sbe': [
+    'application/sbe',
+  ],
+  'sbml+xml': [
+    'application/sbml+xml',
+  ],
+  'scaip+xml': [
+    'application/scaip+xml',
+  ],
+  'scim+json': [
+    'application/scim+json',
+  ],
+  'scvp-cv-request': [
+    'application/scvp-cv-request',
+  ],
+  'scvp-cv-response': [
+    'application/scvp-cv-response',
+  ],
+  'scvp-vp-request': [
+    'application/scvp-vp-request',
+  ],
+  'scvp-vp-response': [
+    'application/scvp-vp-response',
+  ],
+  'sdp': [
+    'application/sdp',
+  ],
+  'secevent+jwt': [
+    'application/secevent+jwt',
+  ],
+  'senml-etch+cbor': [
+    'application/senml-etch+cbor',
+  ],
+  'senml-etch+json': [
+    'application/senml-etch+json',
+  ],
+  'senml-exi': [
+    'application/senml-exi',
+  ],
+  'senml+cbor': [
+    'application/senml+cbor',
+  ],
+  'senml+json': [
+    'application/senml+json',
+  ],
+  'senml+xml': [
+    'application/senml+xml',
+  ],
+  'sensml-exi': [
+    'application/sensml-exi',
+  ],
+  'sensml+cbor': [
+    'application/sensml+cbor',
+  ],
+  'sensml+json': [
+    'application/sensml+json',
+  ],
+  'sensml+xml': [
+    'application/sensml+xml',
+  ],
+  'sep-exi': [
+    'application/sep-exi',
+  ],
+  'sep+xml': [
+    'application/sep+xml',
+  ],
+  'session-info': [
+    'application/session-info',
+  ],
+  'set-payment': [
+    'application/set-payment',
+  ],
+  'set-payment-initiation': [
+    'application/set-payment-initiation',
+  ],
+  'set-registration': [
+    'application/set-registration',
+  ],
+  'set-registration-initiation': [
+    'application/set-registration-initiation',
+  ],
+  'SGML': [
+    'application/SGML',
+    'text/SGML',
+  ],
+  'sgml-open-catalog': [
+    'application/sgml-open-catalog',
+  ],
+  'shf+xml': [
+    'application/shf+xml',
+  ],
+  'sieve': [
+    'application/sieve',
+  ],
+  'simple-filter+xml': [
+    'application/simple-filter+xml',
+  ],
+  'simple-message-summary': [
+    'application/simple-message-summary',
+  ],
+  'simpleSymbolContainer': [
+    'application/simpleSymbolContainer',
+  ],
+  'sipc': [
+    'application/sipc',
+  ],
+  'slate': [
+    'application/slate',
+  ],
+  'smil': [
+    'application/smil',
+  ],
+  'smil+xml': [
+    'application/smil+xml',
+  ],
+  'smpte336m': [
+    'application/smpte336m',
+  ],
+  'soap+fastinfoset': [
+    'application/soap+fastinfoset',
+  ],
+  'soap+xml': [
+    'application/soap+xml',
+  ],
+  'sparql-query': [
+    'application/sparql-query',
+  ],
+  'spdx+json': [
+    'application/spdx+json',
+  ],
+  'sparql-results+xml': [
+    'application/sparql-results+xml',
+  ],
+  'spirits-event+xml': [
+    'application/spirits-event+xml',
+  ],
+  'sql': [
+    'application/sql',
+  ],
+  'srgs': [
+    'application/srgs',
+  ],
+  'srgs+xml': [
+    'application/srgs+xml',
+  ],
+  'sru+xml': [
+    'application/sru+xml',
+  ],
+  'sslkeylogfile': [
+    'application/sslkeylogfile',
+  ],
+  'ssml+xml': [
+    'application/ssml+xml',
+  ],
+  'ST2110-41': [
+    'application/ST2110-41',
+  ],
+  'stix+json': [
+    'application/stix+json',
+  ],
+  'stratum': [
+    'application/stratum',
+  ],
+  'swid+cbor': [
+    'application/swid+cbor',
+  ],
+  'swid+xml': [
+    'application/swid+xml',
+  ],
+  'tamp-apex-update': [
+    'application/tamp-apex-update',
+  ],
+  'tamp-apex-update-confirm': [
+    'application/tamp-apex-update-confirm',
+  ],
+  'tamp-community-update': [
+    'application/tamp-community-update',
+  ],
+  'tamp-community-update-confirm': [
+    'application/tamp-community-update-confirm',
+  ],
+  'tamp-error': [
+    'application/tamp-error',
+  ],
+  'tamp-sequence-adjust': [
+    'application/tamp-sequence-adjust',
+  ],
+  'tamp-sequence-adjust-confirm': [
+    'application/tamp-sequence-adjust-confirm',
+  ],
+  'tamp-status-query': [
+    'application/tamp-status-query',
+  ],
+  'tamp-status-response': [
+    'application/tamp-status-response',
+  ],
+  'tamp-update': [
+    'application/tamp-update',
+  ],
+  'tamp-update-confirm': [
+    'application/tamp-update-confirm',
+  ],
+  'taxii+json': [
+    'application/taxii+json',
+  ],
+  'td+json': [
+    'application/td+json',
+  ],
+  'tei+xml': [
+    'application/tei+xml',
+  ],
+  'TETRA_ISI': [
+    'application/TETRA_ISI',
+  ],
+  'thraud+xml': [
+    'application/thraud+xml',
+  ],
+  'timestamp-query': [
+    'application/timestamp-query',
+  ],
+  'timestamp-reply': [
+    'application/timestamp-reply',
+  ],
+  'timestamped-data': [
+    'application/timestamped-data',
+  ],
+  'tlsrpt+gzip': [
+    'application/tlsrpt+gzip',
+  ],
+  'tlsrpt+json': [
+    'application/tlsrpt+json',
+  ],
+  'tm+json': [
+    'application/tm+json',
+  ],
+  'tnauthlist': [
+    'application/tnauthlist',
+  ],
+  'token-introspection+jwt': [
+    'application/token-introspection+jwt',
+  ],
+  'trickle-ice-sdpfrag': [
+    'application/trickle-ice-sdpfrag',
+  ],
+  'trig': [
+    'application/trig',
+  ],
+  'ttml+xml': [
+    'application/ttml+xml',
+  ],
+  'tve-trigger': [
+    'application/tve-trigger',
+  ],
+  'tzif': [
+    'application/tzif',
+  ],
+  'tzif-leap': [
+    'application/tzif-leap',
+  ],
+  'ulpfec': [
+    'application/ulpfec',
+    'audio/ulpfec',
+    'text/ulpfec',
+    'video/ulpfec',
+  ],
+  'urc-grpsheet+xml': [
+    'application/urc-grpsheet+xml',
+  ],
+  'urc-ressheet+xml': [
+    'application/urc-ressheet+xml',
+  ],
+  'urc-targetdesc+xml': [
+    'application/urc-targetdesc+xml',
+  ],
+  'urc-uisocketdesc+xml': [
+    'application/urc-uisocketdesc+xml',
+  ],
+  'vc': [
+    'application/vc',
+  ],
+  'vcard+json': [
+    'application/vcard+json',
+  ],
+  'vcard+xml': [
+    'application/vcard+xml',
+  ],
+  'vemmi': [
+    'application/vemmi',
+  ],
+  'vnd.1000minds.decision-model+xml': [
+    'application/vnd.1000minds.decision-model+xml',
+  ],
+  'vnd.1ob': [
+    'application/vnd.1ob',
+  ],
+  'vnd.3gpp.5gnas': [
+    'application/vnd.3gpp.5gnas',
+  ],
+  'vnd.3gpp.5gsa2x': [
+    'application/vnd.3gpp.5gsa2x',
+  ],
+  'vnd.3gpp.5gsa2x-local-service-information': [
+    'application/vnd.3gpp.5gsa2x-local-service-information',
+  ],
+  'vnd.3gpp.access-transfer-events+xml': [
+    'application/vnd.3gpp.access-transfer-events+xml',
+  ],
+  'vnd.3gpp.bsf+xml': [
+    'application/vnd.3gpp.bsf+xml',
+  ],
+  'vnd.3gpp.crs+xml': [
+    'application/vnd.3gpp.crs+xml',
+  ],
+  'vnd.3gpp.current-location-discovery+xml': [
+    'application/vnd.3gpp.current-location-discovery+xml',
+  ],
+  'vnd.3gpp.GMOP+xml': [
+    'application/vnd.3gpp.GMOP+xml',
+  ],
+  'vnd.3gpp.gtpc': [
+    'application/vnd.3gpp.gtpc',
+  ],
+  'vnd.3gpp.interworking-data': [
+    'application/vnd.3gpp.interworking-data',
+  ],
+  'vnd.3gpp.lpp': [
+    'application/vnd.3gpp.lpp',
+  ],
+  'vnd.3gpp.mc-signalling-ear': [
+    'application/vnd.3gpp.mc-signalling-ear',
+  ],
+  'vnd.3gpp.mcdata-affiliation-command+xml': [
+    'application/vnd.3gpp.mcdata-affiliation-command+xml',
+  ],
+  'vnd.3gpp.mcdata-info+xml': [
+    'application/vnd.3gpp.mcdata-info+xml',
+  ],
+  'vnd.3gpp.mcdata-msgstore-ctrl-request+xml': [
+    'application/vnd.3gpp.mcdata-msgstore-ctrl-request+xml',
+  ],
+  'vnd.3gpp.mcdata-payload': [
+    'application/vnd.3gpp.mcdata-payload',
+  ],
+  'vnd.3gpp.mcdata-regroup+xml': [
+    'application/vnd.3gpp.mcdata-regroup+xml',
+  ],
+  'vnd.3gpp.mcdata-service-config+xml': [
+    'application/vnd.3gpp.mcdata-service-config+xml',
+  ],
+  'vnd.3gpp.mcdata-signalling': [
+    'application/vnd.3gpp.mcdata-signalling',
+  ],
+  'vnd.3gpp.mcdata-ue-config+xml': [
+    'application/vnd.3gpp.mcdata-ue-config+xml',
+  ],
+  'vnd.3gpp.mcdata-user-profile+xml': [
+    'application/vnd.3gpp.mcdata-user-profile+xml',
+  ],
+  'vnd.3gpp.mcptt-affiliation-command+xml': [
+    'application/vnd.3gpp.mcptt-affiliation-command+xml',
+  ],
+  'vnd.3gpp.mcptt-floor-request+xml': [
+    'application/vnd.3gpp.mcptt-floor-request+xml',
+  ],
+  'vnd.3gpp.mcptt-info+xml': [
+    'application/vnd.3gpp.mcptt-info+xml',
+  ],
+  'vnd.3gpp.mcptt-location-info+xml': [
+    'application/vnd.3gpp.mcptt-location-info+xml',
+  ],
+  'vnd.3gpp.mcptt-mbms-usage-info+xml': [
+    'application/vnd.3gpp.mcptt-mbms-usage-info+xml',
+  ],
+  'vnd.3gpp.mcptt-regroup+xml': [
+    'application/vnd.3gpp.mcptt-regroup+xml',
+  ],
+  'vnd.3gpp.mcptt-service-config+xml': [
+    'application/vnd.3gpp.mcptt-service-config+xml',
+  ],
+  'vnd.3gpp.mcptt-signed+xml': [
+    'application/vnd.3gpp.mcptt-signed+xml',
+  ],
+  'vnd.3gpp.mcptt-ue-config+xml': [
+    'application/vnd.3gpp.mcptt-ue-config+xml',
+  ],
+  'vnd.3gpp.mcptt-ue-init-config+xml': [
+    'application/vnd.3gpp.mcptt-ue-init-config+xml',
+  ],
+  'vnd.3gpp.mcptt-user-profile+xml': [
+    'application/vnd.3gpp.mcptt-user-profile+xml',
+  ],
+  'vnd.3gpp.mcvideo-affiliation-command+xml': [
+    'application/vnd.3gpp.mcvideo-affiliation-command+xml',
+  ],
+  'vnd.3gpp.mcvideo-affiliation-info+xml': [
+    'application/vnd.3gpp.mcvideo-affiliation-info+xml',
+  ],
+  'vnd.3gpp.mcvideo-info+xml': [
+    'application/vnd.3gpp.mcvideo-info+xml',
+  ],
+  'vnd.3gpp.mcvideo-location-info+xml': [
+    'application/vnd.3gpp.mcvideo-location-info+xml',
+  ],
+  'vnd.3gpp.mcvideo-mbms-usage-info+xml': [
+    'application/vnd.3gpp.mcvideo-mbms-usage-info+xml',
+  ],
+  'vnd.3gpp.mcvideo-regroup+xml': [
+    'application/vnd.3gpp.mcvideo-regroup+xml',
+  ],
+  'vnd.3gpp.mcvideo-service-config+xml': [
+    'application/vnd.3gpp.mcvideo-service-config+xml',
+  ],
+  'vnd.3gpp.mcvideo-transmission-request+xml': [
+    'application/vnd.3gpp.mcvideo-transmission-request+xml',
+  ],
+  'vnd.3gpp.mcvideo-ue-config+xml': [
+    'application/vnd.3gpp.mcvideo-ue-config+xml',
+  ],
+  'vnd.3gpp.mcvideo-user-profile+xml': [
+    'application/vnd.3gpp.mcvideo-user-profile+xml',
+  ],
+  'vnd.3gpp.mid-call+xml': [
+    'application/vnd.3gpp.mid-call+xml',
+  ],
+  'vnd.3gpp.ngap': [
+    'application/vnd.3gpp.ngap',
+  ],
+  'vnd.3gpp.pfcp': [
+    'application/vnd.3gpp.pfcp',
+  ],
+  'vnd.3gpp.pic-bw-large': [
+    'application/vnd.3gpp.pic-bw-large',
+  ],
+  'vnd.3gpp.pic-bw-small': [
+    'application/vnd.3gpp.pic-bw-small',
+  ],
+  'vnd.3gpp.pic-bw-var': [
+    'application/vnd.3gpp.pic-bw-var',
+  ],
+  'vnd.3gpp.pinapp-info+xml': [
+    'application/vnd.3gpp.pinapp-info+xml',
+  ],
+  'vnd.3gpp-prose-pc3a+xml': [
+    'application/vnd.3gpp-prose-pc3a+xml',
+  ],
+  'vnd.3gpp-prose-pc3ach+xml': [
+    'application/vnd.3gpp-prose-pc3ach+xml',
+  ],
+  'vnd.3gpp-prose-pc3ch+xml': [
+    'application/vnd.3gpp-prose-pc3ch+xml',
+  ],
+  'vnd.3gpp-prose-pc8+xml': [
+    'application/vnd.3gpp-prose-pc8+xml',
+  ],
+  'vnd.3gpp-prose+xml': [
+    'application/vnd.3gpp-prose+xml',
+  ],
+  'vnd.3gpp.s1ap': [
+    'application/vnd.3gpp.s1ap',
+  ],
+  'vnd.3gpp.seal-group-doc+xml': [
+    'application/vnd.3gpp.seal-group-doc+xml',
+  ],
+  'vnd.3gpp.seal-info+xml': [
+    'application/vnd.3gpp.seal-info+xml',
+  ],
+  'vnd.3gpp.seal-location-info+xml': [
+    'application/vnd.3gpp.seal-location-info+xml',
+  ],
+  'vnd.3gpp.seal-mbms-usage-info+xml': [
+    'application/vnd.3gpp.seal-mbms-usage-info+xml',
+  ],
+  'vnd.3gpp.seal-network-QoS-management-info+xml': [
+    'application/vnd.3gpp.seal-network-QoS-management-info+xml',
+  ],
+  'vnd.3gpp.seal-ue-config-info+xml': [
+    'application/vnd.3gpp.seal-ue-config-info+xml',
+  ],
+  'vnd.3gpp.seal-unicast-info+xml': [
+    'application/vnd.3gpp.seal-unicast-info+xml',
+  ],
+  'vnd.3gpp.seal-user-profile-info+xml': [
+    'application/vnd.3gpp.seal-user-profile-info+xml',
+  ],
+  'vnd.3gpp.sms': [
+    'application/vnd.3gpp.sms',
+  ],
+  'vnd.3gpp.sms+xml': [
+    'application/vnd.3gpp.sms+xml',
+  ],
+  'vnd.3gpp.srvcc-ext+xml': [
+    'application/vnd.3gpp.srvcc-ext+xml',
+  ],
+  'vnd.3gpp.SRVCC-info+xml': [
+    'application/vnd.3gpp.SRVCC-info+xml',
+  ],
+  'vnd.3gpp.state-and-event-info+xml': [
+    'application/vnd.3gpp.state-and-event-info+xml',
+  ],
+  'vnd.3gpp.ussd+xml': [
+    'application/vnd.3gpp.ussd+xml',
+  ],
+  'vnd.3gpp.vae-info+xml': [
+    'application/vnd.3gpp.vae-info+xml',
+  ],
+  'vnd.3gpp-v2x-local-service-information': [
+    'application/vnd.3gpp-v2x-local-service-information',
+  ],
+  'vnd.3gpp2.bcmcsinfo+xml': [
+    'application/vnd.3gpp2.bcmcsinfo+xml',
+  ],
+  'vnd.3gpp2.sms': [
+    'application/vnd.3gpp2.sms',
+  ],
+  'vnd.3gpp2.tcap': [
+    'application/vnd.3gpp2.tcap',
+  ],
+  'vnd.3gpp.v2x': [
+    'application/vnd.3gpp.v2x',
+  ],
+  'vnd.3lightssoftware.imagescal': [
+    'application/vnd.3lightssoftware.imagescal',
+  ],
+  'vnd.3M.Post-it-Notes': [
+    'application/vnd.3M.Post-it-Notes',
+  ],
+  'vnd.accpac.simply.aso': [
+    'application/vnd.accpac.simply.aso',
+  ],
+  'vnd.accpac.simply.imp': [
+    'application/vnd.accpac.simply.imp',
+  ],
+  'vnd.acm.addressxfer+json': [
+    'application/vnd.acm.addressxfer+json',
+  ],
+  'vnd.acm.chatbot+json': [
+    'application/vnd.acm.chatbot+json',
+  ],
+  'vnd.acucobol': [
+    'application/vnd.acucobol',
+  ],
+  'vnd.acucorp': [
+    'application/vnd.acucorp',
+  ],
+  'vnd.adobe.flash.movie': [
+    'application/vnd.adobe.flash.movie',
+  ],
+  'vnd.adobe.formscentral.fcdt': [
+    'application/vnd.adobe.formscentral.fcdt',
+  ],
+  'vnd.adobe.fxp': [
+    'application/vnd.adobe.fxp',
+  ],
+  'vnd.adobe.partial-upload': [
+    'application/vnd.adobe.partial-upload',
+  ],
+  'vnd.adobe.xdp+xml': [
+    'application/vnd.adobe.xdp+xml',
+  ],
+  'vnd.aether.imp': [
+    'application/vnd.aether.imp',
+  ],
+  'vnd.afpc.afplinedata': [
+    'application/vnd.afpc.afplinedata',
+  ],
+  'vnd.afpc.afplinedata-pagedef': [
+    'application/vnd.afpc.afplinedata-pagedef',
+  ],
+  'vnd.afpc.cmoca-cmresource': [
+    'application/vnd.afpc.cmoca-cmresource',
+  ],
+  'vnd.afpc.foca-charset': [
+    'application/vnd.afpc.foca-charset',
+  ],
+  'vnd.afpc.foca-codedfont': [
+    'application/vnd.afpc.foca-codedfont',
+  ],
+  'vnd.afpc.foca-codepage': [
+    'application/vnd.afpc.foca-codepage',
+  ],
+  'vnd.afpc.modca': [
+    'application/vnd.afpc.modca',
+  ],
+  'vnd.afpc.modca-cmtable': [
+    'application/vnd.afpc.modca-cmtable',
+  ],
+  'vnd.afpc.modca-formdef': [
+    'application/vnd.afpc.modca-formdef',
+  ],
+  'vnd.afpc.modca-mediummap': [
+    'application/vnd.afpc.modca-mediummap',
+  ],
+  'vnd.afpc.modca-objectcontainer': [
+    'application/vnd.afpc.modca-objectcontainer',
+  ],
+  'vnd.afpc.modca-overlay': [
+    'application/vnd.afpc.modca-overlay',
+  ],
+  'vnd.afpc.modca-pagesegment': [
+    'application/vnd.afpc.modca-pagesegment',
+  ],
+  'vnd.age': [
+    'application/vnd.age',
+  ],
+  'vnd.ah-barcode': [
+    'application/vnd.ah-barcode',
+  ],
+  'vnd.ahead.space': [
+    'application/vnd.ahead.space',
+  ],
+  'vnd.airzip.filesecure.azf': [
+    'application/vnd.airzip.filesecure.azf',
+  ],
+  'vnd.airzip.filesecure.azs': [
+    'application/vnd.airzip.filesecure.azs',
+  ],
+  'vnd.amadeus+json': [
+    'application/vnd.amadeus+json',
+  ],
+  'vnd.amazon.mobi8-ebook': [
+    'application/vnd.amazon.mobi8-ebook',
+  ],
+  'vnd.americandynamics.acc': [
+    'application/vnd.americandynamics.acc',
+  ],
+  'vnd.amiga.ami': [
+    'application/vnd.amiga.ami',
+  ],
+  'vnd.amundsen.maze+xml': [
+    'application/vnd.amundsen.maze+xml',
+  ],
+  'vnd.android.ota': [
+    'application/vnd.android.ota',
+  ],
+  'vnd.anki': [
+    'application/vnd.anki',
+  ],
+  'vnd.anser-web-certificate-issue-initiation': [
+    'application/vnd.anser-web-certificate-issue-initiation',
+  ],
+  'vnd.antix.game-component': [
+    'application/vnd.antix.game-component',
+  ],
+  'vnd.apache.arrow.file': [
+    'application/vnd.apache.arrow.file',
+  ],
+  'vnd.apache.arrow.stream': [
+    'application/vnd.apache.arrow.stream',
+  ],
+  'vnd.apache.parquet': [
+    'application/vnd.apache.parquet',
+  ],
+  'vnd.apache.thrift.binary': [
+    'application/vnd.apache.thrift.binary',
+  ],
+  'vnd.apache.thrift.compact': [
+    'application/vnd.apache.thrift.compact',
+  ],
+  'vnd.apache.thrift.json': [
+    'application/vnd.apache.thrift.json',
+  ],
+  'vnd.apexlang': [
+    'application/vnd.apexlang',
+  ],
+  'vnd.api+json': [
+    'application/vnd.api+json',
+  ],
+  'vnd.aplextor.warrp+json': [
+    'application/vnd.aplextor.warrp+json',
+  ],
+  'vnd.apothekende.reservation+json': [
+    'application/vnd.apothekende.reservation+json',
+  ],
+  'vnd.apple.installer+xml': [
+    'application/vnd.apple.installer+xml',
+  ],
+  'vnd.apple.keynote': [
+    'application/vnd.apple.keynote',
+  ],
+  'vnd.apple.mpegurl': [
+    'application/vnd.apple.mpegurl',
+  ],
+  'vnd.apple.numbers': [
+    'application/vnd.apple.numbers',
+  ],
+  'vnd.apple.pages': [
+    'application/vnd.apple.pages',
+  ],
+  'vnd.arastra.swi': [
+    'application/vnd.arastra.swi',
+  ],
+  'vnd.aristanetworks.swi': [
+    'application/vnd.aristanetworks.swi',
+  ],
+  'vnd.artisan+json': [
+    'application/vnd.artisan+json',
+  ],
+  'vnd.artsquare': [
+    'application/vnd.artsquare',
+  ],
+  'vnd.astraea-software.iota': [
+    'application/vnd.astraea-software.iota',
+  ],
+  'vnd.audiograph': [
+    'application/vnd.audiograph',
+  ],
+  'vnd.autopackage': [
+    'application/vnd.autopackage',
+  ],
+  'vnd.avalon+json': [
+    'application/vnd.avalon+json',
+  ],
+  'vnd.avistar+xml': [
+    'application/vnd.avistar+xml',
+  ],
+  'vnd.balsamiq.bmml+xml': [
+    'application/vnd.balsamiq.bmml+xml',
+  ],
+  'vnd.banana-accounting': [
+    'application/vnd.banana-accounting',
+  ],
+  'vnd.bbf.usp.error': [
+    'application/vnd.bbf.usp.error',
+  ],
+  'vnd.bbf.usp.msg': [
+    'application/vnd.bbf.usp.msg',
+  ],
+  'vnd.bbf.usp.msg+json': [
+    'application/vnd.bbf.usp.msg+json',
+  ],
+  'vnd.balsamiq.bmpr': [
+    'application/vnd.balsamiq.bmpr',
+  ],
+  'vnd.bekitzur-stech+json': [
+    'application/vnd.bekitzur-stech+json',
+  ],
+  'vnd.belightsoft.lhzd+zip': [
+    'application/vnd.belightsoft.lhzd+zip',
+  ],
+  'vnd.belightsoft.lhzl+zip': [
+    'application/vnd.belightsoft.lhzl+zip',
+  ],
+  'vnd.bint.med-content': [
+    'application/vnd.bint.med-content',
+  ],
+  'vnd.biopax.rdf+xml': [
+    'application/vnd.biopax.rdf+xml',
+  ],
+  'vnd.blink-idb-value-wrapper': [
+    'application/vnd.blink-idb-value-wrapper',
+  ],
+  'vnd.blueice.multipass': [
+    'application/vnd.blueice.multipass',
+  ],
+  'vnd.bluetooth.ep.oob': [
+    'application/vnd.bluetooth.ep.oob',
+  ],
+  'vnd.bluetooth.le.oob': [
+    'application/vnd.bluetooth.le.oob',
+  ],
+  'vnd.bmi': [
+    'application/vnd.bmi',
+  ],
+  'vnd.bpf': [
+    'application/vnd.bpf',
+  ],
+  'vnd.bpf3': [
+    'application/vnd.bpf3',
+  ],
+  'vnd.businessobjects': [
+    'application/vnd.businessobjects',
+  ],
+  'vnd.byu.uapi+json': [
+    'application/vnd.byu.uapi+json',
+  ],
+  'vnd.bzip3': [
+    'application/vnd.bzip3',
+  ],
+  'vnd.c3voc.schedule+xml': [
+    'application/vnd.c3voc.schedule+xml',
+  ],
+  'vnd.cab-jscript': [
+    'application/vnd.cab-jscript',
+  ],
+  'vnd.canon-cpdl': [
+    'application/vnd.canon-cpdl',
+  ],
+  'vnd.canon-lips': [
+    'application/vnd.canon-lips',
+  ],
+  'vnd.capasystems-pg+json': [
+    'application/vnd.capasystems-pg+json',
+  ],
+  'vnd.cendio.thinlinc.clientconf': [
+    'application/vnd.cendio.thinlinc.clientconf',
+  ],
+  'vnd.century-systems.tcp_stream': [
+    'application/vnd.century-systems.tcp_stream',
+  ],
+  'vnd.chemdraw+xml': [
+    'application/vnd.chemdraw+xml',
+  ],
+  'vnd.chess-pgn': [
+    'application/vnd.chess-pgn',
+  ],
+  'vnd.chipnuts.karaoke-mmd': [
+    'application/vnd.chipnuts.karaoke-mmd',
+  ],
+  'vnd.ciedi': [
+    'application/vnd.ciedi',
+  ],
+  'vnd.cinderella': [
+    'application/vnd.cinderella',
+  ],
+  'vnd.cirpack.isdn-ext': [
+    'application/vnd.cirpack.isdn-ext',
+  ],
+  'vnd.citationstyles.style+xml': [
+    'application/vnd.citationstyles.style+xml',
+  ],
+  'vnd.claymore': [
+    'application/vnd.claymore',
+  ],
+  'vnd.cloanto.rp9': [
+    'application/vnd.cloanto.rp9',
+  ],
+  'vnd.clonk.c4group': [
+    'application/vnd.clonk.c4group',
+  ],
+  'vnd.cluetrust.cartomobile-config': [
+    'application/vnd.cluetrust.cartomobile-config',
+  ],
+  'vnd.cluetrust.cartomobile-config-pkg': [
+    'application/vnd.cluetrust.cartomobile-config-pkg',
+  ],
+  'vnd.cncf.helm.chart.content.v1.tar+gzip': [
+    'application/vnd.cncf.helm.chart.content.v1.tar+gzip',
+  ],
+  'vnd.cncf.helm.chart.provenance.v1.prov': [
+    'application/vnd.cncf.helm.chart.provenance.v1.prov',
+  ],
+  'vnd.cncf.helm.config.v1+json': [
+    'application/vnd.cncf.helm.config.v1+json',
+  ],
+  'vnd.coffeescript': [
+    'application/vnd.coffeescript',
+  ],
+  'vnd.collabio.xodocuments.document': [
+    'application/vnd.collabio.xodocuments.document',
+  ],
+  'vnd.collabio.xodocuments.document-template': [
+    'application/vnd.collabio.xodocuments.document-template',
+  ],
+  'vnd.collabio.xodocuments.presentation': [
+    'application/vnd.collabio.xodocuments.presentation',
+  ],
+  'vnd.collabio.xodocuments.presentation-template': [
+    'application/vnd.collabio.xodocuments.presentation-template',
+  ],
+  'vnd.collabio.xodocuments.spreadsheet': [
+    'application/vnd.collabio.xodocuments.spreadsheet',
+  ],
+  'vnd.collabio.xodocuments.spreadsheet-template': [
+    'application/vnd.collabio.xodocuments.spreadsheet-template',
+  ],
+  'vnd.collection.doc+json': [
+    'application/vnd.collection.doc+json',
+  ],
+  'vnd.collection+json': [
+    'application/vnd.collection+json',
+  ],
+  'vnd.collection.next+json': [
+    'application/vnd.collection.next+json',
+  ],
+  'vnd.comicbook-rar': [
+    'application/vnd.comicbook-rar',
+  ],
+  'vnd.comicbook+zip': [
+    'application/vnd.comicbook+zip',
+  ],
+  'vnd.commerce-battelle': [
+    'application/vnd.commerce-battelle',
+  ],
+  'vnd.commonspace': [
+    'application/vnd.commonspace',
+  ],
+  'vnd.coreos.ignition+json': [
+    'application/vnd.coreos.ignition+json',
+  ],
+  'vnd.cosmocaller': [
+    'application/vnd.cosmocaller',
+  ],
+  'vnd.contact.cmsg': [
+    'application/vnd.contact.cmsg',
+  ],
+  'vnd.crick.clicker': [
+    'application/vnd.crick.clicker',
+  ],
+  'vnd.crick.clicker.keyboard': [
+    'application/vnd.crick.clicker.keyboard',
+  ],
+  'vnd.crick.clicker.palette': [
+    'application/vnd.crick.clicker.palette',
+  ],
+  'vnd.crick.clicker.template': [
+    'application/vnd.crick.clicker.template',
+  ],
+  'vnd.crick.clicker.wordbank': [
+    'application/vnd.crick.clicker.wordbank',
+  ],
+  'vnd.criticaltools.wbs+xml': [
+    'application/vnd.criticaltools.wbs+xml',
+  ],
+  'vnd.cryptii.pipe+json': [
+    'application/vnd.cryptii.pipe+json',
+  ],
+  'vnd.crypto-shade-file': [
+    'application/vnd.crypto-shade-file',
+  ],
+  'vnd.cryptomator.encrypted': [
+    'application/vnd.cryptomator.encrypted',
+  ],
+  'vnd.cryptomator.vault': [
+    'application/vnd.cryptomator.vault',
+  ],
+  'vnd.ctc-posml': [
+    'application/vnd.ctc-posml',
+  ],
+  'vnd.ctct.ws+xml': [
+    'application/vnd.ctct.ws+xml',
+  ],
+  'vnd.cups-pdf': [
+    'application/vnd.cups-pdf',
+  ],
+  'vnd.cups-postscript': [
+    'application/vnd.cups-postscript',
+  ],
+  'vnd.cups-ppd': [
+    'application/vnd.cups-ppd',
+  ],
+  'vnd.cups-raster': [
+    'application/vnd.cups-raster',
+  ],
+  'vnd.cups-raw': [
+    'application/vnd.cups-raw',
+  ],
+  'vnd.curl': [
+    'application/vnd.curl',
+    'text/vnd.curl',
+  ],
+  'vnd.cyan.dean.root+xml': [
+    'application/vnd.cyan.dean.root+xml',
+  ],
+  'vnd.cybank': [
+    'application/vnd.cybank',
+  ],
+  'vnd.cyclonedx+json': [
+    'application/vnd.cyclonedx+json',
+  ],
+  'vnd.cyclonedx+xml': [
+    'application/vnd.cyclonedx+xml',
+  ],
+  'vnd.d2l.coursepackage1p0+zip': [
+    'application/vnd.d2l.coursepackage1p0+zip',
+  ],
+  'vnd.d3m-dataset': [
+    'application/vnd.d3m-dataset',
+  ],
+  'vnd.d3m-problem': [
+    'application/vnd.d3m-problem',
+  ],
+  'vnd.dart': [
+    'application/vnd.dart',
+  ],
+  'vnd.data-vision.rdz': [
+    'application/vnd.data-vision.rdz',
+  ],
+  'vnd.datalog': [
+    'application/vnd.datalog',
+  ],
+  'vnd.datapackage+json': [
+    'application/vnd.datapackage+json',
+  ],
+  'vnd.dataresource+json': [
+    'application/vnd.dataresource+json',
+  ],
+  'vnd.dbf': [
+    'application/vnd.dbf',
+  ],
+  'vnd.debian.binary-package': [
+    'application/vnd.debian.binary-package',
+  ],
+  'vnd.dece.data': [
+    'application/vnd.dece.data',
+  ],
+  'vnd.dece.ttml+xml': [
+    'application/vnd.dece.ttml+xml',
+  ],
+  'vnd.dece.unspecified': [
+    'application/vnd.dece.unspecified',
+  ],
+  'vnd.dece.zip': [
+    'application/vnd.dece.zip',
+  ],
+  'vnd.denovo.fcselayout-link': [
+    'application/vnd.denovo.fcselayout-link',
+  ],
+  'vnd.desmume.movie': [
+    'application/vnd.desmume.movie',
+  ],
+  'vnd.dir-bi.plate-dl-nosuffix': [
+    'application/vnd.dir-bi.plate-dl-nosuffix',
+  ],
+  'vnd.dm.delegation+xml': [
+    'application/vnd.dm.delegation+xml',
+  ],
+  'vnd.dna': [
+    'application/vnd.dna',
+  ],
+  'vnd.document+json': [
+    'application/vnd.document+json',
+  ],
+  'vnd.dolby.mobile.1': [
+    'application/vnd.dolby.mobile.1',
+  ],
+  'vnd.dolby.mobile.2': [
+    'application/vnd.dolby.mobile.2',
+  ],
+  'vnd.doremir.scorecloud-binary-document': [
+    'application/vnd.doremir.scorecloud-binary-document',
+  ],
+  'vnd.dpgraph': [
+    'application/vnd.dpgraph',
+  ],
+  'vnd.dreamfactory': [
+    'application/vnd.dreamfactory',
+  ],
+  'vnd.drive+json': [
+    'application/vnd.drive+json',
+  ],
+  'vnd.dtg.local': [
+    'application/vnd.dtg.local',
+  ],
+  'vnd.dtg.local.flash': [
+    'application/vnd.dtg.local.flash',
+  ],
+  'vnd.dtg.local.html': [
+    'application/vnd.dtg.local.html',
+  ],
+  'vnd.dvb.ait': [
+    'application/vnd.dvb.ait',
+  ],
+  'vnd.dvb.dvbisl+xml': [
+    'application/vnd.dvb.dvbisl+xml',
+  ],
+  'vnd.dvb.dvbj': [
+    'application/vnd.dvb.dvbj',
+  ],
+  'vnd.dvb.esgcontainer': [
+    'application/vnd.dvb.esgcontainer',
+  ],
+  'vnd.dvb.ipdcdftnotifaccess': [
+    'application/vnd.dvb.ipdcdftnotifaccess',
+  ],
+  'vnd.dvb.ipdcesgaccess': [
+    'application/vnd.dvb.ipdcesgaccess',
+  ],
+  'vnd.dvb.ipdcesgaccess2': [
+    'application/vnd.dvb.ipdcesgaccess2',
+  ],
+  'vnd.dvb.ipdcesgpdd': [
+    'application/vnd.dvb.ipdcesgpdd',
+  ],
+  'vnd.dvb.ipdcroaming': [
+    'application/vnd.dvb.ipdcroaming',
+  ],
+  'vnd.dvb.iptv.alfec-base': [
+    'application/vnd.dvb.iptv.alfec-base',
+  ],
+  'vnd.dvb.iptv.alfec-enhancement': [
+    'application/vnd.dvb.iptv.alfec-enhancement',
+  ],
+  'vnd.dvb.notif-aggregate-root+xml': [
+    'application/vnd.dvb.notif-aggregate-root+xml',
+  ],
+  'vnd.dvb.notif-container+xml': [
+    'application/vnd.dvb.notif-container+xml',
+  ],
+  'vnd.dvb.notif-generic+xml': [
+    'application/vnd.dvb.notif-generic+xml',
+  ],
+  'vnd.dvb.notif-ia-msglist+xml': [
+    'application/vnd.dvb.notif-ia-msglist+xml',
+  ],
+  'vnd.dvb.notif-ia-registration-request+xml': [
+    'application/vnd.dvb.notif-ia-registration-request+xml',
+  ],
+  'vnd.dvb.notif-ia-registration-response+xml': [
+    'application/vnd.dvb.notif-ia-registration-response+xml',
+  ],
+  'vnd.dvb.notif-init+xml': [
+    'application/vnd.dvb.notif-init+xml',
+  ],
+  'vnd.dvb.pfr': [
+    'application/vnd.dvb.pfr',
+  ],
+  'vnd.dvb.service': [
+    'application/vnd.dvb.service',
+  ],
+  'vnd.dxr': [
+    'application/vnd.dxr',
+  ],
+  'vnd.dynageo': [
+    'application/vnd.dynageo',
+  ],
+  'vnd.dzr': [
+    'application/vnd.dzr',
+  ],
+  'vnd.easykaraoke.cdgdownload': [
+    'application/vnd.easykaraoke.cdgdownload',
+  ],
+  'vnd.ecip.rlp': [
+    'application/vnd.ecip.rlp',
+  ],
+  'vnd.ecdis-update': [
+    'application/vnd.ecdis-update',
+  ],
+  'vnd.eclipse.ditto+json': [
+    'application/vnd.eclipse.ditto+json',
+  ],
+  'vnd.ecowin.chart': [
+    'application/vnd.ecowin.chart',
+  ],
+  'vnd.ecowin.filerequest': [
+    'application/vnd.ecowin.filerequest',
+  ],
+  'vnd.ecowin.fileupdate': [
+    'application/vnd.ecowin.fileupdate',
+  ],
+  'vnd.ecowin.series': [
+    'application/vnd.ecowin.series',
+  ],
+  'vnd.ecowin.seriesrequest': [
+    'application/vnd.ecowin.seriesrequest',
+  ],
+  'vnd.ecowin.seriesupdate': [
+    'application/vnd.ecowin.seriesupdate',
+  ],
+  'vnd.efi.img': [
+    'application/vnd.efi.img',
+  ],
+  'vnd.efi.iso': [
+    'application/vnd.efi.iso',
+  ],
+  'vnd.eln+zip': [
+    'application/vnd.eln+zip',
+  ],
+  'vnd.emclient.accessrequest+xml': [
+    'application/vnd.emclient.accessrequest+xml',
+  ],
+  'vnd.enliven': [
+    'application/vnd.enliven',
+  ],
+  'vnd.enphase.envoy': [
+    'application/vnd.enphase.envoy',
+  ],
+  'vnd.eprints.data+xml': [
+    'application/vnd.eprints.data+xml',
+  ],
+  'vnd.epson.esf': [
+    'application/vnd.epson.esf',
+  ],
+  'vnd.epson.msf': [
+    'application/vnd.epson.msf',
+  ],
+  'vnd.epson.quickanime': [
+    'application/vnd.epson.quickanime',
+  ],
+  'vnd.epson.salt': [
+    'application/vnd.epson.salt',
+  ],
+  'vnd.epson.ssf': [
+    'application/vnd.epson.ssf',
+  ],
+  'vnd.ericsson.quickcall': [
+    'application/vnd.ericsson.quickcall',
+  ],
+  'vnd.erofs': [
+    'application/vnd.erofs',
+  ],
+  'vnd.espass-espass+zip': [
+    'application/vnd.espass-espass+zip',
+  ],
+  'vnd.eszigno3+xml': [
+    'application/vnd.eszigno3+xml',
+  ],
+  'vnd.etsi.aoc+xml': [
+    'application/vnd.etsi.aoc+xml',
+  ],
+  'vnd.etsi.asic-s+zip': [
+    'application/vnd.etsi.asic-s+zip',
+  ],
+  'vnd.etsi.asic-e+zip': [
+    'application/vnd.etsi.asic-e+zip',
+  ],
+  'vnd.etsi.cug+xml': [
+    'application/vnd.etsi.cug+xml',
+  ],
+  'vnd.etsi.iptvcommand+xml': [
+    'application/vnd.etsi.iptvcommand+xml',
+  ],
+  'vnd.etsi.iptvdiscovery+xml': [
+    'application/vnd.etsi.iptvdiscovery+xml',
+  ],
+  'vnd.etsi.iptvprofile+xml': [
+    'application/vnd.etsi.iptvprofile+xml',
+  ],
+  'vnd.etsi.iptvsad-bc+xml': [
+    'application/vnd.etsi.iptvsad-bc+xml',
+  ],
+  'vnd.etsi.iptvsad-cod+xml': [
+    'application/vnd.etsi.iptvsad-cod+xml',
+  ],
+  'vnd.etsi.iptvsad-npvr+xml': [
+    'application/vnd.etsi.iptvsad-npvr+xml',
+  ],
+  'vnd.etsi.iptvservice+xml': [
+    'application/vnd.etsi.iptvservice+xml',
+  ],
+  'vnd.etsi.iptvsync+xml': [
+    'application/vnd.etsi.iptvsync+xml',
+  ],
+  'vnd.etsi.iptvueprofile+xml': [
+    'application/vnd.etsi.iptvueprofile+xml',
+  ],
+  'vnd.etsi.mcid+xml': [
+    'application/vnd.etsi.mcid+xml',
+  ],
+  'vnd.etsi.mheg5': [
+    'application/vnd.etsi.mheg5',
+  ],
+  'vnd.etsi.overload-control-policy-dataset+xml': [
+    'application/vnd.etsi.overload-control-policy-dataset+xml',
+  ],
+  'vnd.etsi.pstn+xml': [
+    'application/vnd.etsi.pstn+xml',
+  ],
+  'vnd.etsi.sci+xml': [
+    'application/vnd.etsi.sci+xml',
+  ],
+  'vnd.etsi.simservs+xml': [
+    'application/vnd.etsi.simservs+xml',
+  ],
+  'vnd.etsi.timestamp-token': [
+    'application/vnd.etsi.timestamp-token',
+  ],
+  'vnd.etsi.tsl+xml': [
+    'application/vnd.etsi.tsl+xml',
+  ],
+  'vnd.etsi.tsl.der': [
+    'application/vnd.etsi.tsl.der',
+  ],
+  'vnd.eu.kasparian.car+json': [
+    'application/vnd.eu.kasparian.car+json',
+  ],
+  'vnd.eudora.data': [
+    'application/vnd.eudora.data',
+  ],
+  'vnd.evolv.ecig.profile': [
+    'application/vnd.evolv.ecig.profile',
+  ],
+  'vnd.evolv.ecig.settings': [
+    'application/vnd.evolv.ecig.settings',
+  ],
+  'vnd.evolv.ecig.theme': [
+    'application/vnd.evolv.ecig.theme',
+  ],
+  'vnd.exstream-empower+zip': [
+    'application/vnd.exstream-empower+zip',
+  ],
+  'vnd.exstream-package': [
+    'application/vnd.exstream-package',
+  ],
+  'vnd.ezpix-album': [
+    'application/vnd.ezpix-album',
+  ],
+  'vnd.ezpix-package': [
+    'application/vnd.ezpix-package',
+  ],
+  'vnd.f-secure.mobile': [
+    'application/vnd.f-secure.mobile',
+  ],
+  'vnd.fastcopy-disk-image': [
+    'application/vnd.fastcopy-disk-image',
+  ],
+  'vnd.familysearch.gedcom+zip': [
+    'application/vnd.familysearch.gedcom+zip',
+  ],
+  'vnd.fdsn.mseed': [
+    'application/vnd.fdsn.mseed',
+  ],
+  'vnd.fdsn.seed': [
+    'application/vnd.fdsn.seed',
+  ],
+  'vnd.ffsns': [
+    'application/vnd.ffsns',
+  ],
+  'vnd.ficlab.flb+zip': [
+    'application/vnd.ficlab.flb+zip',
+  ],
+  'vnd.filmit.zfc': [
+    'application/vnd.filmit.zfc',
+  ],
+  'vnd.fints': [
+    'application/vnd.fints',
+  ],
+  'vnd.firemonkeys.cloudcell': [
+    'application/vnd.firemonkeys.cloudcell',
+  ],
+  'vnd.FloGraphIt': [
+    'application/vnd.FloGraphIt',
+  ],
+  'vnd.fluxtime.clip': [
+    'application/vnd.fluxtime.clip',
+  ],
+  'vnd.font-fontforge-sfd': [
+    'application/vnd.font-fontforge-sfd',
+  ],
+  'vnd.framemaker': [
+    'application/vnd.framemaker',
+  ],
+  'vnd.freelog.comic': [
+    'application/vnd.freelog.comic',
+  ],
+  'vnd.frogans.fnc': [
+    'application/vnd.frogans.fnc',
+  ],
+  'vnd.frogans.ltf': [
+    'application/vnd.frogans.ltf',
+  ],
+  'vnd.fsc.weblaunch': [
+    'application/vnd.fsc.weblaunch',
+  ],
+  'vnd.fujifilm.fb.docuworks': [
+    'application/vnd.fujifilm.fb.docuworks',
+  ],
+  'vnd.fujifilm.fb.docuworks.binder': [
+    'application/vnd.fujifilm.fb.docuworks.binder',
+  ],
+  'vnd.fujifilm.fb.docuworks.container': [
+    'application/vnd.fujifilm.fb.docuworks.container',
+  ],
+  'vnd.fujifilm.fb.jfi+xml': [
+    'application/vnd.fujifilm.fb.jfi+xml',
+  ],
+  'vnd.fujitsu.oasys': [
+    'application/vnd.fujitsu.oasys',
+  ],
+  'vnd.fujitsu.oasys2': [
+    'application/vnd.fujitsu.oasys2',
+  ],
+  'vnd.fujitsu.oasys3': [
+    'application/vnd.fujitsu.oasys3',
+  ],
+  'vnd.fujitsu.oasysgp': [
+    'application/vnd.fujitsu.oasysgp',
+  ],
+  'vnd.fujitsu.oasysprs': [
+    'application/vnd.fujitsu.oasysprs',
+  ],
+  'vnd.fujixerox.ART4': [
+    'application/vnd.fujixerox.ART4',
+  ],
+  'vnd.fujixerox.ART-EX': [
+    'application/vnd.fujixerox.ART-EX',
+  ],
+  'vnd.fujixerox.ddd': [
+    'application/vnd.fujixerox.ddd',
+  ],
+  'vnd.fujixerox.docuworks': [
+    'application/vnd.fujixerox.docuworks',
+  ],
+  'vnd.fujixerox.docuworks.binder': [
+    'application/vnd.fujixerox.docuworks.binder',
+  ],
+  'vnd.fujixerox.docuworks.container': [
+    'application/vnd.fujixerox.docuworks.container',
+  ],
+  'vnd.fujixerox.HBPL': [
+    'application/vnd.fujixerox.HBPL',
+  ],
+  'vnd.fut-misnet': [
+    'application/vnd.fut-misnet',
+  ],
+  'vnd.futoin+cbor': [
+    'application/vnd.futoin+cbor',
+  ],
+  'vnd.futoin+json': [
+    'application/vnd.futoin+json',
+  ],
+  'vnd.fuzzysheet': [
+    'application/vnd.fuzzysheet',
+  ],
+  'vnd.ga4gh.passport+jwt': [
+    'application/vnd.ga4gh.passport+jwt',
+  ],
+  'vnd.genomatix.tuxedo': [
+    'application/vnd.genomatix.tuxedo',
+  ],
+  'vnd.genozip': [
+    'application/vnd.genozip',
+  ],
+  'vnd.gentics.grd+json': [
+    'application/vnd.gentics.grd+json',
+  ],
+  'vnd.gentoo.catmetadata+xml': [
+    'application/vnd.gentoo.catmetadata+xml',
+  ],
+  'vnd.gentoo.ebuild': [
+    'application/vnd.gentoo.ebuild',
+  ],
+  'vnd.gentoo.eclass': [
+    'application/vnd.gentoo.eclass',
+  ],
+  'vnd.gentoo.gpkg': [
+    'application/vnd.gentoo.gpkg',
+  ],
+  'vnd.gentoo.manifest': [
+    'application/vnd.gentoo.manifest',
+  ],
+  'vnd.gentoo.xpak': [
+    'application/vnd.gentoo.xpak',
+  ],
+  'vnd.gentoo.pkgmetadata+xml': [
+    'application/vnd.gentoo.pkgmetadata+xml',
+  ],
+  'vnd.geo+json': [
+    'application/vnd.geo+json',
+  ],
+  'vnd.geocube+xml': [
+    'application/vnd.geocube+xml',
+  ],
+  'vnd.geogebra.file': [
+    'application/vnd.geogebra.file',
+  ],
+  'vnd.geogebra.slides': [
+    'application/vnd.geogebra.slides',
+  ],
+  'vnd.geogebra.tool': [
+    'application/vnd.geogebra.tool',
+  ],
+  'vnd.geometry-explorer': [
+    'application/vnd.geometry-explorer',
+  ],
+  'vnd.geonext': [
+    'application/vnd.geonext',
+  ],
+  'vnd.geoplan': [
+    'application/vnd.geoplan',
+  ],
+  'vnd.geospace': [
+    'application/vnd.geospace',
+  ],
+  'vnd.gerber': [
+    'application/vnd.gerber',
+  ],
+  'vnd.globalplatform.card-content-mgt': [
+    'application/vnd.globalplatform.card-content-mgt',
+  ],
+  'vnd.globalplatform.card-content-mgt-response': [
+    'application/vnd.globalplatform.card-content-mgt-response',
+  ],
+  'vnd.gmx': [
+    'application/vnd.gmx',
+  ],
+  'vnd.gnu.taler.exchange+json': [
+    'application/vnd.gnu.taler.exchange+json',
+  ],
+  'vnd.gnu.taler.merchant+json': [
+    'application/vnd.gnu.taler.merchant+json',
+  ],
+  'vnd.google-earth.kml+xml': [
+    'application/vnd.google-earth.kml+xml',
+  ],
+  'vnd.google-earth.kmz': [
+    'application/vnd.google-earth.kmz',
+  ],
+  'vnd.gov.sk.e-form+xml': [
+    'application/vnd.gov.sk.e-form+xml',
+  ],
+  'vnd.gov.sk.e-form+zip': [
+    'application/vnd.gov.sk.e-form+zip',
+  ],
+  'vnd.gov.sk.xmldatacontainer+xml': [
+    'application/vnd.gov.sk.xmldatacontainer+xml',
+  ],
+  'vnd.gpxsee.map+xml': [
+    'application/vnd.gpxsee.map+xml',
+  ],
+  'vnd.grafeq': [
+    'application/vnd.grafeq',
+  ],
+  'vnd.gridmp': [
+    'application/vnd.gridmp',
+  ],
+  'vnd.groove-account': [
+    'application/vnd.groove-account',
+  ],
+  'vnd.groove-help': [
+    'application/vnd.groove-help',
+  ],
+  'vnd.groove-identity-message': [
+    'application/vnd.groove-identity-message',
+  ],
+  'vnd.groove-injector': [
+    'application/vnd.groove-injector',
+  ],
+  'vnd.groove-tool-message': [
+    'application/vnd.groove-tool-message',
+  ],
+  'vnd.groove-tool-template': [
+    'application/vnd.groove-tool-template',
+  ],
+  'vnd.groove-vcard': [
+    'application/vnd.groove-vcard',
+  ],
+  'vnd.hal+json': [
+    'application/vnd.hal+json',
+  ],
+  'vnd.hal+xml': [
+    'application/vnd.hal+xml',
+  ],
+  'vnd.HandHeld-Entertainment+xml': [
+    'application/vnd.HandHeld-Entertainment+xml',
+  ],
+  'vnd.hbci': [
+    'application/vnd.hbci',
+  ],
+  'vnd.hc+json': [
+    'application/vnd.hc+json',
+  ],
+  'vnd.hcl-bireports': [
+    'application/vnd.hcl-bireports',
+  ],
+  'vnd.hdt': [
+    'application/vnd.hdt',
+  ],
+  'vnd.heroku+json': [
+    'application/vnd.heroku+json',
+  ],
+  'vnd.hhe.lesson-player': [
+    'application/vnd.hhe.lesson-player',
+  ],
+  'vnd.hp-HPGL': [
+    'application/vnd.hp-HPGL',
+  ],
+  'vnd.hp-hpid': [
+    'application/vnd.hp-hpid',
+  ],
+  'vnd.hp-hps': [
+    'application/vnd.hp-hps',
+  ],
+  'vnd.hp-jlyt': [
+    'application/vnd.hp-jlyt',
+  ],
+  'vnd.hp-PCL': [
+    'application/vnd.hp-PCL',
+  ],
+  'vnd.hp-PCLXL': [
+    'application/vnd.hp-PCLXL',
+  ],
+  'vnd.hsl': [
+    'application/vnd.hsl',
+  ],
+  'vnd.httphone': [
+    'application/vnd.httphone',
+  ],
+  'vnd.hydrostatix.sof-data': [
+    'application/vnd.hydrostatix.sof-data',
+  ],
+  'vnd.hyper-item+json': [
+    'application/vnd.hyper-item+json',
+  ],
+  'vnd.hyper+json': [
+    'application/vnd.hyper+json',
+  ],
+  'vnd.hyperdrive+json': [
+    'application/vnd.hyperdrive+json',
+  ],
+  'vnd.hzn-3d-crossword': [
+    'application/vnd.hzn-3d-crossword',
+  ],
+  'vnd.ibm.afplinedata': [
+    'application/vnd.ibm.afplinedata',
+  ],
+  'vnd.ibm.electronic-media': [
+    'application/vnd.ibm.electronic-media',
+  ],
+  'vnd.ibm.MiniPay': [
+    'application/vnd.ibm.MiniPay',
+  ],
+  'vnd.ibm.modcap': [
+    'application/vnd.ibm.modcap',
+  ],
+  'vnd.ibm.rights-management': [
+    'application/vnd.ibm.rights-management',
+  ],
+  'vnd.ibm.secure-container': [
+    'application/vnd.ibm.secure-container',
+  ],
+  'vnd.iccprofile': [
+    'application/vnd.iccprofile',
+  ],
+  'vnd.ieee.1905': [
+    'application/vnd.ieee.1905',
+  ],
+  'vnd.igloader': [
+    'application/vnd.igloader',
+  ],
+  'vnd.imagemeter.folder+zip': [
+    'application/vnd.imagemeter.folder+zip',
+  ],
+  'vnd.imagemeter.image+zip': [
+    'application/vnd.imagemeter.image+zip',
+  ],
+  'vnd.immervision-ivp': [
+    'application/vnd.immervision-ivp',
+  ],
+  'vnd.immervision-ivu': [
+    'application/vnd.immervision-ivu',
+  ],
+  'vnd.ims.imsccv1p1': [
+    'application/vnd.ims.imsccv1p1',
+  ],
+  'vnd.ims.imsccv1p2': [
+    'application/vnd.ims.imsccv1p2',
+  ],
+  'vnd.ims.imsccv1p3': [
+    'application/vnd.ims.imsccv1p3',
+  ],
+  'vnd.ims.lis.v2.result+json': [
+    'application/vnd.ims.lis.v2.result+json',
+  ],
+  'vnd.ims.lti.v2.toolconsumerprofile+json': [
+    'application/vnd.ims.lti.v2.toolconsumerprofile+json',
+  ],
+  'vnd.ims.lti.v2.toolproxy.id+json': [
+    'application/vnd.ims.lti.v2.toolproxy.id+json',
+  ],
+  'vnd.ims.lti.v2.toolproxy+json': [
+    'application/vnd.ims.lti.v2.toolproxy+json',
+  ],
+  'vnd.ims.lti.v2.toolsettings+json': [
+    'application/vnd.ims.lti.v2.toolsettings+json',
+  ],
+  'vnd.ims.lti.v2.toolsettings.simple+json': [
+    'application/vnd.ims.lti.v2.toolsettings.simple+json',
+  ],
+  'vnd.informedcontrol.rms+xml': [
+    'application/vnd.informedcontrol.rms+xml',
+  ],
+  'vnd.infotech.project': [
+    'application/vnd.infotech.project',
+  ],
+  'vnd.infotech.project+xml': [
+    'application/vnd.infotech.project+xml',
+  ],
+  'vnd.informix-visionary': [
+    'application/vnd.informix-visionary',
+  ],
+  'vnd.innopath.wamp.notification': [
+    'application/vnd.innopath.wamp.notification',
+  ],
+  'vnd.insors.igm': [
+    'application/vnd.insors.igm',
+  ],
+  'vnd.intercon.formnet': [
+    'application/vnd.intercon.formnet',
+  ],
+  'vnd.intergeo': [
+    'application/vnd.intergeo',
+  ],
+  'vnd.intertrust.digibox': [
+    'application/vnd.intertrust.digibox',
+  ],
+  'vnd.intertrust.nncp': [
+    'application/vnd.intertrust.nncp',
+  ],
+  'vnd.intu.qbo': [
+    'application/vnd.intu.qbo',
+  ],
+  'vnd.intu.qfx': [
+    'application/vnd.intu.qfx',
+  ],
+  'vnd.ipfs.ipns-record': [
+    'application/vnd.ipfs.ipns-record',
+  ],
+  'vnd.ipld.car': [
+    'application/vnd.ipld.car',
+  ],
+  'vnd.ipld.dag-cbor': [
+    'application/vnd.ipld.dag-cbor',
+  ],
+  'vnd.ipld.dag-json': [
+    'application/vnd.ipld.dag-json',
+  ],
+  'vnd.ipld.raw': [
+    'application/vnd.ipld.raw',
+  ],
+  'vnd.iptc.g2.catalogitem+xml': [
+    'application/vnd.iptc.g2.catalogitem+xml',
+  ],
+  'vnd.iptc.g2.conceptitem+xml': [
+    'application/vnd.iptc.g2.conceptitem+xml',
+  ],
+  'vnd.iptc.g2.knowledgeitem+xml': [
+    'application/vnd.iptc.g2.knowledgeitem+xml',
+  ],
+  'vnd.iptc.g2.newsitem+xml': [
+    'application/vnd.iptc.g2.newsitem+xml',
+  ],
+  'vnd.iptc.g2.newsmessage+xml': [
+    'application/vnd.iptc.g2.newsmessage+xml',
+  ],
+  'vnd.iptc.g2.packageitem+xml': [
+    'application/vnd.iptc.g2.packageitem+xml',
+  ],
+  'vnd.iptc.g2.planningitem+xml': [
+    'application/vnd.iptc.g2.planningitem+xml',
+  ],
+  'vnd.ipunplugged.rcprofile': [
+    'application/vnd.ipunplugged.rcprofile',
+  ],
+  'vnd.irepository.package+xml': [
+    'application/vnd.irepository.package+xml',
+  ],
+  'vnd.is-xpr': [
+    'application/vnd.is-xpr',
+  ],
+  'vnd.isac.fcs': [
+    'application/vnd.isac.fcs',
+  ],
+  'vnd.jam': [
+    'application/vnd.jam',
+  ],
+  'vnd.iso11783-10+zip': [
+    'application/vnd.iso11783-10+zip',
+  ],
+  'vnd.japannet-directory-service': [
+    'application/vnd.japannet-directory-service',
+  ],
+  'vnd.japannet-jpnstore-wakeup': [
+    'application/vnd.japannet-jpnstore-wakeup',
+  ],
+  'vnd.japannet-payment-wakeup': [
+    'application/vnd.japannet-payment-wakeup',
+  ],
+  'vnd.japannet-registration': [
+    'application/vnd.japannet-registration',
+  ],
+  'vnd.japannet-registration-wakeup': [
+    'application/vnd.japannet-registration-wakeup',
+  ],
+  'vnd.japannet-setstore-wakeup': [
+    'application/vnd.japannet-setstore-wakeup',
+  ],
+  'vnd.japannet-verification': [
+    'application/vnd.japannet-verification',
+  ],
+  'vnd.japannet-verification-wakeup': [
+    'application/vnd.japannet-verification-wakeup',
+  ],
+  'vnd.jcp.javame.midlet-rms': [
+    'application/vnd.jcp.javame.midlet-rms',
+  ],
+  'vnd.jisp': [
+    'application/vnd.jisp',
+  ],
+  'vnd.joost.joda-archive': [
+    'application/vnd.joost.joda-archive',
+  ],
+  'vnd.jsk.isdn-ngn': [
+    'application/vnd.jsk.isdn-ngn',
+  ],
+  'vnd.kahootz': [
+    'application/vnd.kahootz',
+  ],
+  'vnd.kde.karbon': [
+    'application/vnd.kde.karbon',
+  ],
+  'vnd.kde.kchart': [
+    'application/vnd.kde.kchart',
+  ],
+  'vnd.kde.kformula': [
+    'application/vnd.kde.kformula',
+  ],
+  'vnd.kde.kivio': [
+    'application/vnd.kde.kivio',
+  ],
+  'vnd.kde.kontour': [
+    'application/vnd.kde.kontour',
+  ],
+  'vnd.kde.kpresenter': [
+    'application/vnd.kde.kpresenter',
+  ],
+  'vnd.kde.kspread': [
+    'application/vnd.kde.kspread',
+  ],
+  'vnd.kde.kword': [
+    'application/vnd.kde.kword',
+  ],
+  'vnd.kenameaapp': [
+    'application/vnd.kenameaapp',
+  ],
+  'vnd.kidspiration': [
+    'application/vnd.kidspiration',
+  ],
+  'vnd.Kinar': [
+    'application/vnd.Kinar',
+  ],
+  'vnd.koan': [
+    'application/vnd.koan',
+  ],
+  'vnd.kodak-descriptor': [
+    'application/vnd.kodak-descriptor',
+  ],
+  'vnd.las': [
+    'application/vnd.las',
+  ],
+  'vnd.las.las+json': [
+    'application/vnd.las.las+json',
+  ],
+  'vnd.las.las+xml': [
+    'application/vnd.las.las+xml',
+  ],
+  'vnd.laszip': [
+    'application/vnd.laszip',
+  ],
+  'vnd.ldev.productlicensing': [
+    'application/vnd.ldev.productlicensing',
+  ],
+  'vnd.leap+json': [
+    'application/vnd.leap+json',
+  ],
+  'vnd.liberty-request+xml': [
+    'application/vnd.liberty-request+xml',
+  ],
+  'vnd.llamagraphics.life-balance.desktop': [
+    'application/vnd.llamagraphics.life-balance.desktop',
+  ],
+  'vnd.llamagraphics.life-balance.exchange+xml': [
+    'application/vnd.llamagraphics.life-balance.exchange+xml',
+  ],
+  'vnd.logipipe.circuit+zip': [
+    'application/vnd.logipipe.circuit+zip',
+  ],
+  'vnd.loom': [
+    'application/vnd.loom',
+  ],
+  'vnd.lotus-1-2-3': [
+    'application/vnd.lotus-1-2-3',
+  ],
+  'vnd.lotus-approach': [
+    'application/vnd.lotus-approach',
+  ],
+  'vnd.lotus-freelance': [
+    'application/vnd.lotus-freelance',
+  ],
+  'vnd.lotus-notes': [
+    'application/vnd.lotus-notes',
+  ],
+  'vnd.lotus-organizer': [
+    'application/vnd.lotus-organizer',
+  ],
+  'vnd.lotus-screencam': [
+    'application/vnd.lotus-screencam',
+  ],
+  'vnd.lotus-wordpro': [
+    'application/vnd.lotus-wordpro',
+  ],
+  'vnd.macports.portpkg': [
+    'application/vnd.macports.portpkg',
+  ],
+  'vnd.mapbox-vector-tile': [
+    'application/vnd.mapbox-vector-tile',
+  ],
+  'vnd.marlin.drm.actiontoken+xml': [
+    'application/vnd.marlin.drm.actiontoken+xml',
+  ],
+  'vnd.marlin.drm.conftoken+xml': [
+    'application/vnd.marlin.drm.conftoken+xml',
+  ],
+  'vnd.marlin.drm.license+xml': [
+    'application/vnd.marlin.drm.license+xml',
+  ],
+  'vnd.marlin.drm.mdcf': [
+    'application/vnd.marlin.drm.mdcf',
+  ],
+  'vnd.mason+json': [
+    'application/vnd.mason+json',
+  ],
+  'vnd.maxar.archive.3tz+zip': [
+    'application/vnd.maxar.archive.3tz+zip',
+  ],
+  'vnd.maxmind.maxmind-db': [
+    'application/vnd.maxmind.maxmind-db',
+  ],
+  'vnd.mcd': [
+    'application/vnd.mcd',
+  ],
+  'vnd.mdl': [
+    'application/vnd.mdl',
+  ],
+  'vnd.mdl-mbsdf': [
+    'application/vnd.mdl-mbsdf',
+  ],
+  'vnd.medcalcdata': [
+    'application/vnd.medcalcdata',
+  ],
+  'vnd.mediastation.cdkey': [
+    'application/vnd.mediastation.cdkey',
+  ],
+  'vnd.medicalholodeck.recordxr': [
+    'application/vnd.medicalholodeck.recordxr',
+  ],
+  'vnd.meridian-slingshot': [
+    'application/vnd.meridian-slingshot',
+  ],
+  'vnd.mermaid': [
+    'application/vnd.mermaid',
+  ],
+  'vnd.MFER': [
+    'application/vnd.MFER',
+  ],
+  'vnd.mfmp': [
+    'application/vnd.mfmp',
+  ],
+  'vnd.micro+json': [
+    'application/vnd.micro+json',
+  ],
+  'vnd.micrografx.flo': [
+    'application/vnd.micrografx.flo',
+  ],
+  'vnd.micrografx.igx': [
+    'application/vnd.micrografx.igx',
+  ],
+  'vnd.microsoft.portable-executable': [
+    'application/vnd.microsoft.portable-executable',
+  ],
+  'vnd.microsoft.windows.thumbnail-cache': [
+    'application/vnd.microsoft.windows.thumbnail-cache',
+  ],
+  'vnd.miele+json': [
+    'application/vnd.miele+json',
+  ],
+  'vnd.mif': [
+    'application/vnd.mif',
+  ],
+  'vnd.minisoft-hp3000-save': [
+    'application/vnd.minisoft-hp3000-save',
+  ],
+  'vnd.mitsubishi.misty-guard.trustweb': [
+    'application/vnd.mitsubishi.misty-guard.trustweb',
+  ],
+  'vnd.Mobius.DAF': [
+    'application/vnd.Mobius.DAF',
+  ],
+  'vnd.Mobius.DIS': [
+    'application/vnd.Mobius.DIS',
+  ],
+  'vnd.Mobius.MBK': [
+    'application/vnd.Mobius.MBK',
+  ],
+  'vnd.Mobius.MQY': [
+    'application/vnd.Mobius.MQY',
+  ],
+  'vnd.Mobius.MSL': [
+    'application/vnd.Mobius.MSL',
+  ],
+  'vnd.Mobius.PLC': [
+    'application/vnd.Mobius.PLC',
+  ],
+  'vnd.Mobius.TXF': [
+    'application/vnd.Mobius.TXF',
+  ],
+  'vnd.modl': [
+    'application/vnd.modl',
+  ],
+  'vnd.mophun.application': [
+    'application/vnd.mophun.application',
+  ],
+  'vnd.mophun.certificate': [
+    'application/vnd.mophun.certificate',
+  ],
+  'vnd.motorola.flexsuite': [
+    'application/vnd.motorola.flexsuite',
+  ],
+  'vnd.motorola.flexsuite.adsi': [
+    'application/vnd.motorola.flexsuite.adsi',
+  ],
+  'vnd.motorola.flexsuite.fis': [
+    'application/vnd.motorola.flexsuite.fis',
+  ],
+  'vnd.motorola.flexsuite.gotap': [
+    'application/vnd.motorola.flexsuite.gotap',
+  ],
+  'vnd.motorola.flexsuite.kmr': [
+    'application/vnd.motorola.flexsuite.kmr',
+  ],
+  'vnd.motorola.flexsuite.ttc': [
+    'application/vnd.motorola.flexsuite.ttc',
+  ],
+  'vnd.motorola.flexsuite.wem': [
+    'application/vnd.motorola.flexsuite.wem',
+  ],
+  'vnd.motorola.iprm': [
+    'application/vnd.motorola.iprm',
+  ],
+  'vnd.mozilla.xul+xml': [
+    'application/vnd.mozilla.xul+xml',
+  ],
+  'vnd.ms-artgalry': [
+    'application/vnd.ms-artgalry',
+  ],
+  'vnd.ms-asf': [
+    'application/vnd.ms-asf',
+  ],
+  'vnd.ms-cab-compressed': [
+    'application/vnd.ms-cab-compressed',
+  ],
+  'vnd.ms-3mfdocument': [
+    'application/vnd.ms-3mfdocument',
+  ],
+  'vnd.ms-excel': [
+    'application/vnd.ms-excel',
+  ],
+  'vnd.ms-excel.addin.macroEnabled.12': [
+    'application/vnd.ms-excel.addin.macroEnabled.12',
+  ],
+  'vnd.ms-excel.sheet.binary.macroEnabled.12': [
+    'application/vnd.ms-excel.sheet.binary.macroEnabled.12',
+  ],
+  'vnd.ms-excel.sheet.macroEnabled.12': [
+    'application/vnd.ms-excel.sheet.macroEnabled.12',
+  ],
+  'vnd.ms-excel.template.macroEnabled.12': [
+    'application/vnd.ms-excel.template.macroEnabled.12',
+  ],
+  'vnd.ms-fontobject': [
+    'application/vnd.ms-fontobject',
+  ],
+  'vnd.ms-htmlhelp': [
+    'application/vnd.ms-htmlhelp',
+  ],
+  'vnd.ms-ims': [
+    'application/vnd.ms-ims',
+  ],
+  'vnd.ms-lrm': [
+    'application/vnd.ms-lrm',
+  ],
+  'vnd.ms-office.activeX+xml': [
+    'application/vnd.ms-office.activeX+xml',
+  ],
+  'vnd.ms-officetheme': [
+    'application/vnd.ms-officetheme',
+  ],
+  'vnd.ms-playready.initiator+xml': [
+    'application/vnd.ms-playready.initiator+xml',
+  ],
+  'vnd.ms-powerpoint': [
+    'application/vnd.ms-powerpoint',
+  ],
+  'vnd.ms-powerpoint.addin.macroEnabled.12': [
+    'application/vnd.ms-powerpoint.addin.macroEnabled.12',
+  ],
+  'vnd.ms-powerpoint.presentation.macroEnabled.12': [
+    'application/vnd.ms-powerpoint.presentation.macroEnabled.12',
+  ],
+  'vnd.ms-powerpoint.slide.macroEnabled.12': [
+    'application/vnd.ms-powerpoint.slide.macroEnabled.12',
+  ],
+  'vnd.ms-powerpoint.slideshow.macroEnabled.12': [
+    'application/vnd.ms-powerpoint.slideshow.macroEnabled.12',
+  ],
+  'vnd.ms-powerpoint.template.macroEnabled.12': [
+    'application/vnd.ms-powerpoint.template.macroEnabled.12',
+  ],
+  'vnd.ms-PrintDeviceCapabilities+xml': [
+    'application/vnd.ms-PrintDeviceCapabilities+xml',
+  ],
+  'vnd.ms-PrintSchemaTicket+xml': [
+    'application/vnd.ms-PrintSchemaTicket+xml',
+  ],
+  'vnd.ms-project': [
+    'application/vnd.ms-project',
+  ],
+  'vnd.ms-tnef': [
+    'application/vnd.ms-tnef',
+  ],
+  'vnd.ms-windows.devicepairing': [
+    'application/vnd.ms-windows.devicepairing',
+  ],
+  'vnd.ms-windows.nwprinting.oob': [
+    'application/vnd.ms-windows.nwprinting.oob',
+  ],
+  'vnd.ms-windows.printerpairing': [
+    'application/vnd.ms-windows.printerpairing',
+  ],
+  'vnd.ms-windows.wsd.oob': [
+    'application/vnd.ms-windows.wsd.oob',
+  ],
+  'vnd.ms-wmdrm.lic-chlg-req': [
+    'application/vnd.ms-wmdrm.lic-chlg-req',
+  ],
+  'vnd.ms-wmdrm.lic-resp': [
+    'application/vnd.ms-wmdrm.lic-resp',
+  ],
+  'vnd.ms-wmdrm.meter-chlg-req': [
+    'application/vnd.ms-wmdrm.meter-chlg-req',
+  ],
+  'vnd.ms-wmdrm.meter-resp': [
+    'application/vnd.ms-wmdrm.meter-resp',
+  ],
+  'vnd.ms-word.document.macroEnabled.12': [
+    'application/vnd.ms-word.document.macroEnabled.12',
+  ],
+  'vnd.ms-word.template.macroEnabled.12': [
+    'application/vnd.ms-word.template.macroEnabled.12',
+  ],
+  'vnd.ms-works': [
+    'application/vnd.ms-works',
+  ],
+  'vnd.ms-wpl': [
+    'application/vnd.ms-wpl',
+  ],
+  'vnd.ms-xpsdocument': [
+    'application/vnd.ms-xpsdocument',
+  ],
+  'vnd.msa-disk-image': [
+    'application/vnd.msa-disk-image',
+  ],
+  'vnd.mseq': [
+    'application/vnd.mseq',
+  ],
+  'vnd.msgpack': [
+    'application/vnd.msgpack',
+  ],
+  'vnd.msign': [
+    'application/vnd.msign',
+  ],
+  'vnd.multiad.creator': [
+    'application/vnd.multiad.creator',
+  ],
+  'vnd.multiad.creator.cif': [
+    'application/vnd.multiad.creator.cif',
+  ],
+  'vnd.musician': [
+    'application/vnd.musician',
+  ],
+  'vnd.music-niff': [
+    'application/vnd.music-niff',
+  ],
+  'vnd.muvee.style': [
+    'application/vnd.muvee.style',
+  ],
+  'vnd.mynfc': [
+    'application/vnd.mynfc',
+  ],
+  'vnd.nacamar.ybrid+json': [
+    'application/vnd.nacamar.ybrid+json',
+  ],
+  'vnd.nato.bindingdataobject+cbor': [
+    'application/vnd.nato.bindingdataobject+cbor',
+  ],
+  'vnd.nato.bindingdataobject+json': [
+    'application/vnd.nato.bindingdataobject+json',
+  ],
+  'vnd.nato.bindingdataobject+xml': [
+    'application/vnd.nato.bindingdataobject+xml',
+  ],
+  'vnd.nato.openxmlformats-package.iepd+zip': [
+    'application/vnd.nato.openxmlformats-package.iepd+zip',
+  ],
+  'vnd.ncd.control': [
+    'application/vnd.ncd.control',
+  ],
+  'vnd.ncd.reference': [
+    'application/vnd.ncd.reference',
+  ],
+  'vnd.nearst.inv+json': [
+    'application/vnd.nearst.inv+json',
+  ],
+  'vnd.nebumind.line': [
+    'application/vnd.nebumind.line',
+  ],
+  'vnd.nervana': [
+    'application/vnd.nervana',
+  ],
+  'vnd.netfpx': [
+    'application/vnd.netfpx',
+  ],
+  'vnd.neurolanguage.nlu': [
+    'application/vnd.neurolanguage.nlu',
+  ],
+  'vnd.nimn': [
+    'application/vnd.nimn',
+  ],
+  'vnd.nintendo.snes.rom': [
+    'application/vnd.nintendo.snes.rom',
+  ],
+  'vnd.nintendo.nitro.rom': [
+    'application/vnd.nintendo.nitro.rom',
+  ],
+  'vnd.nitf': [
+    'application/vnd.nitf',
+  ],
+  'vnd.noblenet-directory': [
+    'application/vnd.noblenet-directory',
+  ],
+  'vnd.noblenet-sealer': [
+    'application/vnd.noblenet-sealer',
+  ],
+  'vnd.noblenet-web': [
+    'application/vnd.noblenet-web',
+  ],
+  'vnd.nokia.catalogs': [
+    'application/vnd.nokia.catalogs',
+  ],
+  'vnd.nokia.conml+wbxml': [
+    'application/vnd.nokia.conml+wbxml',
+  ],
+  'vnd.nokia.conml+xml': [
+    'application/vnd.nokia.conml+xml',
+  ],
+  'vnd.nokia.iptv.config+xml': [
+    'application/vnd.nokia.iptv.config+xml',
+  ],
+  'vnd.nokia.iSDS-radio-presets': [
+    'application/vnd.nokia.iSDS-radio-presets',
+  ],
+  'vnd.nokia.landmark+wbxml': [
+    'application/vnd.nokia.landmark+wbxml',
+  ],
+  'vnd.nokia.landmark+xml': [
+    'application/vnd.nokia.landmark+xml',
+  ],
+  'vnd.nokia.landmarkcollection+xml': [
+    'application/vnd.nokia.landmarkcollection+xml',
+  ],
+  'vnd.nokia.ncd': [
+    'application/vnd.nokia.ncd',
+  ],
+  'vnd.nokia.n-gage.ac+xml': [
+    'application/vnd.nokia.n-gage.ac+xml',
+  ],
+  'vnd.nokia.n-gage.data': [
+    'application/vnd.nokia.n-gage.data',
+  ],
+  'vnd.nokia.n-gage.symbian.install': [
+    'application/vnd.nokia.n-gage.symbian.install',
+  ],
+  'vnd.nokia.pcd+wbxml': [
+    'application/vnd.nokia.pcd+wbxml',
+  ],
+  'vnd.nokia.pcd+xml': [
+    'application/vnd.nokia.pcd+xml',
+  ],
+  'vnd.nokia.radio-preset': [
+    'application/vnd.nokia.radio-preset',
+  ],
+  'vnd.nokia.radio-presets': [
+    'application/vnd.nokia.radio-presets',
+  ],
+  'vnd.novadigm.EDM': [
+    'application/vnd.novadigm.EDM',
+  ],
+  'vnd.novadigm.EDX': [
+    'application/vnd.novadigm.EDX',
+  ],
+  'vnd.novadigm.EXT': [
+    'application/vnd.novadigm.EXT',
+  ],
+  'vnd.ntt-local.content-share': [
+    'application/vnd.ntt-local.content-share',
+  ],
+  'vnd.ntt-local.file-transfer': [
+    'application/vnd.ntt-local.file-transfer',
+  ],
+  'vnd.ntt-local.ogw_remote-access': [
+    'application/vnd.ntt-local.ogw_remote-access',
+  ],
+  'vnd.ntt-local.sip-ta_remote': [
+    'application/vnd.ntt-local.sip-ta_remote',
+  ],
+  'vnd.ntt-local.sip-ta_tcp_stream': [
+    'application/vnd.ntt-local.sip-ta_tcp_stream',
+  ],
+  'vnd.oai.workflows': [
+    'application/vnd.oai.workflows',
+  ],
+  'vnd.oai.workflows+json': [
+    'application/vnd.oai.workflows+json',
+  ],
+  'vnd.oai.workflows+yaml': [
+    'application/vnd.oai.workflows+yaml',
+  ],
+  'vnd.oasis.opendocument.base': [
+    'application/vnd.oasis.opendocument.base',
+  ],
+  'vnd.oasis.opendocument.chart': [
+    'application/vnd.oasis.opendocument.chart',
+  ],
+  'vnd.oasis.opendocument.chart-template': [
+    'application/vnd.oasis.opendocument.chart-template',
+  ],
+  'vnd.oasis.opendocument.database': [
+    'application/vnd.oasis.opendocument.database',
+  ],
+  'vnd.oasis.opendocument.formula': [
+    'application/vnd.oasis.opendocument.formula',
+  ],
+  'vnd.oasis.opendocument.formula-template': [
+    'application/vnd.oasis.opendocument.formula-template',
+  ],
+  'vnd.oasis.opendocument.graphics': [
+    'application/vnd.oasis.opendocument.graphics',
+  ],
+  'vnd.oasis.opendocument.graphics-template': [
+    'application/vnd.oasis.opendocument.graphics-template',
+  ],
+  'vnd.oasis.opendocument.image': [
+    'application/vnd.oasis.opendocument.image',
+  ],
+  'vnd.oasis.opendocument.image-template': [
+    'application/vnd.oasis.opendocument.image-template',
+  ],
+  'vnd.oasis.opendocument.presentation': [
+    'application/vnd.oasis.opendocument.presentation',
+  ],
+  'vnd.oasis.opendocument.presentation-template': [
+    'application/vnd.oasis.opendocument.presentation-template',
+  ],
+  'vnd.oasis.opendocument.spreadsheet': [
+    'application/vnd.oasis.opendocument.spreadsheet',
+  ],
+  'vnd.oasis.opendocument.spreadsheet-template': [
+    'application/vnd.oasis.opendocument.spreadsheet-template',
+  ],
+  'vnd.oasis.opendocument.text': [
+    'application/vnd.oasis.opendocument.text',
+  ],
+  'vnd.oasis.opendocument.text-master': [
+    'application/vnd.oasis.opendocument.text-master',
+  ],
+  'vnd.oasis.opendocument.text-master-template': [
+    'application/vnd.oasis.opendocument.text-master-template',
+  ],
+  'vnd.oasis.opendocument.text-template': [
+    'application/vnd.oasis.opendocument.text-template',
+  ],
+  'vnd.oasis.opendocument.text-web': [
+    'application/vnd.oasis.opendocument.text-web',
+  ],
+  'vnd.obn': [
+    'application/vnd.obn',
+  ],
+  'vnd.ocf+cbor': [
+    'application/vnd.ocf+cbor',
+  ],
+  'vnd.oci.image.manifest.v1+json': [
+    'application/vnd.oci.image.manifest.v1+json',
+  ],
+  'vnd.oftn.l10n+json': [
+    'application/vnd.oftn.l10n+json',
+  ],
+  'vnd.oipf.contentaccessdownload+xml': [
+    'application/vnd.oipf.contentaccessdownload+xml',
+  ],
+  'vnd.oipf.contentaccessstreaming+xml': [
+    'application/vnd.oipf.contentaccessstreaming+xml',
+  ],
+  'vnd.oipf.cspg-hexbinary': [
+    'application/vnd.oipf.cspg-hexbinary',
+  ],
+  'vnd.oipf.dae.svg+xml': [
+    'application/vnd.oipf.dae.svg+xml',
+  ],
+  'vnd.oipf.dae.xhtml+xml': [
+    'application/vnd.oipf.dae.xhtml+xml',
+  ],
+  'vnd.oipf.mippvcontrolmessage+xml': [
+    'application/vnd.oipf.mippvcontrolmessage+xml',
+  ],
+  'vnd.oipf.pae.gem': [
+    'application/vnd.oipf.pae.gem',
+  ],
+  'vnd.oipf.spdiscovery+xml': [
+    'application/vnd.oipf.spdiscovery+xml',
+  ],
+  'vnd.oipf.spdlist+xml': [
+    'application/vnd.oipf.spdlist+xml',
+  ],
+  'vnd.oipf.ueprofile+xml': [
+    'application/vnd.oipf.ueprofile+xml',
+  ],
+  'vnd.oipf.userprofile+xml': [
+    'application/vnd.oipf.userprofile+xml',
+  ],
+  'vnd.olpc-sugar': [
+    'application/vnd.olpc-sugar',
+  ],
+  'vnd.oma.bcast.associated-procedure-parameter+xml': [
+    'application/vnd.oma.bcast.associated-procedure-parameter+xml',
+  ],
+  'vnd.oma.bcast.drm-trigger+xml': [
+    'application/vnd.oma.bcast.drm-trigger+xml',
+  ],
+  'vnd.oma.bcast.imd+xml': [
+    'application/vnd.oma.bcast.imd+xml',
+  ],
+  'vnd.oma.bcast.ltkm': [
+    'application/vnd.oma.bcast.ltkm',
+  ],
+  'vnd.oma.bcast.notification+xml': [
+    'application/vnd.oma.bcast.notification+xml',
+  ],
+  'vnd.oma.bcast.provisioningtrigger': [
+    'application/vnd.oma.bcast.provisioningtrigger',
+  ],
+  'vnd.oma.bcast.sgboot': [
+    'application/vnd.oma.bcast.sgboot',
+  ],
+  'vnd.oma.bcast.sgdd+xml': [
+    'application/vnd.oma.bcast.sgdd+xml',
+  ],
+  'vnd.oma.bcast.sgdu': [
+    'application/vnd.oma.bcast.sgdu',
+  ],
+  'vnd.oma.bcast.simple-symbol-container': [
+    'application/vnd.oma.bcast.simple-symbol-container',
+  ],
+  'vnd.oma.bcast.smartcard-trigger+xml': [
+    'application/vnd.oma.bcast.smartcard-trigger+xml',
+  ],
+  'vnd.oma.bcast.sprov+xml': [
+    'application/vnd.oma.bcast.sprov+xml',
+  ],
+  'vnd.oma.bcast.stkm': [
+    'application/vnd.oma.bcast.stkm',
+  ],
+  'vnd.oma.cab-address-book+xml': [
+    'application/vnd.oma.cab-address-book+xml',
+  ],
+  'vnd.oma.cab-feature-handler+xml': [
+    'application/vnd.oma.cab-feature-handler+xml',
+  ],
+  'vnd.oma.cab-pcc+xml': [
+    'application/vnd.oma.cab-pcc+xml',
+  ],
+  'vnd.oma.cab-subs-invite+xml': [
+    'application/vnd.oma.cab-subs-invite+xml',
+  ],
+  'vnd.oma.cab-user-prefs+xml': [
+    'application/vnd.oma.cab-user-prefs+xml',
+  ],
+  'vnd.oma.dcd': [
+    'application/vnd.oma.dcd',
+  ],
+  'vnd.oma.dcdc': [
+    'application/vnd.oma.dcdc',
+  ],
+  'vnd.oma.dd2+xml': [
+    'application/vnd.oma.dd2+xml',
+  ],
+  'vnd.oma.drm.risd+xml': [
+    'application/vnd.oma.drm.risd+xml',
+  ],
+  'vnd.oma.group-usage-list+xml': [
+    'application/vnd.oma.group-usage-list+xml',
+  ],
+  'vnd.oma.lwm2m+cbor': [
+    'application/vnd.oma.lwm2m+cbor',
+  ],
+  'vnd.oma.lwm2m+json': [
+    'application/vnd.oma.lwm2m+json',
+  ],
+  'vnd.oma.lwm2m+tlv': [
+    'application/vnd.oma.lwm2m+tlv',
+  ],
+  'vnd.oma.pal+xml': [
+    'application/vnd.oma.pal+xml',
+  ],
+  'vnd.oma.poc.detailed-progress-report+xml': [
+    'application/vnd.oma.poc.detailed-progress-report+xml',
+  ],
+  'vnd.oma.poc.final-report+xml': [
+    'application/vnd.oma.poc.final-report+xml',
+  ],
+  'vnd.oma.poc.groups+xml': [
+    'application/vnd.oma.poc.groups+xml',
+  ],
+  'vnd.oma.poc.invocation-descriptor+xml': [
+    'application/vnd.oma.poc.invocation-descriptor+xml',
+  ],
+  'vnd.oma.poc.optimized-progress-report+xml': [
+    'application/vnd.oma.poc.optimized-progress-report+xml',
+  ],
+  'vnd.oma.push': [
+    'application/vnd.oma.push',
+  ],
+  'vnd.oma.scidm.messages+xml': [
+    'application/vnd.oma.scidm.messages+xml',
+  ],
+  'vnd.oma.xcap-directory+xml': [
+    'application/vnd.oma.xcap-directory+xml',
+  ],
+  'vnd.omads-email+xml': [
+    'application/vnd.omads-email+xml',
+  ],
+  'vnd.omads-file+xml': [
+    'application/vnd.omads-file+xml',
+  ],
+  'vnd.omads-folder+xml': [
+    'application/vnd.omads-folder+xml',
+  ],
+  'vnd.omaloc-supl-init': [
+    'application/vnd.omaloc-supl-init',
+  ],
+  'vnd.oma-scws-config': [
+    'application/vnd.oma-scws-config',
+  ],
+  'vnd.oma-scws-http-request': [
+    'application/vnd.oma-scws-http-request',
+  ],
+  'vnd.oma-scws-http-response': [
+    'application/vnd.oma-scws-http-response',
+  ],
+  'vnd.onepager': [
+    'application/vnd.onepager',
+  ],
+  'vnd.onepagertamp': [
+    'application/vnd.onepagertamp',
+  ],
+  'vnd.onepagertamx': [
+    'application/vnd.onepagertamx',
+  ],
+  'vnd.onepagertat': [
+    'application/vnd.onepagertat',
+  ],
+  'vnd.onepagertatp': [
+    'application/vnd.onepagertatp',
+  ],
+  'vnd.onepagertatx': [
+    'application/vnd.onepagertatx',
+  ],
+  'vnd.onvif.metadata': [
+    'application/vnd.onvif.metadata',
+  ],
+  'vnd.openblox.game-binary': [
+    'application/vnd.openblox.game-binary',
+  ],
+  'vnd.openblox.game+xml': [
+    'application/vnd.openblox.game+xml',
+  ],
+  'vnd.openeye.oeb': [
+    'application/vnd.openeye.oeb',
+  ],
+  'vnd.openstreetmap.data+xml': [
+    'application/vnd.openstreetmap.data+xml',
+  ],
+  'vnd.opentimestamps.ots': [
+    'application/vnd.opentimestamps.ots',
+  ],
+  'vnd.openxmlformats-officedocument.custom-properties+xml': [
+    'application/vnd.openxmlformats-officedocument.custom-properties+xml',
+  ],
+  'vnd.openxmlformats-officedocument.customXmlProperties+xml': [
+    'application/vnd.openxmlformats-officedocument.customXmlProperties+xml',
+  ],
+  'vnd.openxmlformats-officedocument.drawing+xml': [
+    'application/vnd.openxmlformats-officedocument.drawing+xml',
+  ],
+  'vnd.openxmlformats-officedocument.drawingml.chart+xml': [
+    'application/vnd.openxmlformats-officedocument.drawingml.chart+xml',
+  ],
+  'vnd.openxmlformats-officedocument.drawingml.chartshapes+xml': [
+    'application/vnd.openxmlformats-officedocument.drawingml.chartshapes+xml',
+  ],
+  'vnd.openxmlformats-officedocument.drawingml.diagramColors+xml': [
+    'application/vnd.openxmlformats-officedocument.drawingml.diagramColors+xml',
+  ],
+  'vnd.openxmlformats-officedocument.drawingml.diagramData+xml': [
+    'application/vnd.openxmlformats-officedocument.drawingml.diagramData+xml',
+  ],
+  'vnd.openxmlformats-officedocument.drawingml.diagramLayout+xml': [
+    'application/vnd.openxmlformats-officedocument.drawingml.diagramLayout+xml',
+  ],
+  'vnd.openxmlformats-officedocument.drawingml.diagramStyle+xml': [
+    'application/vnd.openxmlformats-officedocument.drawingml.diagramStyle+xml',
+  ],
+  'vnd.openxmlformats-officedocument.extended-properties+xml': [
+    'application/vnd.openxmlformats-officedocument.extended-properties+xml',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.commentAuthors+xml': [
+    'application/vnd.openxmlformats-officedocument.presentationml.commentAuthors+xml',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.comments+xml': [
+    'application/vnd.openxmlformats-officedocument.presentationml.comments+xml',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.handoutMaster+xml': [
+    'application/vnd.openxmlformats-officedocument.presentationml.handoutMaster+xml',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.notesMaster+xml': [
+    'application/vnd.openxmlformats-officedocument.presentationml.notesMaster+xml',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.notesSlide+xml': [
+    'application/vnd.openxmlformats-officedocument.presentationml.notesSlide+xml',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.presentation': [
+    'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.presentation.main+xml': [
+    'application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.presProps+xml': [
+    'application/vnd.openxmlformats-officedocument.presentationml.presProps+xml',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.slide': [
+    'application/vnd.openxmlformats-officedocument.presentationml.slide',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.slide+xml': [
+    'application/vnd.openxmlformats-officedocument.presentationml.slide+xml',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.slideLayout+xml': [
+    'application/vnd.openxmlformats-officedocument.presentationml.slideLayout+xml',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.slideMaster+xml': [
+    'application/vnd.openxmlformats-officedocument.presentationml.slideMaster+xml',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.slideshow': [
+    'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.slideshow.main+xml': [
+    'application/vnd.openxmlformats-officedocument.presentationml.slideshow.main+xml',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.slideUpdateInfo+xml': [
+    'application/vnd.openxmlformats-officedocument.presentationml.slideUpdateInfo+xml',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.tableStyles+xml': [
+    'application/vnd.openxmlformats-officedocument.presentationml.tableStyles+xml',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.tags+xml': [
+    'application/vnd.openxmlformats-officedocument.presentationml.tags+xml',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.template': [
+    'application/vnd.openxmlformats-officedocument.presentationml.template',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.template.main+xml': [
+    'application/vnd.openxmlformats-officedocument.presentationml.template.main+xml',
+  ],
+  'vnd.openxmlformats-officedocument.presentationml.viewProps+xml': [
+    'application/vnd.openxmlformats-officedocument.presentationml.viewProps+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.calcChain+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.calcChain+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.chartsheet+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.chartsheet+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.comments+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.comments+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.connections+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.connections+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.dialogsheet+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.dialogsheet+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.externalLink+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.externalLink+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.pivotCacheDefinition+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.pivotCacheDefinition+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.pivotCacheRecords+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.pivotCacheRecords+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.pivotTable+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.pivotTable+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.queryTable+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.queryTable+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.revisionHeaders+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.revisionHeaders+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.revisionLog+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.revisionLog+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.sharedStrings+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sharedStrings+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.sheet': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.sheetMetadata+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheetMetadata+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.styles+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.table+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.table+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.tableSingleCells+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.tableSingleCells+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.template': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.template',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.template.main+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.template.main+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.userNames+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.userNames+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.volatileDependencies+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.volatileDependencies+xml',
+  ],
+  'vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml': [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml',
+  ],
+  'vnd.openxmlformats-officedocument.theme+xml': [
+    'application/vnd.openxmlformats-officedocument.theme+xml',
+  ],
+  'vnd.openxmlformats-officedocument.themeOverride+xml': [
+    'application/vnd.openxmlformats-officedocument.themeOverride+xml',
+  ],
+  'vnd.openxmlformats-officedocument.vmlDrawing': [
+    'application/vnd.openxmlformats-officedocument.vmlDrawing',
+  ],
+  'vnd.openxmlformats-officedocument.wordprocessingml.comments+xml': [
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.comments+xml',
+  ],
+  'vnd.openxmlformats-officedocument.wordprocessingml.document': [
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  ],
+  'vnd.openxmlformats-officedocument.wordprocessingml.document.glossary+xml': [
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document.glossary+xml',
+  ],
+  'vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml': [
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml',
+  ],
+  'vnd.openxmlformats-officedocument.wordprocessingml.endnotes+xml': [
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.endnotes+xml',
+  ],
+  'vnd.openxmlformats-officedocument.wordprocessingml.fontTable+xml': [
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.fontTable+xml',
+  ],
+  'vnd.openxmlformats-officedocument.wordprocessingml.footer+xml': [
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml',
+  ],
+  'vnd.openxmlformats-officedocument.wordprocessingml.footnotes+xml': [
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.footnotes+xml',
+  ],
+  'vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml': [
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml',
+  ],
+  'vnd.openxmlformats-officedocument.wordprocessingml.settings+xml': [
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml',
+  ],
+  'vnd.openxmlformats-officedocument.wordprocessingml.styles+xml': [
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml',
+  ],
+  'vnd.openxmlformats-officedocument.wordprocessingml.template': [
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.template',
+  ],
+  'vnd.openxmlformats-officedocument.wordprocessingml.template.main+xml': [
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.template.main+xml',
+  ],
+  'vnd.openxmlformats-officedocument.wordprocessingml.webSettings+xml': [
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.webSettings+xml',
+  ],
+  'vnd.openxmlformats-package.core-properties+xml': [
+    'application/vnd.openxmlformats-package.core-properties+xml',
+  ],
+  'vnd.openxmlformats-package.digital-signature-xmlsignature+xml': [
+    'application/vnd.openxmlformats-package.digital-signature-xmlsignature+xml',
+  ],
+  'vnd.openxmlformats-package.relationships+xml': [
+    'application/vnd.openxmlformats-package.relationships+xml',
+  ],
+  'vnd.oracle.resource+json': [
+    'application/vnd.oracle.resource+json',
+  ],
+  'vnd.orange.indata': [
+    'application/vnd.orange.indata',
+  ],
+  'vnd.osa.netdeploy': [
+    'application/vnd.osa.netdeploy',
+  ],
+  'vnd.osgeo.mapguide.package': [
+    'application/vnd.osgeo.mapguide.package',
+  ],
+  'vnd.osgi.bundle': [
+    'application/vnd.osgi.bundle',
+  ],
+  'vnd.osgi.dp': [
+    'application/vnd.osgi.dp',
+  ],
+  'vnd.osgi.subsystem': [
+    'application/vnd.osgi.subsystem',
+  ],
+  'vnd.otps.ct-kip+xml': [
+    'application/vnd.otps.ct-kip+xml',
+  ],
+  'vnd.oxli.countgraph': [
+    'application/vnd.oxli.countgraph',
+  ],
+  'vnd.pagerduty+json': [
+    'application/vnd.pagerduty+json',
+  ],
+  'vnd.palm': [
+    'application/vnd.palm',
+  ],
+  'vnd.panoply': [
+    'application/vnd.panoply',
+  ],
+  'vnd.paos.xml': [
+    'application/vnd.paos.xml',
+  ],
+  'vnd.patentdive': [
+    'application/vnd.patentdive',
+  ],
+  'vnd.patientecommsdoc': [
+    'application/vnd.patientecommsdoc',
+  ],
+  'vnd.pawaafile': [
+    'application/vnd.pawaafile',
+  ],
+  'vnd.pcos': [
+    'application/vnd.pcos',
+  ],
+  'vnd.pg.format': [
+    'application/vnd.pg.format',
+  ],
+  'vnd.pg.osasli': [
+    'application/vnd.pg.osasli',
+  ],
+  'vnd.piaccess.application-licence': [
+    'application/vnd.piaccess.application-licence',
+  ],
+  'vnd.picsel': [
+    'application/vnd.picsel',
+  ],
+  'vnd.pmi.widget': [
+    'application/vnd.pmi.widget',
+  ],
+  'vnd.poc.group-advertisement+xml': [
+    'application/vnd.poc.group-advertisement+xml',
+  ],
+  'vnd.pocketlearn': [
+    'application/vnd.pocketlearn',
+  ],
+  'vnd.powerbuilder6': [
+    'application/vnd.powerbuilder6',
+  ],
+  'vnd.powerbuilder6-s': [
+    'application/vnd.powerbuilder6-s',
+  ],
+  'vnd.powerbuilder7': [
+    'application/vnd.powerbuilder7',
+  ],
+  'vnd.powerbuilder75': [
+    'application/vnd.powerbuilder75',
+  ],
+  'vnd.powerbuilder75-s': [
+    'application/vnd.powerbuilder75-s',
+  ],
+  'vnd.powerbuilder7-s': [
+    'application/vnd.powerbuilder7-s',
+  ],
+  'vnd.preminet': [
+    'application/vnd.preminet',
+  ],
+  'vnd.previewsystems.box': [
+    'application/vnd.previewsystems.box',
+  ],
+  'vnd.proteus.magazine': [
+    'application/vnd.proteus.magazine',
+  ],
+  'vnd.psfs': [
+    'application/vnd.psfs',
+  ],
+  'vnd.pt.mundusmundi': [
+    'application/vnd.pt.mundusmundi',
+  ],
+  'vnd.publishare-delta-tree': [
+    'application/vnd.publishare-delta-tree',
+  ],
+  'vnd.pvi.ptid1': [
+    'application/vnd.pvi.ptid1',
+  ],
+  'vnd.pwg-multiplexed': [
+    'application/vnd.pwg-multiplexed',
+  ],
+  'vnd.pwg-xhtml-print+xml': [
+    'application/vnd.pwg-xhtml-print+xml',
+  ],
+  'vnd.qualcomm.brew-app-res': [
+    'application/vnd.qualcomm.brew-app-res',
+  ],
+  'vnd.quarantainenet': [
+    'application/vnd.quarantainenet',
+  ],
+  'vnd.Quark.QuarkXPress': [
+    'application/vnd.Quark.QuarkXPress',
+  ],
+  'vnd.quobject-quoxdocument': [
+    'application/vnd.quobject-quoxdocument',
+  ],
+  'vnd.radisys.moml+xml': [
+    'application/vnd.radisys.moml+xml',
+  ],
+  'vnd.radisys.msml-audit-conf+xml': [
+    'application/vnd.radisys.msml-audit-conf+xml',
+  ],
+  'vnd.radisys.msml-audit-conn+xml': [
+    'application/vnd.radisys.msml-audit-conn+xml',
+  ],
+  'vnd.radisys.msml-audit-dialog+xml': [
+    'application/vnd.radisys.msml-audit-dialog+xml',
+  ],
+  'vnd.radisys.msml-audit-stream+xml': [
+    'application/vnd.radisys.msml-audit-stream+xml',
+  ],
+  'vnd.radisys.msml-audit+xml': [
+    'application/vnd.radisys.msml-audit+xml',
+  ],
+  'vnd.radisys.msml-conf+xml': [
+    'application/vnd.radisys.msml-conf+xml',
+  ],
+  'vnd.radisys.msml-dialog-base+xml': [
+    'application/vnd.radisys.msml-dialog-base+xml',
+  ],
+  'vnd.radisys.msml-dialog-fax-detect+xml': [
+    'application/vnd.radisys.msml-dialog-fax-detect+xml',
+  ],
+  'vnd.radisys.msml-dialog-fax-sendrecv+xml': [
+    'application/vnd.radisys.msml-dialog-fax-sendrecv+xml',
+  ],
+  'vnd.radisys.msml-dialog-group+xml': [
+    'application/vnd.radisys.msml-dialog-group+xml',
+  ],
+  'vnd.radisys.msml-dialog-speech+xml': [
+    'application/vnd.radisys.msml-dialog-speech+xml',
+  ],
+  'vnd.radisys.msml-dialog-transform+xml': [
+    'application/vnd.radisys.msml-dialog-transform+xml',
+  ],
+  'vnd.radisys.msml-dialog+xml': [
+    'application/vnd.radisys.msml-dialog+xml',
+  ],
+  'vnd.radisys.msml+xml': [
+    'application/vnd.radisys.msml+xml',
+  ],
+  'vnd.rainstor.data': [
+    'application/vnd.rainstor.data',
+  ],
+  'vnd.rapid': [
+    'application/vnd.rapid',
+  ],
+  'vnd.rar': [
+    'application/vnd.rar',
+  ],
+  'vnd.realvnc.bed': [
+    'application/vnd.realvnc.bed',
+  ],
+  'vnd.recordare.musicxml': [
+    'application/vnd.recordare.musicxml',
+  ],
+  'vnd.recordare.musicxml+xml': [
+    'application/vnd.recordare.musicxml+xml',
+  ],
+  'vnd.relpipe': [
+    'application/vnd.relpipe',
+  ],
+  'vnd.RenLearn.rlprint': [
+    'application/vnd.RenLearn.rlprint',
+  ],
+  'vnd.resilient.logic': [
+    'application/vnd.resilient.logic',
+  ],
+  'vnd.restful+json': [
+    'application/vnd.restful+json',
+  ],
+  'vnd.rig.cryptonote': [
+    'application/vnd.rig.cryptonote',
+  ],
+  'vnd.route66.link66+xml': [
+    'application/vnd.route66.link66+xml',
+  ],
+  'vnd.rs-274x': [
+    'application/vnd.rs-274x',
+  ],
+  'vnd.ruckus.download': [
+    'application/vnd.ruckus.download',
+  ],
+  'vnd.s3sms': [
+    'application/vnd.s3sms',
+  ],
+  'vnd.sailingtracker.track': [
+    'application/vnd.sailingtracker.track',
+  ],
+  'vnd.sar': [
+    'application/vnd.sar',
+  ],
+  'vnd.sbm.cid': [
+    'application/vnd.sbm.cid',
+  ],
+  'vnd.sbm.mid2': [
+    'application/vnd.sbm.mid2',
+  ],
+  'vnd.scribus': [
+    'application/vnd.scribus',
+  ],
+  'vnd.sealed.3df': [
+    'application/vnd.sealed.3df',
+  ],
+  'vnd.sealed.csf': [
+    'application/vnd.sealed.csf',
+  ],
+  'vnd.sealed.doc': [
+    'application/vnd.sealed.doc',
+  ],
+  'vnd.sealed.eml': [
+    'application/vnd.sealed.eml',
+  ],
+  'vnd.sealed.mht': [
+    'application/vnd.sealed.mht',
+  ],
+  'vnd.sealed.net': [
+    'application/vnd.sealed.net',
+  ],
+  'vnd.sealed.ppt': [
+    'application/vnd.sealed.ppt',
+  ],
+  'vnd.sealed.tiff': [
+    'application/vnd.sealed.tiff',
+  ],
+  'vnd.sealed.xls': [
+    'application/vnd.sealed.xls',
+  ],
+  'vnd.sealedmedia.softseal.html': [
+    'application/vnd.sealedmedia.softseal.html',
+  ],
+  'vnd.sealedmedia.softseal.pdf': [
+    'application/vnd.sealedmedia.softseal.pdf',
+  ],
+  'vnd.seemail': [
+    'application/vnd.seemail',
+  ],
+  'vnd.seis+json': [
+    'application/vnd.seis+json',
+  ],
+  'vnd.sema': [
+    'application/vnd.sema',
+  ],
+  'vnd.semd': [
+    'application/vnd.semd',
+  ],
+  'vnd.semf': [
+    'application/vnd.semf',
+  ],
+  'vnd.shade-save-file': [
+    'application/vnd.shade-save-file',
+  ],
+  'vnd.shana.informed.formdata': [
+    'application/vnd.shana.informed.formdata',
+  ],
+  'vnd.shana.informed.formtemplate': [
+    'application/vnd.shana.informed.formtemplate',
+  ],
+  'vnd.shana.informed.interchange': [
+    'application/vnd.shana.informed.interchange',
+  ],
+  'vnd.shana.informed.package': [
+    'application/vnd.shana.informed.package',
+  ],
+  'vnd.shootproof+json': [
+    'application/vnd.shootproof+json',
+  ],
+  'vnd.shopkick+json': [
+    'application/vnd.shopkick+json',
+  ],
+  'vnd.shp': [
+    'application/vnd.shp',
+  ],
+  'vnd.shx': [
+    'application/vnd.shx',
+  ],
+  'vnd.sigrok.session': [
+    'application/vnd.sigrok.session',
+  ],
+  'vnd.SimTech-MindMapper': [
+    'application/vnd.SimTech-MindMapper',
+  ],
+  'vnd.siren+json': [
+    'application/vnd.siren+json',
+  ],
+  'vnd.smaf': [
+    'application/vnd.smaf',
+  ],
+  'vnd.smart.notebook': [
+    'application/vnd.smart.notebook',
+  ],
+  'vnd.smart.teacher': [
+    'application/vnd.smart.teacher',
+  ],
+  'vnd.smintio.portals.archive': [
+    'application/vnd.smintio.portals.archive',
+  ],
+  'vnd.snesdev-page-table': [
+    'application/vnd.snesdev-page-table',
+  ],
+  'vnd.software602.filler.form+xml': [
+    'application/vnd.software602.filler.form+xml',
+  ],
+  'vnd.software602.filler.form-xml-zip': [
+    'application/vnd.software602.filler.form-xml-zip',
+  ],
+  'vnd.solent.sdkm+xml': [
+    'application/vnd.solent.sdkm+xml',
+  ],
+  'vnd.spotfire.dxp': [
+    'application/vnd.spotfire.dxp',
+  ],
+  'vnd.spotfire.sfs': [
+    'application/vnd.spotfire.sfs',
+  ],
+  'vnd.sqlite3': [
+    'application/vnd.sqlite3',
+  ],
+  'vnd.sss-cod': [
+    'application/vnd.sss-cod',
+  ],
+  'vnd.sss-dtf': [
+    'application/vnd.sss-dtf',
+  ],
+  'vnd.sss-ntf': [
+    'application/vnd.sss-ntf',
+  ],
+  'vnd.stepmania.package': [
+    'application/vnd.stepmania.package',
+  ],
+  'vnd.stepmania.stepchart': [
+    'application/vnd.stepmania.stepchart',
+  ],
+  'vnd.street-stream': [
+    'application/vnd.street-stream',
+  ],
+  'vnd.sun.wadl+xml': [
+    'application/vnd.sun.wadl+xml',
+  ],
+  'vnd.sus-calendar': [
+    'application/vnd.sus-calendar',
+  ],
+  'vnd.svd': [
+    'application/vnd.svd',
+  ],
+  'vnd.swiftview-ics': [
+    'application/vnd.swiftview-ics',
+  ],
+  'vnd.sybyl.mol2': [
+    'application/vnd.sybyl.mol2',
+  ],
+  'vnd.sycle+xml': [
+    'application/vnd.sycle+xml',
+  ],
+  'vnd.syft+json': [
+    'application/vnd.syft+json',
+  ],
+  'vnd.syncml.dm.notification': [
+    'application/vnd.syncml.dm.notification',
+  ],
+  'vnd.syncml.dmddf+xml': [
+    'application/vnd.syncml.dmddf+xml',
+  ],
+  'vnd.syncml.dmtnds+wbxml': [
+    'application/vnd.syncml.dmtnds+wbxml',
+  ],
+  'vnd.syncml.dmtnds+xml': [
+    'application/vnd.syncml.dmtnds+xml',
+  ],
+  'vnd.syncml.dmddf+wbxml': [
+    'application/vnd.syncml.dmddf+wbxml',
+  ],
+  'vnd.syncml.dm+wbxml': [
+    'application/vnd.syncml.dm+wbxml',
+  ],
+  'vnd.syncml.dm+xml': [
+    'application/vnd.syncml.dm+xml',
+  ],
+  'vnd.syncml.ds.notification': [
+    'application/vnd.syncml.ds.notification',
+  ],
+  'vnd.syncml+xml': [
+    'application/vnd.syncml+xml',
+  ],
+  'vnd.tableschema+json': [
+    'application/vnd.tableschema+json',
+  ],
+  'vnd.tao.intent-module-archive': [
+    'application/vnd.tao.intent-module-archive',
+  ],
+  'vnd.tcpdump.pcap': [
+    'application/vnd.tcpdump.pcap',
+  ],
+  'vnd.think-cell.ppttc+json': [
+    'application/vnd.think-cell.ppttc+json',
+  ],
+  'vnd.tml': [
+    'application/vnd.tml',
+  ],
+  'vnd.tmd.mediaflex.api+xml': [
+    'application/vnd.tmd.mediaflex.api+xml',
+  ],
+  'vnd.tmobile-livetv': [
+    'application/vnd.tmobile-livetv',
+  ],
+  'vnd.tri.onesource': [
+    'application/vnd.tri.onesource',
+  ],
+  'vnd.trid.tpt': [
+    'application/vnd.trid.tpt',
+  ],
+  'vnd.triscape.mxs': [
+    'application/vnd.triscape.mxs',
+  ],
+  'vnd.trueapp': [
+    'application/vnd.trueapp',
+  ],
+  'vnd.truedoc': [
+    'application/vnd.truedoc',
+  ],
+  'vnd.ubisoft.webplayer': [
+    'application/vnd.ubisoft.webplayer',
+  ],
+  'vnd.ufdl': [
+    'application/vnd.ufdl',
+  ],
+  'vnd.uiq.theme': [
+    'application/vnd.uiq.theme',
+  ],
+  'vnd.umajin': [
+    'application/vnd.umajin',
+  ],
+  'vnd.unity': [
+    'application/vnd.unity',
+  ],
+  'vnd.uoml+xml': [
+    'application/vnd.uoml+xml',
+  ],
+  'vnd.uplanet.alert': [
+    'application/vnd.uplanet.alert',
+  ],
+  'vnd.uplanet.alert-wbxml': [
+    'application/vnd.uplanet.alert-wbxml',
+  ],
+  'vnd.uplanet.bearer-choice': [
+    'application/vnd.uplanet.bearer-choice',
+  ],
+  'vnd.uplanet.bearer-choice-wbxml': [
+    'application/vnd.uplanet.bearer-choice-wbxml',
+  ],
+  'vnd.uplanet.cacheop': [
+    'application/vnd.uplanet.cacheop',
+  ],
+  'vnd.uplanet.cacheop-wbxml': [
+    'application/vnd.uplanet.cacheop-wbxml',
+  ],
+  'vnd.uplanet.channel': [
+    'application/vnd.uplanet.channel',
+  ],
+  'vnd.uplanet.channel-wbxml': [
+    'application/vnd.uplanet.channel-wbxml',
+  ],
+  'vnd.uplanet.list': [
+    'application/vnd.uplanet.list',
+  ],
+  'vnd.uplanet.listcmd': [
+    'application/vnd.uplanet.listcmd',
+  ],
+  'vnd.uplanet.listcmd-wbxml': [
+    'application/vnd.uplanet.listcmd-wbxml',
+  ],
+  'vnd.uplanet.list-wbxml': [
+    'application/vnd.uplanet.list-wbxml',
+  ],
+  'vnd.uri-map': [
+    'application/vnd.uri-map',
+  ],
+  'vnd.uplanet.signal': [
+    'application/vnd.uplanet.signal',
+  ],
+  'vnd.valve.source.material': [
+    'application/vnd.valve.source.material',
+  ],
+  'vnd.vcx': [
+    'application/vnd.vcx',
+  ],
+  'vnd.vd-study': [
+    'application/vnd.vd-study',
+  ],
+  'vnd.vectorworks': [
+    'application/vnd.vectorworks',
+  ],
+  'vnd.vel+json': [
+    'application/vnd.vel+json',
+  ],
+  'vnd.verimatrix.vcas': [
+    'application/vnd.verimatrix.vcas',
+  ],
+  'vnd.veritone.aion+json': [
+    'application/vnd.veritone.aion+json',
+  ],
+  'vnd.veryant.thin': [
+    'application/vnd.veryant.thin',
+  ],
+  'vnd.ves.encrypted': [
+    'application/vnd.ves.encrypted',
+  ],
+  'vnd.vidsoft.vidconference': [
+    'application/vnd.vidsoft.vidconference',
+  ],
+  'vnd.visio': [
+    'application/vnd.visio',
+  ],
+  'vnd.visionary': [
+    'application/vnd.visionary',
+  ],
+  'vnd.vividence.scriptfile': [
+    'application/vnd.vividence.scriptfile',
+  ],
+  'vnd.vsf': [
+    'application/vnd.vsf',
+  ],
+  'vnd.wap.sic': [
+    'application/vnd.wap.sic',
+  ],
+  'vnd.wap.slc': [
+    'application/vnd.wap.slc',
+  ],
+  'vnd.wap.wbxml': [
+    'application/vnd.wap.wbxml',
+  ],
+  'vnd.wap.wmlc': [
+    'application/vnd.wap.wmlc',
+  ],
+  'vnd.wap.wmlscriptc': [
+    'application/vnd.wap.wmlscriptc',
+  ],
+  'vnd.wasmflow.wafl': [
+    'application/vnd.wasmflow.wafl',
+  ],
+  'vnd.webturbo': [
+    'application/vnd.webturbo',
+  ],
+  'vnd.wfa.dpp': [
+    'application/vnd.wfa.dpp',
+  ],
+  'vnd.wfa.p2p': [
+    'application/vnd.wfa.p2p',
+  ],
+  'vnd.wfa.wsc': [
+    'application/vnd.wfa.wsc',
+    'message/vnd.wfa.wsc',
+  ],
+  'vnd.windows.devicepairing': [
+    'application/vnd.windows.devicepairing',
+  ],
+  'vnd.wmc': [
+    'application/vnd.wmc',
+  ],
+  'vnd.wmf.bootstrap': [
+    'application/vnd.wmf.bootstrap',
+  ],
+  'vnd.wolfram.mathematica': [
+    'application/vnd.wolfram.mathematica',
+  ],
+  'vnd.wolfram.mathematica.package': [
+    'application/vnd.wolfram.mathematica.package',
+  ],
+  'vnd.wolfram.player': [
+    'application/vnd.wolfram.player',
+  ],
+  'vnd.wordlift': [
+    'application/vnd.wordlift',
+  ],
+  'vnd.wordperfect': [
+    'application/vnd.wordperfect',
+  ],
+  'vnd.wqd': [
+    'application/vnd.wqd',
+  ],
+  'vnd.wrq-hp3000-labelled': [
+    'application/vnd.wrq-hp3000-labelled',
+  ],
+  'vnd.wt.stf': [
+    'application/vnd.wt.stf',
+  ],
+  'vnd.wv.csp+xml': [
+    'application/vnd.wv.csp+xml',
+  ],
+  'vnd.wv.csp+wbxml': [
+    'application/vnd.wv.csp+wbxml',
+  ],
+  'vnd.wv.ssp+xml': [
+    'application/vnd.wv.ssp+xml',
+  ],
+  'vnd.xacml+json': [
+    'application/vnd.xacml+json',
+  ],
+  'vnd.xara': [
+    'application/vnd.xara',
+  ],
+  'vnd.xarin.cpj': [
+    'application/vnd.xarin.cpj',
+  ],
+  'vnd.xecrets-encrypted': [
+    'application/vnd.xecrets-encrypted',
+  ],
+  'vnd.xfdl': [
+    'application/vnd.xfdl',
+  ],
+  'vnd.xfdl.webform': [
+    'application/vnd.xfdl.webform',
+  ],
+  'vnd.xmi+xml': [
+    'application/vnd.xmi+xml',
+  ],
+  'vnd.xmpie.cpkg': [
+    'application/vnd.xmpie.cpkg',
+  ],
+  'vnd.xmpie.dpkg': [
+    'application/vnd.xmpie.dpkg',
+  ],
+  'vnd.xmpie.plan': [
+    'application/vnd.xmpie.plan',
+  ],
+  'vnd.xmpie.ppkg': [
+    'application/vnd.xmpie.ppkg',
+  ],
+  'vnd.xmpie.xlim': [
+    'application/vnd.xmpie.xlim',
+  ],
+  'vnd.yamaha.hv-dic': [
+    'application/vnd.yamaha.hv-dic',
+  ],
+  'vnd.yamaha.hv-script': [
+    'application/vnd.yamaha.hv-script',
+  ],
+  'vnd.yamaha.hv-voice': [
+    'application/vnd.yamaha.hv-voice',
+  ],
+  'vnd.yamaha.openscoreformat.osfpvg+xml': [
+    'application/vnd.yamaha.openscoreformat.osfpvg+xml',
+  ],
+  'vnd.yamaha.openscoreformat': [
+    'application/vnd.yamaha.openscoreformat',
+  ],
+  'vnd.yamaha.remote-setup': [
+    'application/vnd.yamaha.remote-setup',
+  ],
+  'vnd.yamaha.smaf-audio': [
+    'application/vnd.yamaha.smaf-audio',
+  ],
+  'vnd.yamaha.smaf-phrase': [
+    'application/vnd.yamaha.smaf-phrase',
+  ],
+  'vnd.yamaha.through-ngn': [
+    'application/vnd.yamaha.through-ngn',
+  ],
+  'vnd.yamaha.tunnel-udpencap': [
+    'application/vnd.yamaha.tunnel-udpencap',
+  ],
+  'vnd.yaoweme': [
+    'application/vnd.yaoweme',
+  ],
+  'vnd.yellowriver-custom-menu': [
+    'application/vnd.yellowriver-custom-menu',
+  ],
+  'vnd.zul': [
+    'application/vnd.zul',
+  ],
+  'vnd.zzazz.deck+xml': [
+    'application/vnd.zzazz.deck+xml',
+  ],
+  'voicexml+xml': [
+    'application/voicexml+xml',
+  ],
+  'voucher-cms+json': [
+    'application/voucher-cms+json',
+  ],
+  'vp': [
+    'application/vp',
+  ],
+  'vq-rtcpxr': [
+    'application/vq-rtcpxr',
+  ],
+  'wasm': [
+    'application/wasm',
+  ],
+  'watcherinfo+xml': [
+    'application/watcherinfo+xml',
+  ],
+  'webpush-options+json': [
+    'application/webpush-options+json',
+  ],
+  'whoispp-query': [
+    'application/whoispp-query',
+  ],
+  'whoispp-response': [
+    'application/whoispp-response',
+  ],
+  'widget': [
+    'application/widget',
+  ],
+  'wita': [
+    'application/wita',
+  ],
+  'wordperfect5.1': [
+    'application/wordperfect5.1',
+  ],
+  'wsdl+xml': [
+    'application/wsdl+xml',
+  ],
+  'wspolicy+xml': [
+    'application/wspolicy+xml',
+  ],
+  'x-pki-message': [
+    'application/x-pki-message',
+  ],
+  'x-www-form-urlencoded': [
+    'application/x-www-form-urlencoded',
+  ],
+  'x-x509-ca-cert': [
+    'application/x-x509-ca-cert',
+  ],
+  'x-x509-ca-ra-cert': [
+    'application/x-x509-ca-ra-cert',
+  ],
+  'x-x509-next-ca-cert': [
+    'application/x-x509-next-ca-cert',
+  ],
+  'x400-bp': [
+    'application/x400-bp',
+  ],
+  'xacml+xml': [
+    'application/xacml+xml',
+  ],
+  'xcap-att+xml': [
+    'application/xcap-att+xml',
+  ],
+  'xcap-caps+xml': [
+    'application/xcap-caps+xml',
+  ],
+  'xcap-diff+xml': [
+    'application/xcap-diff+xml',
+  ],
+  'xcap-el+xml': [
+    'application/xcap-el+xml',
+  ],
+  'xcap-error+xml': [
+    'application/xcap-error+xml',
+  ],
+  'xcap-ns+xml': [
+    'application/xcap-ns+xml',
+  ],
+  'xcon-conference-info-diff+xml': [
+    'application/xcon-conference-info-diff+xml',
+  ],
+  'xcon-conference-info+xml': [
+    'application/xcon-conference-info+xml',
+  ],
+  'xenc+xml': [
+    'application/xenc+xml',
+  ],
+  'xfdf': [
+    'application/xfdf',
+  ],
+  'xhtml+xml': [
+    'application/xhtml+xml',
+  ],
+  'xliff+xml': [
+    'application/xliff+xml',
+  ],
+  'xml': [
+    'application/xml',
+    'text/xml',
+  ],
+  'xml-dtd': [
+    'application/xml-dtd',
+  ],
+  'xml-external-parsed-entity': [
+    'application/xml-external-parsed-entity',
+    'text/xml-external-parsed-entity',
+  ],
+  'xml-patch+xml': [
+    'application/xml-patch+xml',
+  ],
+  'xmpp+xml': [
+    'application/xmpp+xml',
+  ],
+  'xop+xml': [
+    'application/xop+xml',
+  ],
+  'xslt+xml': [
+    'application/xslt+xml',
+  ],
+  'xv+xml': [
+    'application/xv+xml',
+  ],
+  'yaml': [
+    'application/yaml',
+  ],
+  'yang': [
+    'application/yang',
+  ],
+  'yang-data+cbor': [
+    'application/yang-data+cbor',
+  ],
+  'yang-data+json': [
+    'application/yang-data+json',
+  ],
+  'yang-data+xml': [
+    'application/yang-data+xml',
+  ],
+  'yang-patch+json': [
+    'application/yang-patch+json',
+  ],
+  'yang-patch+xml': [
+    'application/yang-patch+xml',
+  ],
+  'yang-sid+json': [
+    'application/yang-sid+json',
+  ],
+  'yin+xml': [
+    'application/yin+xml',
+  ],
+  'zip': [
+    'application/zip',
+  ],
+  'zlib': [
+    'application/zlib',
+  ],
+  'zstd': [
+    'application/zstd',
+  ],
+  '32kadpcm': [
+    'audio/32kadpcm',
+  ],
+  '3gpp': [
+    'audio/3gpp',
+    'video/3gpp',
+  ],
+  '3gpp2': [
+    'audio/3gpp2',
+    'video/3gpp2',
+  ],
+  'aac': [
+    'audio/aac',
+  ],
+  'ac3': [
+    'audio/ac3',
+  ],
+  'AMR': [
+    'audio/AMR',
+  ],
+  'AMR-WB': [
+    'audio/AMR-WB',
+  ],
+  'amr-wb+': [
+    'audio/amr-wb+',
+  ],
+  'aptx': [
+    'audio/aptx',
+  ],
+  'asc': [
+    'audio/asc',
+  ],
+  'ATRAC-ADVANCED-LOSSLESS': [
+    'audio/ATRAC-ADVANCED-LOSSLESS',
+  ],
+  'ATRAC-X': [
+    'audio/ATRAC-X',
+  ],
+  'ATRAC3': [
+    'audio/ATRAC3',
+  ],
+  'basic': [
+    'audio/basic',
+  ],
+  'BV16': [
+    'audio/BV16',
+  ],
+  'BV32': [
+    'audio/BV32',
+  ],
+  'clearmode': [
+    'audio/clearmode',
+  ],
+  'CN': [
+    'audio/CN',
+  ],
+  'DAT12': [
+    'audio/DAT12',
+  ],
+  'dls': [
+    'audio/dls',
+  ],
+  'dsr-es201108': [
+    'audio/dsr-es201108',
+  ],
+  'dsr-es202050': [
+    'audio/dsr-es202050',
+  ],
+  'dsr-es202211': [
+    'audio/dsr-es202211',
+  ],
+  'dsr-es202212': [
+    'audio/dsr-es202212',
+  ],
+  'DV': [
+    'audio/DV',
+    'video/DV',
+  ],
+  'DVI4': [
+    'audio/DVI4',
+  ],
+  'eac3': [
+    'audio/eac3',
+  ],
+  'EVRC': [
+    'audio/EVRC',
+  ],
+  'EVRC-QCP': [
+    'audio/EVRC-QCP',
+  ],
+  'EVRC0': [
+    'audio/EVRC0',
+  ],
+  'EVRC1': [
+    'audio/EVRC1',
+  ],
+  'EVRCB': [
+    'audio/EVRCB',
+  ],
+  'EVRCB0': [
+    'audio/EVRCB0',
+  ],
+  'EVRCB1': [
+    'audio/EVRCB1',
+  ],
+  'EVRCNW': [
+    'audio/EVRCNW',
+  ],
+  'EVRCNW0': [
+    'audio/EVRCNW0',
+  ],
+  'EVRCNW1': [
+    'audio/EVRCNW1',
+  ],
+  'EVRCWB': [
+    'audio/EVRCWB',
+  ],
+  'EVRCWB0': [
+    'audio/EVRCWB0',
+  ],
+  'EVRCWB1': [
+    'audio/EVRCWB1',
+  ],
+  'EVS': [
+    'audio/EVS',
+  ],
+  'flac': [
+    'audio/flac',
+  ],
+  'fwdred': [
+    'audio/fwdred',
+    'text/fwdred',
+  ],
+  'G711-0': [
+    'audio/G711-0',
+  ],
+  'G719': [
+    'audio/G719',
+  ],
+  'G7221': [
+    'audio/G7221',
+  ],
+  'G722': [
+    'audio/G722',
+  ],
+  'G723': [
+    'audio/G723',
+  ],
+  'G726-16': [
+    'audio/G726-16',
+  ],
+  'G726-24': [
+    'audio/G726-24',
+  ],
+  'G726-32': [
+    'audio/G726-32',
+  ],
+  'G726-40': [
+    'audio/G726-40',
+  ],
+  'G728': [
+    'audio/G728',
+  ],
+  'G729': [
+    'audio/G729',
+  ],
+  'G7291': [
+    'audio/G7291',
+  ],
+  'G729D': [
+    'audio/G729D',
+  ],
+  'G729E': [
+    'audio/G729E',
+  ],
+  'GSM': [
+    'audio/GSM',
+  ],
+  'GSM-EFR': [
+    'audio/GSM-EFR',
+  ],
+  'GSM-HR-08': [
+    'audio/GSM-HR-08',
+  ],
+  'iLBC': [
+    'audio/iLBC',
+  ],
+  'ip-mr_v2.5': [
+    'audio/ip-mr_v2.5',
+  ],
+  'L8': [
+    'audio/L8',
+  ],
+  'L16': [
+    'audio/L16',
+  ],
+  'L20': [
+    'audio/L20',
+  ],
+  'L24': [
+    'audio/L24',
+  ],
+  'LPC': [
+    'audio/LPC',
+  ],
+  'matroska': [
+    'audio/matroska',
+    'video/matroska',
+  ],
+  'MELP': [
+    'audio/MELP',
+  ],
+  'MELP600': [
+    'audio/MELP600',
+  ],
+  'MELP1200': [
+    'audio/MELP1200',
+  ],
+  'MELP2400': [
+    'audio/MELP2400',
+  ],
+  'mhas': [
+    'audio/mhas',
+  ],
+  'midi-clip': [
+    'audio/midi-clip',
+  ],
+  'mobile-xmf': [
+    'audio/mobile-xmf',
+  ],
+  'MPA': [
+    'audio/MPA',
+  ],
+  'MP4A-LATM': [
+    'audio/MP4A-LATM',
+  ],
+  'mpa-robust': [
+    'audio/mpa-robust',
+  ],
+  'mpeg': [
+    'audio/mpeg',
+    'video/mpeg',
+  ],
+  'opus': [
+    'audio/opus',
+  ],
+  'PCMA': [
+    'audio/PCMA',
+  ],
+  'PCMA-WB': [
+    'audio/PCMA-WB',
+  ],
+  'PCMU': [
+    'audio/PCMU',
+  ],
+  'PCMU-WB': [
+    'audio/PCMU-WB',
+  ],
+  'prs.sid': [
+    'audio/prs.sid',
+  ],
+  'QCELP': [
+    'audio/QCELP',
+  ],
+  'RED': [
+    'audio/RED',
+    'text/RED',
+  ],
+  'rtp-enc-aescm128': [
+    'audio/rtp-enc-aescm128',
+    'text/rtp-enc-aescm128',
+    'video/rtp-enc-aescm128',
+  ],
+  'rtp-midi': [
+    'audio/rtp-midi',
+  ],
+  'scip': [
+    'audio/scip',
+    'video/scip',
+  ],
+  'SMV': [
+    'audio/SMV',
+  ],
+  'SMV0': [
+    'audio/SMV0',
+  ],
+  'SMV-QCP': [
+    'audio/SMV-QCP',
+  ],
+  'sofa': [
+    'audio/sofa',
+  ],
+  'sp-midi': [
+    'audio/sp-midi',
+  ],
+  'speex': [
+    'audio/speex',
+  ],
+  't140c': [
+    'audio/t140c',
+  ],
+  't38': [
+    'audio/t38',
+    'image/t38',
+  ],
+  'telephone-event': [
+    'audio/telephone-event',
+  ],
+  'TETRA_ACELP': [
+    'audio/TETRA_ACELP',
+  ],
+  'TETRA_ACELP_BB': [
+    'audio/TETRA_ACELP_BB',
+  ],
+  'tone': [
+    'audio/tone',
+  ],
+  'TSVCIS': [
+    'audio/TSVCIS',
+  ],
+  'UEMCLIP': [
+    'audio/UEMCLIP',
+  ],
+  'usac': [
+    'audio/usac',
+  ],
+  'VDVI': [
+    'audio/VDVI',
+  ],
+  'VMR-WB': [
+    'audio/VMR-WB',
+  ],
+  'vnd.3gpp.iufp': [
+    'audio/vnd.3gpp.iufp',
+  ],
+  'vnd.4SB': [
+    'audio/vnd.4SB',
+  ],
+  'vnd.audiokoz': [
+    'audio/vnd.audiokoz',
+  ],
+  'vnd.CELP': [
+    'audio/vnd.CELP',
+  ],
+  'vnd.cisco.nse': [
+    'audio/vnd.cisco.nse',
+  ],
+  'vnd.cmles.radio-events': [
+    'audio/vnd.cmles.radio-events',
+  ],
+  'vnd.cns.anp1': [
+    'audio/vnd.cns.anp1',
+  ],
+  'vnd.cns.inf1': [
+    'audio/vnd.cns.inf1',
+  ],
+  'vnd.dece.audio': [
+    'audio/vnd.dece.audio',
+  ],
+  'vnd.digital-winds': [
+    'audio/vnd.digital-winds',
+  ],
+  'vnd.dlna.adts': [
+    'audio/vnd.dlna.adts',
+  ],
+  'vnd.dolby.heaac.1': [
+    'audio/vnd.dolby.heaac.1',
+  ],
+  'vnd.dolby.heaac.2': [
+    'audio/vnd.dolby.heaac.2',
+  ],
+  'vnd.dolby.mlp': [
+    'audio/vnd.dolby.mlp',
+  ],
+  'vnd.dolby.mps': [
+    'audio/vnd.dolby.mps',
+  ],
+  'vnd.dolby.pl2': [
+    'audio/vnd.dolby.pl2',
+  ],
+  'vnd.dolby.pl2x': [
+    'audio/vnd.dolby.pl2x',
+  ],
+  'vnd.dolby.pl2z': [
+    'audio/vnd.dolby.pl2z',
+  ],
+  'vnd.dolby.pulse.1': [
+    'audio/vnd.dolby.pulse.1',
+  ],
+  'vnd.dra': [
+    'audio/vnd.dra',
+  ],
+  'vnd.dts': [
+    'audio/vnd.dts',
+  ],
+  'vnd.dts.hd': [
+    'audio/vnd.dts.hd',
+  ],
+  'vnd.dts.uhd': [
+    'audio/vnd.dts.uhd',
+  ],
+  'vnd.dvb.file': [
+    'audio/vnd.dvb.file',
+    'video/vnd.dvb.file',
+  ],
+  'vnd.everad.plj': [
+    'audio/vnd.everad.plj',
+  ],
+  'vnd.hns.audio': [
+    'audio/vnd.hns.audio',
+  ],
+  'vnd.lucent.voice': [
+    'audio/vnd.lucent.voice',
+  ],
+  'vnd.ms-playready.media.pya': [
+    'audio/vnd.ms-playready.media.pya',
+  ],
+  'vnd.nokia.mobile-xmf': [
+    'audio/vnd.nokia.mobile-xmf',
+  ],
+  'vnd.nortel.vbk': [
+    'audio/vnd.nortel.vbk',
+  ],
+  'vnd.nuera.ecelp4800': [
+    'audio/vnd.nuera.ecelp4800',
+  ],
+  'vnd.nuera.ecelp7470': [
+    'audio/vnd.nuera.ecelp7470',
+  ],
+  'vnd.nuera.ecelp9600': [
+    'audio/vnd.nuera.ecelp9600',
+  ],
+  'vnd.octel.sbc': [
+    'audio/vnd.octel.sbc',
+  ],
+  'vnd.presonus.multitrack': [
+    'audio/vnd.presonus.multitrack',
+  ],
+  'vnd.qcelp': [
+    'audio/vnd.qcelp',
+  ],
+  'vnd.rhetorex.32kadpcm': [
+    'audio/vnd.rhetorex.32kadpcm',
+  ],
+  'vnd.rip': [
+    'audio/vnd.rip',
+  ],
+  'vnd.sealedmedia.softseal.mpeg': [
+    'audio/vnd.sealedmedia.softseal.mpeg',
+  ],
+  'vnd.vmx.cvsd': [
+    'audio/vnd.vmx.cvsd',
+  ],
+  'vorbis': [
+    'audio/vorbis',
+  ],
+  'vorbis-config': [
+    'audio/vorbis-config',
+  ],
+  'collection': [
+    'font/collection',
+  ],
+  'otf': [
+    'font/otf',
+  ],
+  'sfnt': [
+    'font/sfnt',
+  ],
+  'ttf': [
+    'font/ttf',
+  ],
+  'woff': [
+    'font/woff',
+  ],
+  'woff2': [
+    'font/woff2',
+  ],
+  'ivs': [
+    'haptics/ivs',
+  ],
+  'hjif': [
+    'haptics/hjif',
+  ],
+  'hmpg': [
+    'haptics/hmpg',
+  ],
+  'aces': [
+    'image/aces',
+  ],
+  'apng': [
+    'image/apng',
+  ],
+  'avci': [
+    'image/avci',
+  ],
+  'avcs': [
+    'image/avcs',
+  ],
+  'avif': [
+    'image/avif',
+  ],
+  'bmp': [
+    'image/bmp',
+  ],
+  'cgm': [
+    'image/cgm',
+  ],
+  'dicom-rle': [
+    'image/dicom-rle',
+  ],
+  'dpx': [
+    'image/dpx',
+  ],
+  'emf': [
+    'image/emf',
+  ],
+  'g3fax': [
+    'image/g3fax',
+  ],
+  'gif': [
+    'image/gif',
+  ],
+  'heic': [
+    'image/heic',
+  ],
+  'heic-sequence': [
+    'image/heic-sequence',
+  ],
+  'heif': [
+    'image/heif',
+  ],
+  'heif-sequence': [
+    'image/heif-sequence',
+  ],
+  'hej2k': [
+    'image/hej2k',
+  ],
+  'hsj2': [
+    'image/hsj2',
+  ],
+  'ief': [
+    'image/ief',
+  ],
+  'j2c': [
+    'image/j2c',
+  ],
+  'jls': [
+    'image/jls',
+  ],
+  'jp2': [
+    'image/jp2',
+  ],
+  'jpeg': [
+    'image/jpeg',
+  ],
+  'jph': [
+    'image/jph',
+  ],
+  'jphc': [
+    'image/jphc',
+  ],
+  'jpm': [
+    'image/jpm',
+  ],
+  'jpx': [
+    'image/jpx',
+  ],
+  'jxl': [
+    'image/jxl',
+  ],
+  'jxr': [
+    'image/jxr',
+  ],
+  'jxrA': [
+    'image/jxrA',
+  ],
+  'jxrS': [
+    'image/jxrS',
+  ],
+  'jxs': [
+    'image/jxs',
+  ],
+  'jxsc': [
+    'image/jxsc',
+  ],
+  'jxsi': [
+    'image/jxsi',
+  ],
+  'jxss': [
+    'image/jxss',
+  ],
+  'ktx': [
+    'image/ktx',
+  ],
+  'ktx2': [
+    'image/ktx2',
+  ],
+  'naplps': [
+    'image/naplps',
+  ],
+  'png': [
+    'image/png',
+  ],
+  'prs.btif': [
+    'image/prs.btif',
+  ],
+  'prs.pti': [
+    'image/prs.pti',
+  ],
+  'pwg-raster': [
+    'image/pwg-raster',
+  ],
+  'svg+xml': [
+    'image/svg+xml',
+  ],
+  'tiff': [
+    'image/tiff',
+  ],
+  'tiff-fx': [
+    'image/tiff-fx',
+  ],
+  'vnd.adobe.photoshop': [
+    'image/vnd.adobe.photoshop',
+  ],
+  'vnd.airzip.accelerator.azv': [
+    'image/vnd.airzip.accelerator.azv',
+  ],
+  'vnd.cns.inf2': [
+    'image/vnd.cns.inf2',
+  ],
+  'vnd.dece.graphic': [
+    'image/vnd.dece.graphic',
+  ],
+  'vnd.djvu': [
+    'image/vnd.djvu',
+  ],
+  'vnd.dwg': [
+    'image/vnd.dwg',
+  ],
+  'vnd.dxf': [
+    'image/vnd.dxf',
+  ],
+  'vnd.dvb.subtitle': [
+    'image/vnd.dvb.subtitle',
+    'text/vnd.dvb.subtitle',
+  ],
+  'vnd.fastbidsheet': [
+    'image/vnd.fastbidsheet',
+  ],
+  'vnd.fpx': [
+    'image/vnd.fpx',
+  ],
+  'vnd.fst': [
+    'image/vnd.fst',
+  ],
+  'vnd.fujixerox.edmics-mmr': [
+    'image/vnd.fujixerox.edmics-mmr',
+  ],
+  'vnd.fujixerox.edmics-rlc': [
+    'image/vnd.fujixerox.edmics-rlc',
+  ],
+  'vnd.globalgraphics.pgb': [
+    'image/vnd.globalgraphics.pgb',
+  ],
+  'vnd.microsoft.icon': [
+    'image/vnd.microsoft.icon',
+  ],
+  'vnd.mix': [
+    'image/vnd.mix',
+  ],
+  'vnd.ms-modi': [
+    'image/vnd.ms-modi',
+  ],
+  'vnd.mozilla.apng': [
+    'image/vnd.mozilla.apng',
+  ],
+  'vnd.net-fpx': [
+    'image/vnd.net-fpx',
+  ],
+  'vnd.pco.b16': [
+    'image/vnd.pco.b16',
+  ],
+  'vnd.radiance': [
+    'image/vnd.radiance',
+  ],
+  'vnd.sealed.png': [
+    'image/vnd.sealed.png',
+  ],
+  'vnd.sealedmedia.softseal.gif': [
+    'image/vnd.sealedmedia.softseal.gif',
+  ],
+  'vnd.sealedmedia.softseal.jpg': [
+    'image/vnd.sealedmedia.softseal.jpg',
+  ],
+  'vnd.svf': [
+    'image/vnd.svf',
+  ],
+  'vnd.tencent.tap': [
+    'image/vnd.tencent.tap',
+  ],
+  'vnd.valve.source.texture': [
+    'image/vnd.valve.source.texture',
+  ],
+  'vnd.wap.wbmp': [
+    'image/vnd.wap.wbmp',
+  ],
+  'vnd.xiff': [
+    'image/vnd.xiff',
+  ],
+  'vnd.zbrush.pcx': [
+    'image/vnd.zbrush.pcx',
+  ],
+  'webp': [
+    'image/webp',
+  ],
+  'wmf': [
+    'image/wmf',
+  ],
+  'x-emf': [
+    'image/x-emf',
+  ],
+  'x-wmf': [
+    'image/x-wmf',
+  ],
+  'bhttp': [
+    'message/bhttp',
+  ],
+  'CPIM': [
+    'message/CPIM',
+  ],
+  'delivery-status': [
+    'message/delivery-status',
+  ],
+  'disposition-notification': [
+    'message/disposition-notification',
+  ],
+  'external-body': [
+    'message/external-body',
+  ],
+  'feedback-report': [
+    'message/feedback-report',
+  ],
+  'global': [
+    'message/global',
+  ],
+  'global-delivery-status': [
+    'message/global-delivery-status',
+  ],
+  'global-disposition-notification': [
+    'message/global-disposition-notification',
+  ],
+  'global-headers': [
+    'message/global-headers',
+  ],
+  'imdn+xml': [
+    'message/imdn+xml',
+  ],
+  'mls': [
+    'message/mls',
+  ],
+  'news': [
+    'message/news',
+  ],
+  'ohttp-req': [
+    'message/ohttp-req',
+  ],
+  'ohttp-res': [
+    'message/ohttp-res',
+  ],
+  'partial': [
+    'message/partial',
+  ],
+  'rfc822': [
+    'message/rfc822',
+  ],
+  's-http': [
+    'message/s-http',
+  ],
+  'sip': [
+    'message/sip',
+  ],
+  'sipfrag': [
+    'message/sipfrag',
+  ],
+  'tracking-status': [
+    'message/tracking-status',
+  ],
+  'vnd.si.simp': [
+    'message/vnd.si.simp',
+  ],
+  '3mf': [
+    'model/3mf',
+  ],
+  'e57': [
+    'model/e57',
+  ],
+  'gltf-binary': [
+    'model/gltf-binary',
+  ],
+  'gltf+json': [
+    'model/gltf+json',
+  ],
+  'JT': [
+    'model/JT',
+  ],
+  'mesh': [
+    'model/mesh',
+  ],
+  'mtl': [
+    'model/mtl',
+  ],
+  'obj': [
+    'model/obj',
+  ],
+  'prc': [
+    'model/prc',
+  ],
+  'step': [
+    'model/step',
+  ],
+  'step+xml': [
+    'model/step+xml',
+  ],
+  'step+zip': [
+    'model/step+zip',
+  ],
+  'step-xml+zip': [
+    'model/step-xml+zip',
+  ],
+  'stl': [
+    'model/stl',
+  ],
+  'u3d': [
+    'model/u3d',
+  ],
+  'vnd.bary': [
+    'model/vnd.bary',
+  ],
+  'vnd.cld': [
+    'model/vnd.cld',
+  ],
+  'vnd.collada+xml': [
+    'model/vnd.collada+xml',
+  ],
+  'vnd.dwf': [
+    'model/vnd.dwf',
+  ],
+  'vnd.flatland.3dml': [
+    'model/vnd.flatland.3dml',
+  ],
+  'vnd.gdl': [
+    'model/vnd.gdl',
+  ],
+  'vnd.gs-gdl': [
+    'model/vnd.gs-gdl',
+  ],
+  'vnd.gtw': [
+    'model/vnd.gtw',
+  ],
+  'vnd.moml+xml': [
+    'model/vnd.moml+xml',
+  ],
+  'vnd.mts': [
+    'model/vnd.mts',
+  ],
+  'vnd.opengex': [
+    'model/vnd.opengex',
+  ],
+  'vnd.parasolid.transmit.binary': [
+    'model/vnd.parasolid.transmit.binary',
+  ],
+  'vnd.parasolid.transmit.text': [
+    'model/vnd.parasolid.transmit.text',
+  ],
+  'vnd.pytha.pyox': [
+    'model/vnd.pytha.pyox',
+  ],
+  'vnd.rosette.annotated-data-model': [
+    'model/vnd.rosette.annotated-data-model',
+  ],
+  'vnd.sap.vds': [
+    'model/vnd.sap.vds',
+  ],
+  'vnd.usda': [
+    'model/vnd.usda',
+  ],
+  'vnd.usdz+zip': [
+    'model/vnd.usdz+zip',
+  ],
+  'vnd.valve.source.compiled-map': [
+    'model/vnd.valve.source.compiled-map',
+  ],
+  'vnd.vtu': [
+    'model/vnd.vtu',
+  ],
+  'vrml': [
+    'model/vrml',
+  ],
+  'x3d-vrml': [
+    'model/x3d-vrml',
+  ],
+  'x3d+fastinfoset': [
+    'model/x3d+fastinfoset',
+  ],
+  'x3d+xml': [
+    'model/x3d+xml',
+  ],
+  'alternative': [
+    'multipart/alternative',
+  ],
+  'appledouble': [
+    'multipart/appledouble',
+  ],
+  'byteranges': [
+    'multipart/byteranges',
+  ],
+  'digest': [
+    'multipart/digest',
+  ],
+  'encrypted': [
+    'multipart/encrypted',
+  ],
+  'form-data': [
     'multipart/form-data',
+  ],
+  'header-set': [
     'multipart/header-set',
+  ],
+  'mixed': [
     'multipart/mixed',
+  ],
+  'multilingual': [
     'multipart/multilingual',
+  ],
+  'parallel': [
     'multipart/parallel',
+  ],
+  'related': [
     'multipart/related',
+  ],
+  'report': [
     'multipart/report',
+  ],
+  'signed': [
     'multipart/signed',
+  ],
+  'vnd.bint.med-plus': [
     'multipart/vnd.bint.med-plus',
+  ],
+  'voice-message': [
     'multipart/voice-message',
+  ],
+  'x-mixed-replace': [
     'multipart/x-mixed-replace',
   ],
-)
+  'cache-manifest': [
+    'text/cache-manifest',
+  ],
+  'calendar': [
+    'text/calendar',
+  ],
+  'cql': [
+    'text/cql',
+  ],
+  'cql-expression': [
+    'text/cql-expression',
+  ],
+  'cql-identifier': [
+    'text/cql-identifier',
+  ],
+  'css': [
+    'text/css',
+  ],
+  'csv': [
+    'text/csv',
+  ],
+  'csv-schema': [
+    'text/csv-schema',
+  ],
+  'directory': [
+    'text/directory',
+  ],
+  'enriched': [
+    'text/enriched',
+  ],
+  'fhirpath': [
+    'text/fhirpath',
+  ],
+  'gff3': [
+    'text/gff3',
+  ],
+  'grammar-ref-list': [
+    'text/grammar-ref-list',
+  ],
+  'hl7v2': [
+    'text/hl7v2',
+  ],
+  'html': [
+    'text/html',
+  ],
+  'javascript': [
+    'text/javascript',
+    'application/javascript',
+  ],
+  'jcr-cnd': [
+    'text/jcr-cnd',
+  ],
+  'markdown': [
+    'text/markdown',
+  ],
+  'mizar': [
+    'text/mizar',
+  ],
+  'n3': [
+    'text/n3',
+  ],
+  'parameters': [
+    'text/parameters',
+  ],
+  'plain': [
+    'text/plain',
+  ],
+  'provenance-notation': [
+    'text/provenance-notation',
+  ],
+  'prs.fallenstein.rst': [
+    'text/prs.fallenstein.rst',
+  ],
+  'prs.lines.tag': [
+    'text/prs.lines.tag',
+  ],
+  'prs.prop.logic': [
+    'text/prs.prop.logic',
+  ],
+  'prs.texi': [
+    'text/prs.texi',
+  ],
+  'rfc822-headers': [
+    'text/rfc822-headers',
+  ],
+  'richtext': [
+    'text/richtext',
+  ],
+  'shaclc': [
+    'text/shaclc',
+  ],
+  'shex': [
+    'text/shex',
+  ],
+  'spdx': [
+    'text/spdx',
+  ],
+  'strings': [
+    'text/strings',
+  ],
+  't140': [
+    'text/t140',
+  ],
+  'tab-separated-values': [
+    'text/tab-separated-values',
+  ],
+  'troff': [
+    'text/troff',
+  ],
+  'turtle': [
+    'text/turtle',
+  ],
+  'uri-list': [
+    'text/uri-list',
+  ],
+  'vcard': [
+    'text/vcard',
+  ],
+  'vnd.a': [
+    'text/vnd.a',
+  ],
+  'vnd.abc': [
+    'text/vnd.abc',
+  ],
+  'vnd.ascii-art': [
+    'text/vnd.ascii-art',
+  ],
+  'vnd.debian.copyright': [
+    'text/vnd.debian.copyright',
+  ],
+  'vnd.DMClientScript': [
+    'text/vnd.DMClientScript',
+  ],
+  'vnd.esmertec.theme-descriptor': [
+    'text/vnd.esmertec.theme-descriptor',
+  ],
+  'vnd.exchangeable': [
+    'text/vnd.exchangeable',
+  ],
+  'vnd.familysearch.gedcom': [
+    'text/vnd.familysearch.gedcom',
+  ],
+  'vnd.ficlab.flt': [
+    'text/vnd.ficlab.flt',
+  ],
+  'vnd.fly': [
+    'text/vnd.fly',
+  ],
+  'vnd.fmi.flexstor': [
+    'text/vnd.fmi.flexstor',
+  ],
+  'vnd.gml': [
+    'text/vnd.gml',
+  ],
+  'vnd.graphviz': [
+    'text/vnd.graphviz',
+  ],
+  'vnd.hans': [
+    'text/vnd.hans',
+  ],
+  'vnd.hgl': [
+    'text/vnd.hgl',
+  ],
+  'vnd.in3d.3dml': [
+    'text/vnd.in3d.3dml',
+  ],
+  'vnd.in3d.spot': [
+    'text/vnd.in3d.spot',
+  ],
+  'vnd.IPTC.NewsML': [
+    'text/vnd.IPTC.NewsML',
+  ],
+  'vnd.IPTC.NITF': [
+    'text/vnd.IPTC.NITF',
+  ],
+  'vnd.latex-z': [
+    'text/vnd.latex-z',
+  ],
+  'vnd.motorola.reflex': [
+    'text/vnd.motorola.reflex',
+  ],
+  'vnd.ms-mediapackage': [
+    'text/vnd.ms-mediapackage',
+  ],
+  'vnd.net2phone.commcenter.command': [
+    'text/vnd.net2phone.commcenter.command',
+  ],
+  'vnd.radisys.msml-basic-layout': [
+    'text/vnd.radisys.msml-basic-layout',
+  ],
+  'vnd.senx.warpscript': [
+    'text/vnd.senx.warpscript',
+  ],
+  'vnd.si.uricatalogue': [
+    'text/vnd.si.uricatalogue',
+  ],
+  'vnd.sun.j2me.app-descriptor': [
+    'text/vnd.sun.j2me.app-descriptor',
+  ],
+  'vnd.sosi': [
+    'text/vnd.sosi',
+  ],
+  'vnd.trolltech.linguist': [
+    'text/vnd.trolltech.linguist',
+  ],
+  'vnd.vcf': [
+    'text/vnd.vcf',
+  ],
+  'vnd.wap.si': [
+    'text/vnd.wap.si',
+  ],
+  'vnd.wap.sl': [
+    'text/vnd.wap.sl',
+  ],
+  'vnd.wap.wml': [
+    'text/vnd.wap.wml',
+  ],
+  'vnd.wap.wmlscript': [
+    'text/vnd.wap.wmlscript',
+  ],
+  'vnd.zoo.kcl': [
+    'text/vnd.zoo.kcl',
+  ],
+  'vtt': [
+    'text/vtt',
+  ],
+  'wgsl': [
+    'text/wgsl',
+  ],
+  '3gpp-tt': [
+    'video/3gpp-tt',
+  ],
+  'AV1': [
+    'video/AV1',
+  ],
+  'BMPEG': [
+    'video/BMPEG',
+  ],
+  'BT656': [
+    'video/BT656',
+  ],
+  'CelB': [
+    'video/CelB',
+  ],
+  'evc': [
+    'video/evc',
+  ],
+  'FFV1': [
+    'video/FFV1',
+  ],
+  'H261': [
+    'video/H261',
+  ],
+  'H263': [
+    'video/H263',
+  ],
+  'H263-1998': [
+    'video/H263-1998',
+  ],
+  'H263-2000': [
+    'video/H263-2000',
+  ],
+  'H264': [
+    'video/H264',
+  ],
+  'H264-RCDO': [
+    'video/H264-RCDO',
+  ],
+  'H264-SVC': [
+    'video/H264-SVC',
+  ],
+  'H265': [
+    'video/H265',
+  ],
+  'H266': [
+    'video/H266',
+  ],
+  'iso.segment': [
+    'video/iso.segment',
+  ],
+  'JPEG': [
+    'video/JPEG',
+  ],
+  'jpeg2000': [
+    'video/jpeg2000',
+  ],
+  'jxsv': [
+    'video/jxsv',
+  ],
+  'matroska-3d': [
+    'video/matroska-3d',
+  ],
+  'mj2': [
+    'video/mj2',
+  ],
+  'MP1S': [
+    'video/MP1S',
+  ],
+  'MP2P': [
+    'video/MP2P',
+  ],
+  'MP2T': [
+    'video/MP2T',
+  ],
+  'MP4V-ES': [
+    'video/MP4V-ES',
+  ],
+  'MPV': [
+    'video/MPV',
+  ],
+  'nv': [
+    'video/nv',
+  ],
+  'pointer': [
+    'video/pointer',
+  ],
+  'quicktime': [
+    'video/quicktime',
+  ],
+  'raw': [
+    'video/raw',
+  ],
+  'smpte291': [
+    'video/smpte291',
+  ],
+  'SMPTE292M': [
+    'video/SMPTE292M',
+  ],
+  'vc1': [
+    'video/vc1',
+  ],
+  'vc2': [
+    'video/vc2',
+  ],
+  'vnd.CCTV': [
+    'video/vnd.CCTV',
+  ],
+  'vnd.dece.hd': [
+    'video/vnd.dece.hd',
+  ],
+  'vnd.dece.mobile': [
+    'video/vnd.dece.mobile',
+  ],
+  'vnd.dece.mp4': [
+    'video/vnd.dece.mp4',
+  ],
+  'vnd.dece.pd': [
+    'video/vnd.dece.pd',
+  ],
+  'vnd.dece.sd': [
+    'video/vnd.dece.sd',
+  ],
+  'vnd.dece.video': [
+    'video/vnd.dece.video',
+  ],
+  'vnd.directv.mpeg': [
+    'video/vnd.directv.mpeg',
+  ],
+  'vnd.directv.mpeg-tts': [
+    'video/vnd.directv.mpeg-tts',
+  ],
+  'vnd.dlna.mpeg-tts': [
+    'video/vnd.dlna.mpeg-tts',
+  ],
+  'vnd.fvt': [
+    'video/vnd.fvt',
+  ],
+  'vnd.hns.video': [
+    'video/vnd.hns.video',
+  ],
+  'vnd.iptvforum.1dparityfec-1010': [
+    'video/vnd.iptvforum.1dparityfec-1010',
+  ],
+  'vnd.iptvforum.1dparityfec-2005': [
+    'video/vnd.iptvforum.1dparityfec-2005',
+  ],
+  'vnd.iptvforum.2dparityfec-1010': [
+    'video/vnd.iptvforum.2dparityfec-1010',
+  ],
+  'vnd.iptvforum.2dparityfec-2005': [
+    'video/vnd.iptvforum.2dparityfec-2005',
+  ],
+  'vnd.iptvforum.ttsavc': [
+    'video/vnd.iptvforum.ttsavc',
+  ],
+  'vnd.iptvforum.ttsmpeg2': [
+    'video/vnd.iptvforum.ttsmpeg2',
+  ],
+  'vnd.motorola.video': [
+    'video/vnd.motorola.video',
+  ],
+  'vnd.motorola.videop': [
+    'video/vnd.motorola.videop',
+  ],
+  'vnd.mpegurl': [
+    'video/vnd.mpegurl',
+  ],
+  'vnd.ms-playready.media.pyv': [
+    'video/vnd.ms-playready.media.pyv',
+  ],
+  'vnd.nokia.interleaved-multimedia': [
+    'video/vnd.nokia.interleaved-multimedia',
+  ],
+  'vnd.nokia.mp4vr': [
+    'video/vnd.nokia.mp4vr',
+  ],
+  'vnd.nokia.videovoip': [
+    'video/vnd.nokia.videovoip',
+  ],
+  'vnd.objectvideo': [
+    'video/vnd.objectvideo',
+  ],
+  'vnd.radgamettools.bink': [
+    'video/vnd.radgamettools.bink',
+  ],
+  'vnd.radgamettools.smacker': [
+    'video/vnd.radgamettools.smacker',
+  ],
+  'vnd.sealed.mpeg1': [
+    'video/vnd.sealed.mpeg1',
+  ],
+  'vnd.sealed.mpeg4': [
+    'video/vnd.sealed.mpeg4',
+  ],
+  'vnd.sealed.swf': [
+    'video/vnd.sealed.swf',
+  ],
+  'vnd.sealedmedia.softseal.mov': [
+    'video/vnd.sealedmedia.softseal.mov',
+  ],
+  'vnd.uvvu.mp4': [
+    'video/vnd.uvvu.mp4',
+  ],
+  'vnd.youtube.yt': [
+    'application/vnd.youtube.yt',
+    'video/vnd.youtube.yt',
+  ],
+  'vnd.vivo': [
+    'video/vnd.vivo',
+  ],
+  'VP8': [
+    'video/VP8',
+  ],
+  'VP9': [
+    'video/VP9',
+  ],
+}
+
+export var MediaTypes = new Relation()
+
+for (var key in MediaTypesMap) {
+  MediaTypes.addNode(key, ...MediaTypesMap[key])
+}

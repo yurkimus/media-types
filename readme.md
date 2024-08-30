@@ -40,32 +40,61 @@ npm install @yurkimus/media-types
 
 ## Exports
 
-### MediaTypes
+### MediaTypesMap
 
 #### Definition:
 
 ```
-MediaTypes :: Enumeration { <media type name> <=> <media type value> }
+MediaTypesMap :: Object {
+  <media type name> => <media type list>
+}
 ```
 
 #### Example:
 
 ```javascript
-MediaTypes.get('json') // => 'application/json'
-MediaTypes.get('application/json') // => 'json'
+MediaTypesMap['mp4'] // => [ 'application/mp4', 'audio/mp4', 'video/mp4' ]
+MediaTypesMap['plain'] // => [ 'text/plain' ]
+```
 
-MediaTypes.get('application/node') // => 'node'
-MediaTypes.get('node') // => 'application/node'
+### MediaTypes
 
-MediaTypes.has('pdf') // => true
-MediaTypes.has('application/wasm') // => true
+#### Definition:
+
+```
+MediaTypes :: Relation {
+  <media type name> <=> <media type value>
+}
+```
+
+#### Example:
+
+```javascript
+MediaTypes.has('javascript') // => true
+MediaTypes.has('text/javascript') // => true
+
+MediaTypes.get('mp4') // => [ 'application/mp4', 'audio/mp4', 'video/mp4' ]
+MediaTypes.get('audio/mp4') // => 'mp4'
+
+MediaTypes
+  .addNode('my', 'a/my', 'b/my')
+  .get('b/my') // => 'my'
+
+MediaTypes
+  .get('my') // => [ 'a/my', 'b/my' ]
+
+MediaTypes
+  .get(MediaTypes.get('my')) // => 'my'
+
+MediaTypes
+  .addEdge('mp4', 'example/mp4')
+  .get('example/mp4') // => 'mp4'
 ```
 
 ## More
 
-This package utilises [Enumeration](https://github.com/yurkimus/enumeration) to
-provide a better developer experience and extendability for the media types
-listed in presented enumeration
+This package utilises [Relation](https://github.com/yurkimus/relation) to
+provide a better developer experience and extendability
 
 ## License
 
