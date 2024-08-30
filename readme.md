@@ -1,6 +1,6 @@
 # Media types
 
-Enumeration of supported Media Types.
+Relation of supported Media Types.
 
 All the types are coming from
 [IANA/media-types](https://www.iana.org/assignments/media-types/media-types.xhtml)
