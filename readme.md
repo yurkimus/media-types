@@ -12,6 +12,7 @@ Last revision of the package (related to the document revision date above):
 
 - [Installation](#installation)
 - [Exports](#exports)
+  - [MediaTypesMap](#mediatypesmap)
   - [MediaTypes](#mediatypes)
 - [More](#more)
 - [License](#license)
@@ -89,6 +90,9 @@ MediaTypes
 MediaTypes
   .addEdge('mp4', 'example/mp4')
   .get('example/mp4') // => 'mp4'
+
+MediaTypes
+  .get('mp4') // => [ 'application/mp4', 'audio/mp4', 'video/mp4', 'example/mp4' ]
 ```
 
 ## More
