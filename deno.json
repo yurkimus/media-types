@@ -1,12 +1,9 @@
 {
   "name": "@yurkimus/media-types",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "fmt": {
     "semiColons": false,
     "singleQuote": true
   },
-  "exports": "./source/index.js",
-  "imports": {
-    "@yurkimus/relation": "https://raw.githubusercontent.com/yurkimus/relation/main/source/index.js"
-  }
+  "exports": "./source/index.js"
 }

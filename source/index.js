@@ -1,6 +1,4 @@
-import { Relation } from '@yurkimus/relation'
-
-export var MediaTypesMap = {
+export var MediaTypes = /** @type {const} */ ({
   '1d-interleaved-parityfec': [
     'application/1d-interleaved-parityfec',
     'audio/1d-interleaved-parityfec',
@@ -6265,10 +6263,4 @@ export var MediaTypesMap = {
   'VP9': [
     'video/VP9',
   ],
-}
-
-export var MediaTypes = new Relation()
-
-for (var key in MediaTypesMap) {
-  MediaTypes.addNode(key, ...MediaTypesMap[key])
-}
+})
