@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "name": "@yurkimus/media-types",
   "author": {
     "name": "yurkimus",
@@ -10,8 +10,5 @@
     "type": "git",
     "url": "https://github.com/yurkimus/media-types.git"
   },
-  "exports": "./source/index.js",
-  "dependencies": {
-    "@yurkimus/relaton": "@yurkimus/relaton"
-  }
+  "exports": "./source/index.js"
 }

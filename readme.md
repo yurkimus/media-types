@@ -1,9 +1,9 @@
 # Media Types Listing
 
-Listing of supported Media Types.
+Listing of IANA Media Types
 
 All the types are coming from
-[IANA/media-types](https://www.iana.org/assignments/media-types/media-types.xhtml)
+[IANA/Media Types](https://www.iana.org/assignments/media-types/media-types.xhtml)
 
 Last revision of the package (related to the document revision date above):
 2024-08-19
